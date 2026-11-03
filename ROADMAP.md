@@ -20,7 +20,7 @@ gates, and approval rules.
 | P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | complete |
 | P1 Scope and design | #7 | `feature/p1-scope-design` | complete |
 | P2 Contracts and prototype | #13 | `feature/p2-contracts-prototype` | complete |
-| P3 Build | #19 | `feature/p3-build` | planned |
+| P3 Build | #19 | `feature/p3-build` | active |
 | P4 Verify | TBD | `feature/p4-verify` | planned |
 | P5 Release and deploy | TBD | `feature/p5-release` | planned |
 | P6 Operate and maintain | TBD | `feature/p6-operate` | planned |
@@ -125,13 +125,13 @@ Acceptance criteria:
 
 Parent issue: #19
 Branch: `feature/p3-build`
-Status: planned
+Status: active
 Child issues: #20 P3.1, #21 P3.2, #22 P3.3, #23 P3.4
-Next step: P3 governance is queued. The parent and child issues exist; activating P3, creating `feature/p3-build`, and starting P3.1 await explicit maintainer approval. Do not implement P3 or create target-repository issues before activation.
+Next step: P3.1 re-scores the model-integration candidates against live evidence. P3 does not implement a candidate or create a target-repository issue, branch, or pull request.
 
 Goal: prioritise the model-integration wave and prepare bounded handoffs, one candidate at a time.
 
-- [ ] P3.1 Re-score the model-integration candidates against current evidence
+- [x] P3.1 Re-score the model-integration candidates against current evidence
 - [ ] P3.2 Select the first candidate and write its handoff issue body
 - [ ] P3.3 Confirm the target repository, phase number, and acceptance test
 - [ ] P3.4 Record the handoff decision in `CHANGE_LOG.md`

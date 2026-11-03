@@ -1040,3 +1040,34 @@ python -m pytest -q
 The workflow validator reports 0 errors and 0 warnings; the registry is valid with 62 candidates;
 the renderer is idempotent; the dashboard reports all six gates GREEN; the full suite passes with
 100% branch coverage of `scripts/`.
+
+### P3.1 activate Phase 3 and re-score the model-integration queue
+
+- Created `feature/p3-build` from `main` at `e37ac5c` and set P3 to `active` in
+  `ROADMAP.md` under parent issue #19.
+- Added `notes/20-p3-model-integration-rescore.md`. It records 26 rows: the 25
+  wave-2 candidates plus `GRO-06`, the one contract-wave candidate that is
+  neither complete nor adopted.
+- Re-scored six readiness values against live evidence:
+  `INV-09` 3 -> 4, `GRO-02` 3 -> 4, `GRO-03` 3 -> 4, `PLAN-05` 3 -> 2,
+  `OPS-05` 3 -> 2, and `DATA-05` 3 -> 4. No impact, effort, risk, or wave value
+  changed. The other twenty rows are unchanged.
+- Corrected the `CARB-03` resolution to say the FHOPS P44 pull request #383 is
+  open with CI green, not merged. Added `GRO-06` provenance for the P3 handoff.
+- Recorded target drift: `OPS-01` carries wave 2 but depends on wave-3
+  `INV-02` and `INV-07`; several ws4 roadmap statuses say `pr-open` even though
+  the issues are closed and the pull requests are merged.
+- No target-repository issue, branch, pull request, or setting was created or
+  changed.
+
+Verification:
+
+```bash
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python scripts/dashboard.py
+```
+
+The registry is valid with 62 candidates; the renderer is idempotent after the
+generated register is staged; the dashboard reports all six gates GREEN.
