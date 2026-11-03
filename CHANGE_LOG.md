@@ -1569,3 +1569,50 @@ gates GREEN.
 P6 is `pr-open` in pull request #39 (`P6: operate and maintain the queue`) with
 `Part of #35`. No merge, tag, release, setting, source URL, or target-repository
 record was created or changed.
+
+## 2026-11-03
+
+### P6 close-out approved; Phase 6 complete; the mine recurs
+
+The maintainer approved the P6 close-out, the squash merge, the branch deletion,
+and the issue closures on 2026-11-03.
+
+- Squash-merged pull request #39 to `main` at
+  `625e354dc6d8e3d9538189bb8b984346f258cbeb` (`625e354`,
+  `P6: operate and maintain the queue`). `feature/p6-operate` was deleted
+  locally and on `origin`.
+- Closed parent issue #35 and child issues #36-#38 with closeout comments that
+  cite the task commits (`eb7288c` P6.1-P6.3; `f1feba9` phase status and pull
+  request record), the gate evidence, and merge commit `625e354`.
+- Updated `ROADMAP.md`: P6 is `complete` in the tracker map and phase section,
+  and the detailed next steps record the merge, the branch deletion, the issue
+  closures, the recurring decision, and the next due dates.
+- Updated `README.md` to record P6 as complete, point at the close-out report,
+  and state that the mine recurs with the next registry review due 2027-02-01.
+- Added `notes/reports/p6-operate.md` with the acceptance evidence, the merge
+  record, the CI and Pages evidence, the deviations, and what remains
+  unverified.
+- `main` CI run 41739271892 and Docs run 41739271917 pass on `625e354`; the Docs
+  deploy job succeeds and the Pages index, `maintenance.html`, `register.html`,
+  `releases.html`, `candidates.md`, and `llms.txt` return HTTP 200.
+- No tag, release, package-index artifact, or DOI was created. No repository
+  setting, visibility, Pages configuration, branch protection, environment, or
+  target-repository record was created or changed. No candidate was re-scored
+  or retired.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python scripts/check_maintenance.py
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid
+with 62 candidates; the renderer is idempotent; the maintenance consistency
+check passes; 255 tests pass with 99.49% branch coverage of `scripts/`; the
+dashboard reports all seven gates GREEN.

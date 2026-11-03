@@ -86,12 +86,12 @@ GitHub release. The close-out is in
 [`notes/reports/p5-release.md`](notes/reports/p5-release.md). No package-index
 artifact and no DOI exist.
 
-Phase 6 (operate and maintain) is `pr-open` under parent issue
+Phase 6 (operate and maintain) is complete under parent issue
 [#35](https://github.com/UBC-FRESH/irss-expansion/issues/35), with tasks
 [#36](https://github.com/UBC-FRESH/irss-expansion/issues/36)-[#38](https://github.com/UBC-FRESH/irss-expansion/issues/38)
-on `feature/p6-operate` and pull request
-[#39](https://github.com/UBC-FRESH/irss-expansion/pull/39). It records the review
-cadence in
+completed on `feature/p6-operate` and squash-merged in pull request
+[#39](https://github.com/UBC-FRESH/irss-expansion/pull/39) at `625e354`. It
+records the review cadence in
 [`notes/25-p6-maintenance-plan.md`](notes/25-p6-maintenance-plan.md), the first
 review and re-score in
 [`notes/26-p6-first-review.md`](notes/26-p6-first-review.md), and the recurring
@@ -99,7 +99,10 @@ decision in
 [`notes/adr/0001-recurring-maintenance.md`](notes/adr/0001-recurring-maintenance.md).
 The first source refresh checked 84 unique URLs (63 reachable, 21
 publisher-blocked, 0 broken) and the active target records matched on
-2026-11-03. No candidate score or status changed.
+2026-11-03. No candidate score or status changed. The mine recurs, with the next
+registry review due 2027-02-01. The close-out is in
+[`notes/reports/p6-operate.md`](notes/reports/p6-operate.md). No tag or release
+was created.
 
 ## How this project works
 
