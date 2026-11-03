@@ -1372,3 +1372,43 @@ with 62 candidates; the renderer is idempotent; the full suite passes with 100%
 branch coverage of `scripts/`; the dashboard reports all six gates GREEN.
 `main` CI run 41727688181 and Docs run 41727687763 pass on `ee94e8e`; the Pages
 index, `register.html`, `candidates.md`, and `llms.txt` return HTTP 200.
+
+## 2026-11-03
+
+### P5 governance and P5.1 release notes
+
+Created the Phase 5 governance and wrote the release notes and known-gaps list.
+
+- Created parent issue #30 (`P5: Release and deploy`) and linked child issues
+  #31 (P5.1), #32 (P5.2), and #33 (P5.3) as native sub-issues. P5 stayed
+  `planned` until the issue tree existed, then moved to `active`.
+- Created `feature/p5-release` from `main` at `c05d955`.
+- Added `notes/23-p5-release-notes.md` with the `0.1.0` release contents, the
+  commit and provenance notes, the reproduction commands, the licence and
+  citation, and ten known gaps. The note states that no tag, GitHub release,
+  package-index artifact, or DOI exists.
+- Added `docs/releases.rst` and linked it from `docs/index.rst` and
+  `docs/llms.txt`, so the public docs site carries the release summary and its
+  limits.
+- Updated `README.md` and `notes/README.md` to point at the release notes and the
+  live P5 issue tree.
+- Set P5 `active` in `ROADMAP.md`, filled the parent and child issue numbers, and
+  ticked P5.1.
+- P5.3 (#33) remains `planned` and blocked on a separate maintainer approval for
+  the tag `v0.1.0`, the release title, and each command. No tag or release was
+  created, and no repository setting was changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid
+with 62 candidates; the renderer is idempotent; the full suite passes with 100%
+branch coverage of `scripts/`; the dashboard reports all six gates GREEN.

@@ -13,6 +13,7 @@ generated browse view is ``docs/candidates.md``.
    :caption: Guide
 
    register
+   releases
 
 .. toctree::
    :maxdepth: 2
