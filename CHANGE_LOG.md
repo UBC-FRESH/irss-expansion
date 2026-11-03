@@ -965,3 +965,33 @@ python scripts/check_registry.py
 ```
 
 The renderer is idempotent on the updated registry and the validator passes.
+
+### P2.4 record the contract-wave audit result
+
+- Added `notes/reports/p2-contracts-prototype.md`. It records the audit
+  outcome, the gate evidence, the six drift items, and the recommendation to
+  merge, close #13-#17, and launch P3 Build.
+- Audit summary: eleven of the twelve contract-wave candidates are complete or
+  adopted with merged target evidence; `GRO-06` remains queued and open. Every
+  completed or adopted row now has a resolution and a provenance record. The one
+  open row states its phase-level owner, first step, empty candidate dependency
+  list, and unresolved `femic#374`/`#376` dependency.
+- Confirmed the target-repository evidence read-only. No target issue, branch,
+  pull request, tag, release, or setting was changed.
+- Remaining unverified: the audit did not re-run the target repositories' test
+  suites or independently re-validate their science. The live state is a
+  2026-11-03 snapshot and must be re-checked before any later handoff.
+- The P2 pull request is opened with `Part of #13` and queued for maintainer
+  approval. It is not merged, no branch was deleted, and no P2 issue was closed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/dashboard.py
+python -m pytest -q
+```
+
+The workflow validator reports 0 errors and 0 warnings; the dashboard reports
+all six gates GREEN; the full suite passes with 100% branch coverage of
+`scripts/`.
