@@ -2,7 +2,8 @@
 
 Phase: P4 Verify
 Parent issue: #25
-Pull request: opened after this report; `feature/p4-verify` into `main`
+Pull request: [#29](https://github.com/UBC-FRESH/irss-expansion/pull/29),
+`feature/p4-verify` into `main`
 Evidence head: `193738b` (P4.2), plus the P4.3 report and record commits
 Date: 2026-11-03
 Status: queued for approval. Not merged.
@@ -56,7 +57,7 @@ Settings changes, each with its exact command. None run in P4.
 | --- | --- | --- |
 | `bd89a02` P4.1 | `check_workflow.py`; `check_registry.py`; `render_registry.py`; `git diff --exit-code docs/candidates.md`; `pytest -q`; `dashboard.py` | 0 errors/0 warnings; 62 valid candidates; renderer idempotent; 186 passed with 100% branch coverage; all six gates GREEN |
 | `193738b` P4.2 | `check_registry.py`; `render_registry.py`; `git diff --exit-code docs/candidates.md`; `dashboard.py` | 62 valid candidates; renderer idempotent; all six gates GREEN |
-| P4.3 report commit | `check_workflow.py`; `check_registry.py`; `render_registry.py`; `git diff --exit-code docs/candidates.md`; `pytest -q`; `dashboard.py` | recorded in `CHANGE_LOG.md`; the pull request CI run is the public evidence |
+| P4.3 report commit | `check_workflow.py`; `check_registry.py`; `render_registry.py`; `git diff --exit-code docs/candidates.md`; `pytest -q`; `dashboard.py` | recorded in `CHANGE_LOG.md`; CI run 41723466038 passes on `b53338b` |
 
 The P4.2 first validator run caught a broken relative link in
 `notes/22-p4-candidate-reconciliation.md` (`../../handoffs/` instead of
@@ -68,7 +69,7 @@ The P4.2 first validator run caught a broken relative link in
 | --- | --- | --- | --- |
 | [41721924289](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41721924289) | `8b23206` | success | `main` push; Quality gates, Green dashboard summary, and Pre-commit parity all succeed |
 | [41721924173](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41721924173) | `8b23206` | success | `main` push; Docs build and deploy both succeed |
-| P4 pull request run | the final P4 head | recorded on the pull request and in the P4.3 record commit | the final head evidence |
+| [41723466038](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41723466038) | `b53338b` | success | P4 pull request; Quality gates, Green dashboard summary, and Pre-commit parity all succeed |
 
 The public Pages site returned HTTP 200 on 2026-11-03 for the index,
 `register.html`, `candidates.md`, and `llms.txt`. A clean clone of the public

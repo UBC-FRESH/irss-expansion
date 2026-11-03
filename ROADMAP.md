@@ -148,7 +148,7 @@ Parent issue: #25
 Branch: `feature/p4-verify`
 Status: pr-open
 Child issues: #26 P4.1, #27 P4.2, #28 P4.3
-Next step: P4.1-P4.3 are complete and the P4 pull request is queued for maintainer review. P4.1 records the local, CI, Docs, Pages, and clean-checkout evidence; P4.2 reconciled all complete, adopted, and queued candidates; P4.3 records the close-out in `notes/reports/p4-verify.md`. No candidate was implemented and no target-repository issue, branch, or pull request was created.
+Next step: P4.1-P4.3 are complete and pull request #29 is queued for maintainer review. P4.1 records the local, CI, Docs, Pages, and clean-checkout evidence; P4.2 reconciled all complete, adopted, and queued candidates; P4.3 records the close-out in `notes/reports/p4-verify.md`. No candidate was implemented and no target-repository issue, branch, or pull request was created.
 
 Goal: show that the carried queue and its evidence meet the acceptance criteria, and record the proof.
 

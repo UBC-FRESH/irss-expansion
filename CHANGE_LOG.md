@@ -1303,3 +1303,28 @@ The workflow validator reports 0 errors and 0 warnings; the registry is valid
 with 62 candidates; the renderer is idempotent; the full suite passes with 100%
 branch coverage of `scripts/`; the dashboard reports all six gates GREEN. The
 pull request CI run is the public evidence for the final head.
+
+### P4.3 record pull request #29 and the passing CI run
+
+- Opened pull request [#29](https://github.com/UBC-FRESH/irss-expansion/pull/29)
+  (`feature/p4-verify` into `main`) with `Part of #25`. It is not merged.
+- CI run
+  [41723466038](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41723466038)
+  passes Quality gates, Green dashboard summary, and Pre-commit parity on
+  `b53338b`.
+- Updated `notes/reports/p4-verify.md`, `ROADMAP.md`, and `README.md` with the
+  pull request number and the run. The close-out remains queued for maintainer
+  approval.
+- No target-repository issue, branch, pull request, tag, release, or setting was
+  created or changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the dashboard reports
+all six gates GREEN. The pull request CI run is the public evidence for the
+final head.

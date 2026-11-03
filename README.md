@@ -67,7 +67,8 @@ The acceptance evidence is in
 candidate reconciliation is in
 [`notes/22-p4-candidate-reconciliation.md`](notes/22-p4-candidate-reconciliation.md),
 and the close-out is in [`notes/reports/p4-verify.md`](notes/reports/p4-verify.md).
-The P4 pull request is queued for maintainer review; P4 is not merged.
+The P4 pull request is queued for maintainer review as
+[#29](https://github.com/UBC-FRESH/irss-expansion/pull/29); P4 is not merged.
 
 ## How this project works
 
