@@ -46,11 +46,16 @@ completed on `feature/p2-contracts-prototype` and squash-merged in pull request
 contract-wave candidates against the live target repositories: eleven are
 complete or adopted with merged evidence, and `GRO-06` remains open.
 
-Phase 3 (build) is planned under parent issue
+Phase 3 (build) is active under parent issue
 [#19](https://github.com/UBC-FRESH/irss-expansion/issues/19), with tasks
 [#20](https://github.com/UBC-FRESH/irss-expansion/issues/20)-[#23](https://github.com/UBC-FRESH/irss-expansion/issues/23)
-created and linked as sub-issues. The issues exist; the branch, phase activation,
-and P3.1 wait for explicit maintainer approval.
+on `feature/p3-build`. It re-scored the model-integration queue against the live
+target repositories and selected `GRO-06` biomass yield curves as the first
+handoff. The target is `UBC-FRESH/femic` P117.2 ([#376](https://github.com/UBC-FRESH/femic/issues/376)),
+with the reviewed body in
+[`handoffs/femic-child-biomass-curves-p3.md`](handoffs/femic-child-biomass-curves-p3.md).
+The candidate was not implemented, and no target-repository issue, branch, or
+pull request was created.
 
 ## How this project works
 

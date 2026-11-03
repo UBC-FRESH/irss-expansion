@@ -1123,3 +1123,34 @@ python scripts/dashboard.py
 
 The workflow validator reports 0 errors and 0 warnings; the dashboard reports
 all six gates GREEN.
+
+### P3.4 record the handoff decision and close out P3
+
+- Wrote `notes/reports/p3-build.md`. It records the selected `GRO-06` handoff,
+  target `femic` P117.2 (#376), the six re-score changes, the drift, the gate
+  evidence, and what remains unverified.
+- Updated `README.md` and `ROADMAP.md`: P3 is `pr-open`, P3.1-P3.4 are complete,
+  and the next step is maintainer review of the P3 pull request.
+- Added the P3 decision summary to this changelog. Every completion claim cites a
+  local commit or a live target record.
+- The handoff remains a draft. Updating `femic` #376, creating a target branch or
+  pull request, or implementing the biomass curve family still needs separate
+  maintainer approval.
+- No target-repository issue, branch, pull request, tag, release, or setting was
+  created or changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid
+with 62 candidates; the renderer is idempotent; the full suite passes with 100%
+branch coverage of `scripts/`; the dashboard reports all six gates GREEN. The
+pull request CI run is the public evidence for the report commit.
