@@ -1,0 +1,2028 @@
+meta:
+  project: "IRSS x Silva21 Expansion Mine for the FRESH forest modelling ecosystem"
+  version: "0.1"
+  generated: "2026-10-25"
+  scope: >-
+    Candidate projects, algorithms, data products, and technologies mined from the UBC
+    Integrated Remote Sensing Studio (IRSS) and the Silva21 research program, screened
+    for integration into FEMIC, ws3, ws4, FHOPS, and Nemora.
+  scoring:
+    formula: "priority = (impact * readiness) / (effort_points * risk)"
+    effort_points:
+      S: 1
+      M: 2
+      L: 3
+      XL: 5
+    interpretation: >-
+      Higher is better. Impact and readiness are 1-5; risk is 1-5 (higher is riskier).
+      The score is a screening aid, not an approval. Wave assignment and dependencies
+      override the raw score.
+  status_values:
+    - queued
+    - shortlisted
+    - candidate
+    - adopted
+    - complete
+    - deferred
+    - rejected
+  target_values:
+    - femic
+    - ws3
+    - ws4
+    - fhops
+    - nemora
+    - cross
+  workstreams:
+    INV: "Inventory, LiDAR, and enhanced forest inventory"
+    GRO: "Growth, yield, climate response, and productivity"
+    DIS: "Disturbance, risk, and recovery"
+    PLAN: "Landscape planning and resilience"
+    CARB: "Carbon and biomass accounting"
+    BIO: "Biodiversity and habitat"
+    OPS: "Harvesting operations, thinning, and salvage"
+    DATA: "Data engineering, uncertainty, and synthetic forests"
+    DEC: "Decision support, provenance, and validation"
+candidates:
+  - id: INV-01
+    title: "ALS area-based inventory imputation contract"
+    workstream: INV
+    status: complete
+    wave: 2
+    sources:
+      - ref: "IRSS LiDAR research theme"
+        url: "https://irsslab.forestry.ubc.ca/research/lidar/"
+      - ref: "Coops et al. 2021, Modelling lidar-derived estimates of forest attributes over space and time"
+        url: "https://doi.org/10.1016/j.rse.2021.112477"
+      - ref: "Silva21 OB 4a, LiDAR EFI for growth projections"
+        url: "https://www.silva21.com/projects/lidar-efi-for-growth-projections%3A-new-approaches"
+    what: >-
+      Turn FEMIC's existing LiDAR product bundle (CHM, canopy structure, tree
+      products) into area-based inventory attributes (height, volume, basal area,
+      density, species fractions, canopy cover) with model metadata and
+      per-attribute uncertainty.
+    fresh_targets: [femic, nemora]
+    integration: data-contract
+    gap: >-
+      FEMIC owns the open LiDAR source, materialization, terrain, canopy, tree, and
+      bundle pipeline, but it stops at canopy and tree products. It does not fit or
+      apply area-based models for inventory attributes, and it does not carry
+      per-attribute error into curve selection.
+    inputs: "FEMIC LiDAR bundle; ABA model; plot calibration data; model card."
+    dependencies: [DEC-04, DATA-01]
+    effort: M
+    impact: 5
+    readiness: 4
+    risk: 3
+    first_step: >-
+      Define an `inventory.als` model-card table (fragment_id, attribute, value,
+      model_id, rmse) and a reader that applies a fitted ABA model to one FEMIC
+      LiDAR bundle; use the ws4 P48/P49 plot reconciliation as the validation lane.
+    risks: >-
+      Model transferability across BEC zones and acquisition conditions; ALS data
+      licensing; double-counting when conventional inventory is also present.
+    resolution: >-
+      Completed through UBC-FRESH/femic P120-P122: inventory.als contract, published BA-only pilot (2,942,755 rows/pixels, 14.9% TSA coverage), strict BA RMSE 8.86 m2/ha, 36 in-range plots. Height failed independent validation; volume remains research-only. See notes/reports/inv01-tsa23-ba-pilot-release.md and .acceptance.md.
+  - id: INV-02
+    title: "Tree-list and stem-distribution metrics from high-density LiDAR"
+    workstream: INV
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Silva21 OB 4b, LiDAR stem metrics for tree-list models"
+        url: "https://www.silva21.com/projects/lidar-stem-metrics-for-tree-list-models"
+      - ref: "Irwin et al. 2024, Prioritizing commercial thinning with high-density drone laser scanning"
+        url: "https://doi.org/10.1093/forestry/cpae030"
+      - ref: "Qi et al. 2022, Comparing tree attributes from quantitative structure models"
+        url: "https://doi.org/10.1016/j.isprsjprs.2022.07.021"
+    what: >-
+      Derive DBH distributions, stem maps, and competition metrics from high-density
+      drone or mobile LiDAR for input to tree-list models and complex mixedwood stands.
+    fresh_targets: [femic, nemora]
+    integration: algorithm
+    gap: >-
+      FEMIC curves are stand-level; there is no tree-list lane and no way to represent
+      complex, multi-cohort structure in the estate model.
+    inputs: "High-density point clouds; tree segmentation/QSM pipeline; species labels."
+    dependencies: [INV-01, INV-07]
+    effort: L
+    impact: 4
+    readiness: 2
+    risk: 3
+    first_step: >-
+      Prototype a DBH-distribution export on one dense stand and compare predicted
+      volume against the current TIPSY/VDYP curve.
+    risks: >-
+      QSM accuracy in dense canopies; species attribution; small sample of operational
+      acquisitions.
+  - id: INV-03
+    title: "Multi-temporal ALS harmonization and periodic annual increment"
+    workstream: INV
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Riofrio et al. 2022, Harmonizing multi-temporal ALS to derive periodic annual height increments"
+        url: "https://doi.org/10.1139/cjfr-2022-0055"
+      - ref: "Riofrio et al. 2023, Modelling height growth with multi-temporal ALS"
+        url: "https://doi.org/10.1016/j.foreco.2023.121137"
+    what: >-
+      Harmonize repeat ALS acquisitions and derive height and structure increments as
+      an independent check on yield curves and a calibration source for growth models.
+    fresh_targets: [femic, ws4]
+    integration: algorithm
+    gap: >-
+      FEMIC curves are calibrated to provincial PSPs and TIPSY/VDYP; repeat-LiDAR
+      evidence is not part of the curve validation loop.
+    inputs: "Two or more ALS epochs; ground control; existing curve families."
+    dependencies: [INV-01, DEC-04]
+    effort: L
+    impact: 4
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Run a two-epoch pilot in one TSA and compare height increment with VDYP/TIPSY
+      predictions at the same locations.
+    risks: >-
+      Registration and timing differences between flights; phenology; changes in
+      acquisition specifications.
+  - id: INV-04
+    title: "Site index and potential height from ALS"
+    workstream: INV
+    status: rejected
+    wave: 1
+    sources:
+      - ref: "Tompalski et al. 2022, Modeling site index of selected poplar clones using ALS"
+        url: "https://doi.org/10.1139/cjfr-2021-0257"
+      - ref: "Gavilan-Acuna et al. 2022, Estimating potential tree height in Pinus radiata plantations using ALS"
+        url: "https://doi.org/10.1139/cjfr-2022-0121"
+      - ref: "IRSS growth and productivity publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+    what: >-
+      Produce a spatially explicit site-index or potential-height layer from ALS and
+      use it to select or adjust FEMIC yield curves at fragment resolution.
+    fresh_targets: [femic]
+    integration: algorithm
+    gap: >-
+      Site index is carried at AU/stratum resolution and is often inherited from
+      inventory; ALS offers a repeatable, wall-to-wall alternative.
+    inputs: "ALS canopy metrics; species; existing SI curves; plot data for validation."
+    dependencies: []
+    effort: M
+    impact: 4
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Add an optional `si_als` field with provenance and backtest it against the
+      current TSA 48 or K3Z SI assignment, using the ws4 P48/P49 ground-plot
+      validation surfaces where they apply.
+    risks: >-
+      Species-specific SI equations; young-stand height not equal to site height;
+      overfitting to one BEC zone.
+    resolution: >-
+      Rejected as a modelling task. British Columbia already has full SI
+      coverage through VRI polygons, VDYP outputs, and SIBEC BEC/site-series
+      estimates. Deriving a new general ALS SI model is remote-sensing research,
+      not software integration. The generic `femic.efi.application` engine
+      remains available for an existing model card; no SI model work is queued.
+      Origin: synthesized from two plantation-specific IRSS papers, not an
+      IRSS/Silva21 project deliverable.
+
+  - id: INV-05
+    title: "Species composition and mixedwood fraction layers"
+    workstream: INV
+    status: complete
+    wave: 2
+    sources:
+      - ref: "Hermosilla et al. 2022, Mapping tree species in Canada's forested ecosystems"
+        url: "https://doi.org/10.1016/j.rse.2022.113276"
+      - ref: "Queinnec et al. 2023, Mapping dominant boreal tree species groups with ALS and Sentinel-2"
+        url: "https://doi.org/10.1080/07038992.2022.2130742"
+    what: >-
+      Consume national or regional species-composition layers and store species
+      fractions as fragment attributes that can drive curve selection and product
+      eligibility.
+    fresh_targets: [femic, ws4]
+    integration: data-contract
+    gap: >-
+      FEMIC uses coarse species/AU labels; mixedwood composition is poorly represented
+      and cannot flow into product or habitat accounts.
+    inputs: "Species rasters or stand tables; BEC/AU linkage; validation plots."
+    dependencies: [DEC-04]
+    effort: M
+    impact: 4
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Define a species-fraction schema and ingest one public Canada-wide layer into a
+      pilot FEMIC instance.
+    risks: >-
+      Class confusion in mixedwoods; temporal mismatch with the inventory vintage;
+      species labels not aligned with TIPSY/VDYP species codes.
+    resolution: >-
+      Implemented in UBC-FRESH/ws4 PRs #490 and #492. The NTEMS 2022 dominant
+      layer and VRI species percentages are ingested into separate composition
+      and fraction contracts. TFL 6 leading species agree on 4/6 comparable
+      blocks; all six labelled VRI blocks are mixed (non-leading fraction
+      0.40-0.60). A dominant-species product cannot supply the mixedwood
+      fraction, so VRI/ALS is the fraction source.
+  - id: INV-06
+    title: "Structurally guided sampling with sgsR"
+    workstream: INV
+    status: complete
+    wave: 1
+    sources:
+      - ref: "Goodbody et al. 2023, sgsR: a structurally guided sampling toolbox"
+        url: "https://doi.org/10.1093/forestry/cpac055"
+      - ref: "Silva21 OB 5a, Continuous forest inventory framework"
+        url: "https://www.silva21.com/projects/continuous-forest-inventory-framework"
+    what: >-
+      Add structurally guided sampling design and validation to Nemora/FEMIC so
+      inventory plots and LiDAR calibration are allocated against structure rather
+      than a uniform grid.
+    fresh_targets: [nemora, femic]
+    integration: packaging
+    gap: >-
+      Sampling design and inventory QA are ad hoc; there is no shared tool for
+      allocating plots or testing whether an ALS model covers the structural range.
+    inputs: "ALS structure metrics; existing plot networks; sgsR algorithm or R bridge."
+    dependencies: []
+    effort: S
+    impact: 3
+    readiness: 5
+    risk: 1
+    first_step: >-
+      Wrap or port the sgsR sampling workflow into `nemora.sampling` with a CLI and a
+      small worked example.
+    risks: >-
+      R/Python bridge maintenance; licensing of the original implementation; user
+      confusion between sampling design and model validation.
+    resolution: Merged in UBC-FRESH/nemora #14 (`2e8776c`); the optional sgsR R bridge and worked example are in the Nemora sampling surface.
+  - id: INV-07
+    title: "Drone and mobile LiDAR pilot ingestion"
+    workstream: INV
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Silva21 OB 2, Advanced RS from free-to-grow to thinning"
+        url: "https://www.silva21.com/projects/advanced-rs%3A-free-to-grow-to-thinning-stage"
+      - ref: "Silva21 OB 6, New technologies for measurements within stands"
+        url: "https://www.silva21.com/projects/new-technologies-for-measurements-within-stands"
+      - ref: "Olson et al. 2025, Drone-based intra-canopy photogrammetry"
+        url: "https://doi.org/10.1016/j.compag.2025.110200"
+    what: >-
+      Define a plot-level point-cloud product and ingest drone/mobile LiDAR or
+      photogrammetry for regeneration, thinning, and tree-health assessments.
+    fresh_targets: [femic, fhops]
+    integration: data-contract
+    gap: >-
+      There is no sub-stand data path for treatment prescriptions; FEMIC and FHOPS
+      operate at stand or block resolution.
+    inputs: "Drone/mobile point clouds; ground control; plot metadata."
+    dependencies: []
+    effort: L
+    impact: 3
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Publish a minimal plot-product contract and test it on one existing Silva21
+      drone acquisition.
+    risks: >-
+      Data volume and processing cost; regulatory constraints; proprietary formats;
+      unclear operational cadence.
+  - id: INV-08
+    title: "LiDAR structural change detection"
+    workstream: INV
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Marinelli et al. 2022, Forest change detection in LiDAR using polar change vector analysis"
+        url: "https://doi.org/10.1109/LGRS.2020.3022282"
+      - ref: "Trotto et al. 2024, Bitemporal ALS and non-stand-replacing disturbance"
+        url: "https://doi.org/10.1016/j.srs.2024.100160"
+    what: >-
+      Detect structural change between LiDAR epochs and emit change polygons with
+      magnitude and direction, complementing optical change detection.
+    fresh_targets: [femic, ws4]
+    integration: algorithm
+    gap: >-
+      Change detection in the ecosystem is optical and land-cover oriented; structural
+      degradation and partial mortality are invisible.
+    inputs: "Repeat ALS point clouds; co-registration; threshold calibration."
+    dependencies: [INV-03, DIS-01]
+    effort: M
+    impact: 3
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Run the polar change-vector method on one two-epoch pilot and compare with HLS
+      NSR detections.
+    risks: >-
+      False positives from acquisition differences; sparse repeat coverage; method
+      maturity.
+  - id: INV-09
+    title: "Road extraction and status from ALS"
+    workstream: INV
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Roussel et al. 2022, Correction and enhancement of forestry road maps using ALS"
+        url: "https://doi.org/10.1016/j.jag.2022.103020"
+      - ref: "IRSS road and access publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+    what: >-
+      Derive or refresh road centerlines, surface condition, and access status from
+      ALS, and feed a shared road-status layer to ws4 and FHOPS.
+    fresh_targets: [ws4, fhops]
+    integration: data-contract
+    gap: >-
+      ws4 builds and costs roads from a supplied network; FHOPS assumes access.
+      Neither ingests remotely sensed road condition.
+    inputs: "ALS point clouds; existing road vectors; status observations."
+    dependencies: [DEC-04]
+    effort: M
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Define `road.status` (segment_id, status, surface, passability, source, date)
+      and import one ALS-derived centerline set into ws4.
+    risks: >-
+      Centerline attribution errors; status classification ambiguity; integration with
+      existing road-network topology.
+  - id: INV-10
+    title: "Genetic gain and seedlot performance from ALS"
+    workstream: INV
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "du Toit et al. 2022, Generating Douglas-fir breeding value estimates using ALS"
+        url: "https://doi.org/10.3389/fpls.2022.893017"
+      - ref: "du Toit et al. 2021, Internal crown geometric features from ALS in a realized-gain trial"
+        url: "https://doi.org/10.1093/forestry/cpaa046"
+      - ref: "IRSS tree improvement and realized-gain publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+    what: >-
+      Estimate realized genetic gain and seedlot performance from ALS height and crown
+      metrics in realized-gain trials, and use it to adjust plantation yield
+      assumptions.
+    fresh_targets: [femic, ws4]
+    integration: algorithm
+    gap: >-
+      FEMIC and TIPSY plantation curves assume a generic genetic gain; there is no
+      link from a seedlot or trial to the curve, and no provenance for the assumption.
+    inputs: "ALS metrics; realized-gain trial design; seedlot metadata; yield curves."
+    dependencies: [INV-01, INV-04]
+    effort: M
+    impact: 3
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Reproduce a published breeding-value or gain estimate on one trial and compare it
+      with the default TIPSY gain assumption.
+    risks: >-
+      Trial representativeness; genotype-by-environment interaction; small sample;
+      proprietary seedlot data.
+  - id: GRO-01
+    title: "Climate data contract and GCM ensemble"
+    workstream: GRO
+    status: complete
+    wave: 1
+    sources:
+      - ref: "Silva21 climate data and SilvR21"
+        url: "https://www.silva21.com/climatedata?lang=en"
+      - ref: "Wotherspoon et al. 2022, Climate Scenarios for Canadian Forests"
+        url: "https://www.silva21.com/climatedata?lang=en"
+      - ref: "Wotherspoon et al. 2023, Future climate trends across Canadian ecozones"
+        url: "https://doi.org/10.1139/cjfr-2023-0058"
+    what: >-
+      Define a canonical climate table (variable, year, scenario, GCM, value, source,
+      downscaling method) and an adapter for ClimateNA/SilvR21 outputs.
+    fresh_targets: [cross]
+    integration: data-contract
+    gap: >-
+      Climate is used ad hoc, if at all; there is no provenance-bearing climate layer
+      shared by FEMIC, ws4, and Nemora.
+    inputs: "ClimateNA/SilvR21 outputs; GCM ensemble; DEM; hub or AOI polygons."
+    dependencies: []
+    effort: S
+    impact: 5
+    readiness: 5
+    risk: 1
+    first_step: >-
+      Publish `climate.v1` with a JSON schema, a small sample for one AOI, and a
+      reader in FEMIC or Nemora.
+    risks: >-
+      Scenario/GCM proliferation; licensing terms for ClimateNA; downscaling
+      differences between providers.
+    risks: >-
+      Scenario/GCM proliferation; licensing terms for ClimateNA; downscaling
+      differences between providers.
+    resolution: >-
+      Created as UBC-FRESH/femic#370, child of P116 (#369). Merged in
+      UBC-FRESH/femic#378 as `9e16be9`.
+
+  - id: GRO-02
+    title: "Climate-adjusted yield curve modifiers"
+    workstream: GRO
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Silva21 AN 3a, Integration of climate drivers into growth modelling"
+        url: "https://www.silva21.com/projects/integration-of-climate-drivers-into-growth-modelling-(an3a)"
+      - ref: "Silva21 AN 3b, Integration of climate drivers into growth modelling"
+        url: "https://www.silva21.com/projects/integration-of-climate-drivers-into-growth-modelling-(an3b)"
+      - ref: "Wotherspoon et al. 2023, Future climate trends"
+        url: "https://doi.org/10.1139/cjfr-2023-0058"
+    what: >-
+      Implement a modifier API that adjusts VDYP/TIPSY-style yield curves for climate
+      covariates while preserving the original curve and recording the modifier
+      version.
+    fresh_targets: [femic, ws4]
+    integration: model
+    gap: >-
+      FEMIC curves are static; ws4 has no way to represent climate-driven productivity
+      change inside a scenario.
+    inputs: "Climate table; species/BEC response functions; curve families."
+    dependencies: [GRO-01, DATA-01]
+    effort: L
+    impact: 5
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Implement one published response function for one species/BEC and compare
+      scenario output against the unmodified curve.
+    risks: >-
+      Extrapolation beyond calibration range; double-counting site index and climate;
+      weak evidence for some species.
+  - id: GRO-03
+    title: "Climate-sensitive mortality transitions"
+    workstream: GRO
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Fortin et al. 2024, Climate-sensitive models of tree mortality"
+        url: "https://doi.org/10.1139/cjfr-2024-0205"
+      - ref: "Silva21 OB 7, Climate-sensitive growth modelling in Ontario"
+        url: "https://www.silva21.com/projects/climate-sensitive-growth-modelling-in-ontario"
+    what: >-
+      Add annual or periodic stand-level mortality probability as a model transition,
+      driven by climate, age, density, and disturbance history.
+    fresh_targets: [femic, ws4]
+    integration: model
+    gap: >-
+      FEMIC has no mortality transition; ws4 assumes scheduled harvest or natural
+      stand development, not climate-driven loss.
+    inputs: "PSP remeasurements; climate table; species and stand attributes."
+    dependencies: [GRO-01, DIS-01]
+    effort: L
+    impact: 5
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Implement a published mortality function as a transition and validate predicted
+      losses against a held-out PSP set.
+    risks: >-
+      Rare-event calibration; confounding with disturbance; transferability across
+      ecosystems.
+  - id: GRO-04
+    title: "Stand-level model fusion"
+    workstream: GRO
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Johnson et al. 2026, Modifying stand-level growth under a changing climate using model fusion"
+        url: "https://doi.org/10.1007/s44391-025-00053-5"
+    what: >-
+      Prototype a fusion layer that combines empirical yield curves, process-model
+      output, and remote-sensing growth evidence into a single stand-level projection
+      with explicit weights.
+    fresh_targets: [femic, nemora]
+    integration: algorithm
+    gap: >-
+      The ecosystem has separate empirical and process lanes but no principled way to
+      combine them or carry the disagreement forward.
+    inputs: "Curve predictions; 3-PG or other process output; ALS/Landsat increments."
+    dependencies: [GRO-02, GRO-03, GRO-09]
+    effort: L
+    impact: 4
+    readiness: 2
+    risk: 4
+    first_step: >-
+      Reimplement the published fusion method on one species and compare against each
+      component model.
+    risks: >-
+      Method complexity; correlated errors; unclear uncertainty propagation; new
+      publication with limited replication.
+  - id: GRO-05
+    title: "Age-independent height-growth trajectories"
+    workstream: GRO
+    status: candidate
+    wave: 2
+    sources:
+      - ref: "Riofrio et al. 2023, Age-independent height growth from multi-temporal ALS"
+        url: "https://doi.org/10.1016/j.foreco.2023.121137"
+    what: >-
+      Use repeat ALS to estimate height-growth trajectories without relying on stand
+      age, improving curve selection in mixedwood and uneven-aged stands.
+    fresh_targets: [femic]
+    integration: algorithm
+    gap: >-
+      FEMIC curve selection depends on age, which is unreliable in mixedwoods and
+      partially harvested stands.
+    inputs: "Repeat ALS; species; site index; existing curves."
+    dependencies: [INV-03]
+    effort: M
+    impact: 3
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Derive trajectories for a pilot and test whether they select a different curve
+      family than the current age-based rule.
+    risks: >-
+      Short observation windows; disturbance contamination; limited species coverage.
+  - id: GRO-06
+    title: "Biomass yield curves from time-series remote sensing"
+    workstream: GRO
+    status: queued
+    wave: 1
+    sources:
+      - ref: "Tompalski et al. 2024, Developing aboveground biomass yield curves from time-series remote sensing"
+        url: "https://doi.org/10.1016/j.foreco.2024.121894"
+      - ref: "IRSS carbon and biomass publications"
+        url: "https://irsslab.forestry.ubc.ca/research/carbon/"
+    what: >-
+      Add biomass and carbon curve families derived from Landsat time series and
+      lidar plots, alongside the existing volume curves.
+    fresh_targets: [femic, ws4]
+    integration: model
+    gap: >-
+      FEMIC produces volume curves, not biomass or carbon; carbon reporting therefore
+      requires an external conversion with no provenance.
+    inputs: "Biomass curves; species; volume curves; carbon fraction assumptions."
+    dependencies: []
+    effort: M
+    impact: 5
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Add a biomass curve table and a carbon conversion report to one FEMIC instance.
+    risks: >-
+      Species-specific allometry; belowground omission; curve vintage.
+    resolution: >-
+      Created as UBC-FRESH/femic#376, child of P117 (#374).
+
+  - id: GRO-07
+    title: "Tree-ring, Landsat, and ALS integration for growth decline"
+    workstream: GRO
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Morin-Bernard et al. 2024, Tree-ring, Landsat, and ALS integration for growth declines"
+        url: "https://doi.org/10.1016/j.foreco.2024.121765"
+      - ref: "Leduc et al. 2025, Review of dendrochronology and remote sensing integration"
+        url: "https://doi.org/10.1007/s40725-025-00260-w"
+    what: >-
+      Build a validation and attribution layer that links tree-ring series to Landsat
+      and ALS signals, so growth declines can be diagnosed rather than assumed.
+    fresh_targets: [femic, nemora]
+    integration: validation
+    gap: >-
+      There is no field-based validation path for climate-growth modifiers or
+      remotely sensed decline.
+    inputs: "Tree-ring series; Landsat time series; ALS; plot metadata."
+    dependencies: [GRO-02, GRO-03]
+    effort: M
+    impact: 3
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Define a tree-ring series schema and test it on one Silva21 hub.
+    risks: >-
+      Data access and sample size; dating errors; spatial mismatch.
+  - id: GRO-08
+    title: "Species suitability and assisted-migration layers"
+    workstream: GRO
+    status: shortlisted
+    wave: 3
+    sources:
+      - ref: "Silva21 AN 1b, Future climate envelopes"
+        url: "https://www.silva21.com/projects/future-climate-envelopes"
+      - ref: "Silva21 AN 5, Targeted assisted migration"
+        url: "https://www.silva21.com/projects/targeted-assisted-migration"
+      - ref: "de Liz et al. 2026, Fine-scale drivers of sugar maple habitat suitability"
+        url: "https://doi.org/10.1093/forestry/cpag054"
+    what: >-
+      Produce climate-informed species and provenance suitability layers that can
+      guide regeneration assumptions, seed transfer, and land-allocation scenarios.
+    fresh_targets: [femic, ws4]
+    integration: data-contract
+    gap: >-
+      FEMIC assumes current species suitability; ws4 has no assisted-migration or
+      seed-transfer decision surface.
+    inputs: "Climate table; species distribution models; provenance trial data."
+    dependencies: [GRO-01, BIO-03]
+    effort: L
+    impact: 5
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Ingest one published suitability layer for a pilot AOI and add it as a fragment
+      attribute with provenance.
+    risks: >-
+      SDM extrapolation; provenance data gaps; policy and liability sensitivity.
+  - id: GRO-09
+    title: "3-PG process-model adapter"
+    workstream: GRO
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "IRSS research overview: 3-PG development and maintenance"
+        url: "https://irsslab.forestry.ubc.ca/research/"
+      - ref: "IRSS 3-PG publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+    what: >-
+      Evaluate and adapt a 3-PG implementation as an alternative or complementary
+      growth engine for climate scenarios and productivity mapping.
+    fresh_targets: [femic, nemora]
+    integration: model
+    gap: >-
+      The ecosystem is empirical (VDYP/TIPSY) with no process-based option for novel
+      climates or species.
+    inputs: "3-PG implementation; climate and soil data; species parameter sets."
+    dependencies: [GRO-01]
+    effort: XL
+    impact: 4
+    readiness: 2
+    risk: 4
+    first_step: >-
+      Write an adapter specification and run 3-PG on one existing FEMIC instance for
+      comparison, without committing to integration.
+    risks: >-
+      Parameter uncertainty; calibration burden; implementation fragmentation across
+      R/Python/Excel versions.
+  - id: DIS-01
+    title: "Shared disturbance event schema"
+    workstream: DIS
+    status: complete
+    wave: 1
+    sources:
+      - ref: "IRSS disturbance and habitat change research"
+        url: "https://irsslab.forestry.ubc.ca/research/disturbance-habitat-change/"
+      - ref: "Silva21 OB 5c, Non-stand-replacing disturbances"
+        url: "https://www.silva21.com/projects/identifying-and-assessing-the-impact-of-non-stand-replacing-disturbances-within-a-near--real-time-context"
+      - ref: "Brown et al. 2025, Detection of non-stand replacing disturbances using HLS"
+        url: "https://doi.org/10.1016/j.isprsjprs.2024.12.014"
+    what: >-
+      Define a cross-repo disturbance event record (type, year, severity, extent,
+      attribution, confidence, source) that FEMIC, ws4, and FHOPS can all consume.
+    fresh_targets: [cross]
+    integration: data-contract
+    gap: >-
+      Disturbance is represented differently, or not at all, in each repo. There is no
+      shared way to hand a fire, insect, drought, or partial-mortality event from data
+      to model to operations.
+    inputs: "Existing disturbance layers; severity rasters; attribution methods."
+    dependencies: []
+    effort: S
+    impact: 5
+    readiness: 5
+    risk: 1
+    first_step: >-
+      Publish `disturbance.v1` with a JSON schema, examples, and a validator, then
+      wire one consumer in ws4.
+    risks: >-
+      Schema overreach; disagreement on severity scales; attribution uncertainty.
+    risks: >-
+      Schema overreach; disagreement on severity scales; attribution uncertainty.
+    resolution: >-
+      Created as UBC-FRESH/femic#371, child of P116 (#369). Contract merged in
+      UBC-FRESH/femic#379 as `ef4cff2`; ws4 consumer merged in
+      UBC-FRESH/ws4#398 as `5ea4a05`.
+
+  - id: DIS-02
+    title: "NSR detection and attribution adapter"
+    workstream: DIS
+    status: deferred
+    wave: 2
+    sources:
+      - ref: "Brown et al. 2025, NSR detection with Harmonized Landsat-Sentinel-2"
+        url: "https://doi.org/10.1016/j.isprsjprs.2024.12.014"
+      - ref: "Mulverhill et al. 2026, Forest condition and NSR in a continuous inventory context"
+        url: "https://doi.org/10.1080/2150704X.2026.2683130"
+      - ref: "Trotto et al. 2024, Bitemporal ALS and NSR"
+        url: "https://doi.org/10.1016/j.srs.2024.100160"
+    what: >-
+      Convert HLS/NSR detections into shared disturbance events and attach them to
+      fragments and stands for growth, risk, and silvicultural decisions.
+    fresh_targets: [femic, ws4]
+    integration: algorithm
+    gap: >-
+      FEMIC assumes stand-replacing harvest; partial mortality, defoliation, and
+      drought stress are not represented in the estate model.
+    inputs: "HLS time series; trained NSR model; validation labels; disturbance schema."
+    dependencies: [DIS-01]
+    effort: M
+    impact: 4
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Run the published NSR workflow on one AOI and emit `disturbance.v1` records for
+      ws4 consumption.
+    risks: >-
+      Detection thresholds; attribution confusion; cloud and snow gaps.
+    resolution: >-
+      Implemented as the public UBC-FRESH/fresh-beast package (`0.1.0a1`) with an
+      HLS -> NBR -> Rbeast BEAST -> `femic.disturbance.v1` path and FEMIC/WS4
+      consumer tests. A 2019 TSA 23 AOS Aspen Leaf Miner (`ID6`, Moderate)
+      case-control test (31 positive / 47 control blocks) failed at the 0.5
+      threshold: sensitivity 25.8%, specificity 66.0%, precision 33.3%, and
+      same-year 2019 detection 0/31. Operational use is therefore deferred; the
+      package remains an exploratory overlay only. No objective, growth,
+      constraint, or solver was changed.
+  - id: DIS-03
+    title: "Near-real-time forest condition and early alert"
+    workstream: DIS
+    status: deferred
+    wave: 3
+    sources:
+      - ref: "Silva21 OB 3b, Early alert system for forest management"
+        url: "https://www.silva21.com/projects/early-alert-system-for-forest-management"
+      - ref: "Morin-Bernard et al. 2023, Predicting net growth rates with Landsat time series"
+        url: "https://doi.org/10.1093/forestry/cpad055"
+      - ref: "Mulverhill et al. 2024, Continuous update of EFI attributes"
+        url: "https://doi.org/10.1093/forestry/cpae029"
+    what: >-
+      Build a monitoring loop that compares current satellite condition against a
+      baseline and emits periodic stand-level report cards and alerts.
+    fresh_targets: [ws4, femic]
+    integration: workflow
+    gap: >-
+      The ecosystem can simulate futures but cannot ingest the current state of the
+      forest or flag where it has diverged from the plan.
+    inputs: "HLS/Landsat/Planet time series; baseline; stand boundaries; alert rules."
+    dependencies: [DIS-01, DIS-02]
+    effort: L
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Define a report-card schema and prototype it for one Silva21 hub or TSA.
+    risks: >-
+      Alert fatigue; baseline drift; operational trust; latency.
+    resolution: Deferred. Static DHI/recovery and the failed NSR case-control test do not provide a defensible near-real-time alert; see notes/16-dis03-readiness.md.
+  - id: DIS-04
+    title: "Post-fire recovery and regeneration-failure layer"
+    workstream: DIS
+    status: complete
+    wave: 2
+    sources:
+      - ref: "Silva21 OB 1a, Regeneration after catastrophic disturbance"
+        url: "https://www.silva21.com/projects/regeneration-after-catastophic-disturbance"
+      - ref: "Smith-Tripp et al. 2024, Landsat assessment of post-fire recovery"
+        url: "https://doi.org/10.1016/j.isprsjprs.2024.01.008"
+      - ref: "Smith-Tripp et al. 2025, Post-fire structural recovery and climate extremes"
+        url: "https://doi.org/10.1007/s10980-025-02266-y"
+    what: >-
+      Map post-fire recovery and regeneration failure, then encode regeneration status
+      and failure risk as fragment attributes and scenario constraints.
+    fresh_targets: [femic, ws4]
+    integration: data-contract
+    gap: >-
+      Regeneration assumptions are static and optimistic; there is no way to prioritise
+      remediation or adjust yield where regeneration has failed.
+    inputs: "Landsat/HLS recovery metrics; ALS structure; field plots; fire perimeters."
+    dependencies: [DIS-01]
+    effort: M
+    impact: 5
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Ingest one published recovery/failure layer and add `regen_status` to a pilot
+      FEMIC instance.
+    risks: >-
+      Recovery metrics are not survival; time lags; species-specific interpretation.
+    resolution: >-
+      Implemented in ws4 (PRs #499, #502, #503, #509): the NTEMS fire recovery
+      layer is applied to all 102,128 TSA23 blocks. 1,497 blocks are not recovered
+      (21,948 ha), 58 slower (745 ha). Deferring the 491 not-recovered blocks in
+      the 20-year schedule reduces volume 0.069% (5 years) or 0.093% (10 years);
+      the effect is too small to justify a hard constraint. Spectral recovery is
+      not survival; no objective change.
+  - id: DIS-05
+    title: "Burn severity and post-fire mortality inputs"
+    workstream: DIS
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "IRSS fire and burn severity publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+      - ref: "Smith-Tripp et al. 2024, Early spectral dynamics and post-fire growth"
+        url: "https://doi.org/10.1002/rse2.420"
+    what: >-
+      Convert burn-severity and post-fire mortality products into fragment-level
+      mortality fractions for salvage planning and regenerating-stand curves.
+    fresh_targets: [femic, fhops]
+    integration: data-contract
+    gap: >-
+      Salvage and regeneration assume a binary burned/unburned state, not a severity
+      gradient with partial mortality.
+    inputs: "dNBR/RdNBR rasters; field mortality plots; fire perimeters."
+    dependencies: [DIS-01, DIS-09]
+    effort: M
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Build a severity-to-mortality lookup for one fire and attach it to FHOPS salvage
+      blocks.
+    risks: >-
+      Severity index saturation; delayed mortality; species differences.
+  - id: DIS-06
+    title: "Hazard library for drought, pest, wind, and fire"
+    workstream: DIS
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Silva21 AD and AN themes: resilience and resistance"
+        url: "https://www.silva21.com/projects"
+      - ref: "Chagnon et al. 2025, Thinning to increase resilience: a meta-analysis"
+        url: "https://doi.org/10.1016/j.foreco.2025.122788"
+      - ref: "IRSS mountain pine beetle research"
+        url: "https://irsslab.forestry.ubc.ca/research/mountain-pine-beetle/"
+    what: >-
+      Define a common hazard interface (probability, severity, duration, affected
+      attributes) and implement an initial set of drought, insect, wind, and fire
+      modifiers.
+    fresh_targets: [ws4, femic]
+    integration: model
+    gap: >-
+      Risk is either absent or hard-coded; there is no registry of hazards that can be
+      composed in a scenario.
+    inputs: "Published hazard functions; climate table; stand attributes; disturbance history."
+    dependencies: [GRO-01, DIS-01]
+    effort: L
+    impact: 5
+    readiness: 2
+    risk: 4
+    first_step: >-
+      Publish the interface and implement one hazard end-to-end as a reference
+      implementation.
+    risks: >-
+      Weak transferability of published functions; double-counting hazards; validation
+      burden.
+  - id: DIS-07
+    title: "Spruce budworm defoliation risk"
+    workstream: DIS
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Trotto et al. 2025, Spectral remote sensing and spruce budworm resilience"
+        url: "https://doi.org/10.1016/j.ecolind.2025.114382"
+      - ref: "Trotto et al. 2025, Landscape configuration and spruce budworm dynamics"
+        url: "https://doi.org/10.1007/s10980-025-02203-z"
+      - ref: "Shields et al. 2025, Review of PlanetScope CubeSats for forest monitoring"
+        url: "https://doi.org/10.1016/j.srs.2025.100314"
+    what: >-
+      Implement a defoliation hazard modifier for eastern forests using published
+      landscape and stand susceptibility relationships.
+    fresh_targets: [ws4, femic]
+    integration: model
+    gap: >-
+      No defoliator hazard exists; eastern scenarios cannot represent budworm-driven
+      growth loss or salvage.
+    inputs: "Host-species composition; climate; landscape configuration; defoliation observations."
+    dependencies: [DIS-06, INV-05]
+    effort: M
+    impact: 3
+    readiness: 2
+    risk: 3
+    first_step: >-
+      Encode one published susceptibility relationship and test it on an eastern pilot
+      landscape.
+    risks: >-
+      Outbreak dynamics are spatially contagious; limited validation; model complexity.
+  - id: DIS-08
+    title: "Bark beetle and mountain pine beetle hazard"
+    workstream: DIS
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "IRSS mountain pine beetle research"
+        url: "https://irsslab.forestry.ubc.ca/research/mountain-pine-beetle/"
+      - ref: "IRSS bark beetle mortality publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+    what: >-
+      Implement a beetle hazard modifier and a salvage trigger for pine-leading stands,
+      using stand vigour, climate, and landscape susceptibility.
+    fresh_targets: [ws4, fhops]
+    integration: model
+    gap: >-
+      Beetle mortality is not represented in scenario dynamics, and salvage planning
+      is not linked to infestation risk.
+    inputs: "Host species; stand vigour; climate; infestation history; salvage costs."
+    dependencies: [DIS-06, DIS-09, INV-05]
+    effort: M
+    impact: 3
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Build a BC pilot that drives a beetle hazard layer into ws4 and a salvage
+      prescription into FHOPS.
+    risks: >-
+      Ephemeral outbreak dynamics; spatial spread; data recency.
+  - id: DIS-09
+    title: "Salvage shelf-life and value-decay model"
+    workstream: DIS
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Silva21 AD 4, Salvage harvesting of dead trees"
+        url: "https://www.silva21.com/projects/salvage-harvesting-of-dead-trees"
+      - ref: "Chagnon et al. 2022, Broad-scale wood degradation dynamics"
+        url: "https://doi.org/10.1111/gcbb.12951"
+    what: >-
+      Add species- and product-specific shelf-life and value-decay curves so salvage
+      scheduling trades urgency against access, cost, and product mix.
+    fresh_targets: [fhops, ws4]
+    integration: model
+    gap: >-
+      FHOPS has salvage-mode defaults but no time-dependent degradation or product
+      value loss.
+    inputs: "Decay curves; species; product class; storage and climate conditions."
+    dependencies: [DIS-01]
+    effort: M
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Add a `shelf_life` field and a linear or exponential value-decay term to the
+      FHOPS salvage scenario.
+    risks: >-
+      Decay rates are context-dependent; product downgrade rules; interaction with
+      transport and mill demand.
+  - id: PLAN-01
+    title: "Risk-aware forest estate planning"
+    workstream: PLAN
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Silva21 AN 8a, Forest management plans for resilient landscapes"
+        url: "https://www.silva21.com/projects/forest-management-plans-for-resilient-landscapes"
+      - ref: "Silva21 AN 8b, Viability of climate-informed landscape strategies"
+        url: "https://www.silva21.com/projects/viability-of-climate-informed%2C-landscape-level-strategies"
+      - ref: "ws4 Phase 15/16 spatial and fire-related work"
+        url: "https://github.com/UBC-FRESH/ws4"
+    what: >-
+      Add expected-loss and risk-exposure terms to ws4's objective and constraints so
+      plans can trade productivity against disturbance risk.
+    fresh_targets: [ws4, ws3]
+    integration: model
+    gap: >-
+      ws4 optimises volume and spatial rules; it does not penalise plans that
+      concentrate risk or fail under a hazard scenario.
+    inputs: "Hazard library; climate table; asset values; risk tolerance."
+    dependencies: [DIS-06, GRO-01, DATA-06]
+    effort: L
+    impact: 5
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Add a scenario-level expected-loss report before adding it to the objective, so
+      the risk signal can be inspected without changing optimisation.
+    risks: >-
+      Risk model credibility; objective scaling; unintended risk-seeking behaviour.
+  - id: PLAN-02
+    title: "Resilience-productivity trade-off portfolio"
+    workstream: PLAN
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Silva21 AN 8a/8b"
+        url: "https://www.silva21.com/projects/forest-management-plans-for-resilient-landscapes"
+      - ref: "Dura et al. 2026, A renewed call for action in climate-adapted forestry"
+        url: "https://doi.org/10.5558/tfc2026-018"
+    what: >-
+      Generate and compare a portfolio of management strategies along a resilience-
+      productivity frontier rather than a single optimum.
+    fresh_targets: [ws4]
+    integration: workflow
+    gap: >-
+      ws4 has multi-objective search but no resilience-oriented portfolio or
+      trade-off narrative.
+    inputs: "Risk-aware scenarios; resilience indicators; economic assumptions."
+    dependencies: [PLAN-01, PLAN-03]
+    effort: M
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Define three archetype strategies (productivity, resilience, balanced) and run
+      them through the existing portfolio search.
+    risks: >-
+      Indicator selection; incommensurable objectives; stakeholder disagreement.
+  - id: PLAN-03
+    title: "Spatial resilience metrics for estate models"
+    workstream: PLAN
+    status: complete
+    wave: 1
+    sources:
+      - ref: "IRSS landscape pattern and disturbance research"
+        url: "https://irsslab.forestry.ubc.ca/research/disturbance-habitat-change/"
+      - ref: "ws4 spatial, patch, and spread accounts"
+        url: "https://github.com/UBC-FRESH/ws4"
+    what: >-
+      Define a compact set of landscape-configuration metrics (connectivity, age-class
+      diversity, patch-size distribution, fragmentation) and emit them as ws4 accounts.
+    fresh_targets: [ws4]
+    integration: validation
+    gap: >-
+      ws4 has patch and spread accounts but no resilience-oriented summary that a
+      planner or reviewer can interpret.
+    inputs: "ws4 schedule outputs; patch topology; seral-stage features."
+    dependencies: []
+    effort: M
+    impact: 4
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Implement three metrics as report accounts and compare two existing ws4
+      schedules.
+    risks: >-
+      Metric redundancy; scale sensitivity; false precision.
+    resolution: >-
+      Implemented in UBC-FRESH/ws4#378, child of P54 (#375); PR #475 adds
+      connectivity, age-class diversity, and fragmentation accounts plus a
+      two-run comparison and report block.
+
+  - id: PLAN-04
+    title: "Caribou habitat and dynamic mitigation"
+    workstream: PLAN
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Silva21 AN 9, Flexibility in forest management to preserve caribou habitat"
+        url: "https://www.silva21.com/projects/flexibility-in-forest-management-to-preserve-caribou-habitat"
+      - ref: "Beaulieu et al. 2026, Annual lichen volume for woodland caribou"
+        url: "https://doi.org/10.1016/j.jag.2026.105444"
+    what: >-
+      Add a caribou habitat account and dynamic mitigation constraints based on lichen
+      volume, stand structure, and disturbance recovery.
+    fresh_targets: [ws4]
+    integration: model
+    gap: >-
+      Habitat is not a first-class constraint or output; caribou plans are handled
+      outside the estate model.
+    inputs: "Lichen volume model; habitat suitability; disturbance history; caribou ranges."
+    dependencies: [DIS-01, BIO-05]
+    effort: L
+    impact: 4
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Ingest one lichen/habitat layer and add a habitat account before adding a
+      constraint.
+    risks: >-
+      Habitat science uncertainty; legal and policy sensitivity; data availability.
+  - id: PLAN-05
+    title: "Habitat connectivity account over the road and patch network"
+    workstream: PLAN
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "IRSS habitat connectivity and road impacts"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+      - ref: "ws4 roads and patch topology"
+        url: "https://github.com/UBC-FRESH/ws4"
+    what: >-
+      Compute connectivity and barrier effects from ws4's road and patch topology and
+      report them alongside volume and cost.
+    fresh_targets: [ws4]
+    integration: algorithm
+    gap: >-
+      ws4 models roads and patches for access and harvest adjacency, not for wildlife
+      connectivity.
+    inputs: "Road network; disturbance schedule; habitat weights; resistance surface."
+    dependencies: [PLAN-03, INV-09]
+    effort: M
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Implement a least-cost or circuit-style connectivity metric on one ws4 dataset
+      and compare two road strategies.
+    risks: >-
+      Resistance-surface assumptions; computational cost; interpretation.
+  - id: PLAN-06
+    title: "Deliberative-analytic and serious-game engagement"
+    workstream: PLAN
+    status: deferred
+    wave: 0
+    sources:
+      - ref: "Silva21 AD 5a, Deliberative-analytic framework"
+        url: "https://www.silva21.com/projects/deliberative-analytic-framework-to-engage-publics-and-stakeholders"
+      - ref: "Silva21 AD 5b, Serious game for adaptive silviculture"
+        url: "https://www.silva21.com/projects/climate-change-and-adaptative-silviculture%3A-playing-to-collaborate-with-a-serious-game"
+    what: >-
+      Explore a stakeholder-facing mode where participants choose strategies and see
+      consequences, informed by the deliberative-analytic literature.
+    fresh_targets: [ws4]
+    integration: ui
+    gap: >-
+      ws4 is an analyst tool; there is no structured public or stakeholder engagement
+      surface.
+    inputs: "Scenario portfolio; visualisation; facilitation protocol."
+    dependencies: [PLAN-02, DEC-01]
+    effort: L
+    impact: 3
+    readiness: 2
+    risk: 3
+    first_step: >-
+      Write a concept note and user journey; do not build until the scenario engine and
+      web UI are stable.
+    risks: >-
+      Scope creep; facilitation-heavy; difficult to validate; not a software-first
+      problem.
+  - id: PLAN-07
+    title: "Scenario storytelling and visualisation"
+    workstream: PLAN
+    status: complete
+    wave: 2
+    sources:
+      - ref: "Silva21 AD 7, Visualisation techniques for social commentary"
+        url: "https://www.silva21.com/projects/visualisation-techniques-for-social-commentary"
+      - ref: "Silva21 AN 8b, Landscape-level visualisations"
+        url: "https://www.silva21.com/projects/viability-of-climate-informed%2C-landscape-level-strategies"
+    what: >-
+      Add a storyboard export that combines maps, indicators, uncertainty, and
+      trade-offs into a shareable scenario narrative.
+    fresh_targets: [ws4]
+    integration: ui
+    gap: >-
+      ws4 maps are analytical views, not communication products; scenario comparison
+      is table-heavy.
+    inputs: "Scenario results; map layers; report metrics; uncertainty bands."
+    dependencies: [DEC-01, DEC-03]
+    effort: M
+    impact: 3
+    readiness: 4
+    risk: 1
+    first_step: >-
+      Design a one-page scenario storyboard template and generate it from an existing
+      run.
+    risks: >-
+      Visual bias; accessibility; maintenance of templates.
+    resolution: >-
+      Complete as UBC-FRESH/ws4 P101 (#696, PR #698, `91b985c`): one-page
+      Markdown storyboard reusing the condition card and provenance. Charts,
+      maps, and browser storyboards remain separate.
+  - id: PLAN-08
+    title: "Market and policy shock scenarios"
+    workstream: PLAN
+    status: complete
+    wave: 2
+    sources:
+      - ref: "Dura et al. 2025, Macroeconomic and climate-disaster effects on wood product prices"
+        url: "https://doi.org/10.1139/cjfr-2025-0001"
+    what: >-
+      Support price, cost, and policy paths as scenario inputs with provenance, rather
+      than single static values.
+    fresh_targets: [ws4, fhops]
+    integration: data-contract
+    gap: >-
+      Economic assumptions are static and buried in config; there is no scenario
+      narrative for market or policy shocks.
+    inputs: "Price series; cost indices; policy assumptions; scenario definitions."
+    dependencies: [DEC-03]
+    effort: S
+    impact: 3
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Add a `prices.v1` table and a small set of named price paths to one ws4/FHOPS
+      scenario.
+    risks: >-
+      Forecast credibility; currency and region mismatch; overfitting to recent shocks.
+    resolution: >-
+      Complete as UBC-FRESH/ws4 P114 (#749, PR #760, merge `0dbc01a`): the typed
+      `prices.v1` reader in `ws4/prices.py`, the `ws4 price-paths` command, the
+      synthetic four-path fixture, and the comparison CSV/Markdown/provenance
+      outputs with the `not a forecast` caveat. The table is read-only and no
+      objective, constraint, growth, schedule, or solver code changed. A real
+      public price source with currency/region provenance remains a follow-on
+      before production use.
+  - id: CARB-01
+    title: "Carbon account v0 across ws3 and ws4"
+    workstream: CARB
+    status: adopted
+    wave: 1
+    sources:
+      - ref: "Tompalski et al. 2024, Biomass yield curves from time-series remote sensing"
+        url: "https://doi.org/10.1016/j.foreco.2024.121894"
+      - ref: "IRSS carbon and forest dynamics research"
+        url: "https://irsslab.forestry.ubc.ca/research/carbon/"
+      - ref: "ws3 libcbm linkage and avoided-fire/avoided-harvest examples"
+        url: "https://github.com/UBC-FRESH/ws3"
+      - ref: "FEMIC Phase 109, log-grade value/cost accounts"
+        url: "https://github.com/UBC-FRESH/femic"
+    what: >-
+      Define a shared carbon-account contract and emit it from one ws4 scenario,
+      reusing the CBM linkage and avoided-emissions examples that already exist in ws3.
+      Version 0 may use existing volume curves with a declared basic-density and
+      carbon-fraction conversion; the biomass curve family (`GRO-06`) is a later
+      refinement.
+    fresh_targets: [ws3, ws4, femic]
+    integration: validation
+    gap: >-
+      At the time of the mine, ws3 had CBM linkage and notebook-level
+      avoided-fire and avoided-harvest examples, but there was no shared carbon
+      contract, no ws4 account, and no provenance-bearing conversion from FEMIC
+      curves. This is now being addressed by FEMIC P115 and ws4 P51; the
+      candidate is retained as the adoption record.
+    inputs: "Biomass curves; carbon fractions; product recovery; decay assumptions; ws3 CBM setup."
+    dependencies: [DATA-01]
+    effort: M
+    impact: 5
+    readiness: 4
+    risk: 2
+    first_step: >-
+      No new work. Track FEMIC P115 (#361) and ws4 P51 (#357) to closeout, and
+      record the parity result and the account boundary in this register.
+    risks: >-
+      Boundary definition (stand vs product vs soil); double counting; false precision.
+      ws3 and ws4 may disagree on product and decay boundaries. Volume-to-biomass
+      conversion adds uncertainty until `GRO-06` lands.
+    risks: >-
+      Boundary definition (stand vs product vs soil); double counting; false precision.
+      ws3 and ws4 may disagree on product and decay boundaries. Volume-to-biomass
+      conversion adds uncertainty until `GRO-06` lands.
+    resolution: >-
+      Adopted by UBC-FRESH/femic#361 (P115, forest carbon domain) and
+      UBC-FRESH/ws4#357 (P51, carbon accounting and carbon-aware planning).
+      Do not open a parallel carbon contract.
+
+  - id: CARB-02
+    title: "Disturbance emissions and avoided emissions"
+    workstream: CARB
+    status: candidate
+    wave: 2
+    sources:
+      - ref: "IRSS carbon dynamics and NTEMS"
+        url: "https://irsslab.forestry.ubc.ca/research/ntems-national-terrestrial-ecosystem-monitoring-system/"
+      - ref: "Silva21 carbon and disturbance themes"
+        url: "https://www.silva21.com/projects"
+    what: >-
+      Extend the carbon account to fire, harvest, and decomposition emissions, and
+      report avoided emissions from alternative management, reusing the ws3
+      avoided-fire and avoided-harvest decision-support examples.
+    fresh_targets: [ws3, ws4]
+    integration: model
+    gap: >-
+      ws3 has notebook-level avoided-emissions examples; there is no reusable account
+      or contract, and disturbance emissions are absent from ws4.
+    inputs: "Emission factors; disturbance events; product life; decay curves."
+    dependencies: [CARB-01, DIS-01, DIS-06]
+    effort: M
+    impact: 4
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Add a post-hoc emissions report for one fire scenario before changing the
+      objective.
+    risks: >-
+      Emission-factor uncertainty; system boundary; substitution assumptions.
+  - id: CARB-03
+    title: "Wood degradation and storage value loss"
+    workstream: CARB
+    status: adopted
+    wave: 2
+    sources:
+      - ref: "Chagnon et al. 2022, Broad-scale wood degradation dynamics"
+        url: "https://doi.org/10.1111/gcbb.12951"
+      - ref: "Silva21 AD 4, Salvage harvesting"
+        url: "https://www.silva21.com/projects/salvage-harvesting-of-dead-trees"
+      - ref: "Prestemon & Holmes 2008, Timber Salvage Economics"
+        url: "https://research.fs.usda.gov/download/treesearch/32962.pdf"
+      - ref: "Barrette et al. 2015, Dynamics of dead tree degradation and shelf-life"
+        url: "https://doi.org/10.1093/forestry/cpv007"
+    what: >-
+      Encode species- and product-specific degradation curves for standing dead wood
+      and roadside storage, and use them in salvage and inventory valuation.
+    fresh_targets: [fhops, ws4]
+    integration: model
+    gap: >-
+      Dead wood is valued as if it were green; storage and shelf-life are not part of
+      the economics.
+    inputs: "Decay rates; species; product class; climate; storage duration."
+    dependencies: [DIS-09]
+    effort: S
+    impact: 3
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Add a decay module shared by FHOPS salvage and ws4 carbon valuation.
+    risks: >-
+      Context dependence; limited species coverage; interaction with product grade.
+    resolution: >-
+      First bounded slice adopted in UBC-FRESH/fhops P44 (parent #380, child
+      #381, PR #383, CI green). Adds the shared `salvage.decay.v1` contract, the published
+      Prestemon & Holmes (2008) mixed-conifer fire-killed retention curve, the
+      Barrette et al. (2015) product windows, and `fhops report
+      salvage-shelf-life`. The curve is a US Pacific Northwest reference, not a
+      BC-specific, species-specific, or roadside-storage operational curve.
+      Storage-specific and species/product curves, grade/value loss, a ws4
+      consumer, and OPS-03 scheduling remain follow-on. See
+      notes/19-carb03-salvage-decay.md.
+  - id: CARB-04
+    title: "Soil carbon and site-productivity layer"
+    workstream: CARB
+    status: deferred
+    wave: 0
+    sources:
+      - ref: "IRSS soil carbon mapping publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+    what: >-
+      Ingest soil organic carbon and clay maps as site descriptors for productivity
+      and carbon modelling.
+    fresh_targets: [femic]
+    integration: data-contract
+    gap: >-
+      Soil carbon is not represented; site productivity relies on inventory and BEC.
+    inputs: "Soil carbon rasters; clay fraction; DEM; plot data."
+    dependencies: [DEC-04]
+    effort: M
+    impact: 2
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Ingest the layer as a read-only fragment attribute and defer dynamic modelling.
+    risks: >-
+      Map accuracy; scale mismatch; dynamic soil carbon is a research programme, not a
+      quick integration.
+  - id: BIO-01
+    title: "Dynamic Habitat Indices as biodiversity layers"
+    workstream: BIO
+    status: complete
+    wave: 1
+    sources:
+      - ref: "IRSS biodiversity research and Dynamic Habitat Indices"
+        url: "https://irsslab.forestry.ubc.ca/research/biodiversity/"
+      - ref: "Coops et al. DHI publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+    what: >-
+      Ingest annual Dynamic Habitat Indices and expose them as landscape accounts or
+      constraints in ws4/ws3.
+    fresh_targets: [ws4, ws3]
+    integration: data-contract
+    gap: >-
+      There is no biodiversity layer or account; habitat is outside the estate model.
+    inputs: "DHI rasters; land cover; AOI polygons."
+    dependencies: []
+    effort: S
+    impact: 4
+    readiness: 5
+    risk: 1
+    first_step: >-
+      Ingest one DHI product and report its trajectory under two existing ws4
+      schedules.
+    risks: >-
+      DHI is a coarse productivity surrogate; scale mismatch; not a species-specific
+      habitat model.
+    resolution: >-
+      Implemented in UBC-FRESH/ws4#376, child of P54 (#375); PR #463 adds the
+      DHI ingest, account, report block, and web layer.
+
+  - id: BIO-02
+    title: "Forest structure habitat index from ALS"
+    workstream: BIO
+    status: complete
+    wave: 1
+    sources:
+      - ref: "IRSS forest structure habitat index publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+      - ref: "Silva21 OB 5b, Metrics for silvicultural prescription: composition and structure"
+        url: "https://www.silva21.com/projects/metrics-for-silvicultural-prescription%3A-composition-and-structure"
+    what: >-
+      Implement a structural habitat index from ALS metrics and report it as a
+      stand- and landscape-level account.
+    fresh_targets: [ws4]
+    integration: algorithm
+    gap: >-
+      Habitat is not linked to the structural attributes that forest management
+      actually changes.
+    inputs: "ALS metrics; species; habitat weights; validation data."
+    dependencies: []
+    effort: M
+    impact: 4
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Implement the published index on one ALS-covered landscape and compare with DHI.
+    risks: >-
+      Index validity; weight selection; structural metrics not available everywhere.
+    resolution: >-
+      Implemented in UBC-FRESH/ws4#377, child of P54 (#375); PR #471 adds the
+      exact Coops et al. (2016) index, coverage diagnostics, accounts, report,
+      and DHI comparison. The real TFL 6 bundle reports missing exact metrics.
+
+  - id: BIO-03
+    title: "Species distribution modelling pipeline"
+    workstream: BIO
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "IRSS biodiversity and species distribution research"
+        url: "https://irsslab.forestry.ubc.ca/research/biodiversity/"
+      - ref: "de Liz et al. 2026, Fine-scale sugar maple habitat suitability"
+        url: "https://doi.org/10.1093/forestry/cpag054"
+    what: >-
+      Add a lightweight SDM pipeline to Nemora that combines climate, terrain, and
+      remotely sensed predictors for species and habitat suitability.
+    fresh_targets: [nemora, ws4]
+    integration: algorithm
+    gap: >-
+      Species suitability is external and ad hoc; there is no reproducible SDM workflow
+      in the ecosystem.
+    inputs: "Occurrence data; climate; terrain; RS predictors; validation folds."
+    dependencies: [GRO-01, DATA-05]
+    effort: L
+    impact: 3
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Prototype one SDM with open occurrence data and publish a reproducible example.
+    risks: >-
+      Occurrence bias; extrapolation; overfitting; ecological interpretation.
+  - id: BIO-04
+    title: "Stream and riparian habitat metrics from ALS"
+    workstream: BIO
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Kuiper et al. 2022, Stream morphological features from ALS"
+        url: "https://doi.org/10.1016/j.rse.2022.112948"
+    what: >-
+      Extend FEMIC's D8 stream-candidate layer with ALS-derived stream morphology
+      and riparian metrics (bankfull width, depth, shade, valley confinement) for
+      buffers, aquatic habitat, and operations constraints.
+    fresh_targets: [ws4, fhops]
+    integration: algorithm
+    gap: >-
+      FEMIC has terrain-derived stream candidates, but they are a screening aid, not
+      a morphology or habitat layer. ws4 and FHOPS still use coarse riparian buffers.
+    inputs: "ALS point clouds; FEMIC stream candidates; stream network; field validation."
+    dependencies: [INV-09, DEC-04]
+    effort: M
+    impact: 3
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Derive morphology metrics for one watershed on top of the existing stream
+      candidates and compare with field or regional data.
+    risks: >-
+      Stream detection under canopy; bankfull width ambiguity; regulatory acceptance.
+  - id: BIO-05
+    title: "Lichen volume and caribou forage"
+    workstream: BIO
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Beaulieu et al. 2026, Annual lichen volume for woodland caribou"
+        url: "https://doi.org/10.1016/j.jag.2026.105444"
+    what: >-
+      Ingest a lichen-volume model and use it as a caribou forage layer in habitat
+      accounts and scenario constraints.
+    fresh_targets: [ws4]
+    integration: data-contract
+    gap: >-
+      Caribou habitat is binary or expert-delineated; forage quantity and trend are
+      not represented.
+    inputs: "Lichen volume model; Landsat time series; caribou ranges; field plots."
+    dependencies: [BIO-01, DIS-01]
+    effort: M
+    impact: 3
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Ingest one lichen layer and report its trend under a harvest scenario.
+    risks: >-
+      Model uncertainty; scale; caribou-habitat causal links.
+  - id: OPS-01
+    title: "Commercial thinning prioritization from drone LiDAR"
+    workstream: OPS
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Irwin et al. 2024, Prioritizing commercial thinning with high-density drone laser scanning"
+        url: "https://doi.org/10.1093/forestry/cpae030"
+      - ref: "Irwin et al. 2026, Framework for commercial thinning assessment"
+        url: "https://doi.org/10.1016/j.foreco.2026.124029"
+      - ref: "Silva21 OB 2, Advanced RS from free-to-grow to thinning"
+        url: "https://www.silva21.com/projects/advanced-rs%3A-free-to-grow-to-thinning-stage"
+      - ref: "FEMIC Phase 109, CT diameter response and log-grade value/cost accounts"
+        url: "https://github.com/UBC-FRESH/femic"
+    what: >-
+      Generate thinning priority and prescription inputs from drone LiDAR (competition,
+      height, density) and feed them to FHOPS treatment scheduling and FEMIC's existing
+      CT diameter-response lane.
+    fresh_targets: [fhops, femic]
+    integration: algorithm
+    gap: >-
+      FHOPS schedules treatments from block-level assumptions; FEMIC P109 models CT
+      diameter response at AU/bucket level; neither sees within-stand competition or
+      can prioritize where thinning will pay.
+    inputs: "Drone LiDAR; tree metrics; treatment costs; stand boundaries."
+    dependencies: [INV-02, INV-07]
+    effort: M
+    impact: 4
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Build a `thinning_priority` input table and a prescription generator for one
+      pilot stand.
+    risks: >-
+      Drone coverage cost; prescription rules vary by jurisdiction; treatment response
+      uncertainty.
+  - id: OPS-02
+    title: "Fuel-reduction treatment and biomass recovery planning"
+    workstream: OPS
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Arkin et al. 2021, Vertical fuel layers in tree crowns from high-density LiDAR"
+        url: "https://doi.org/10.3390/rs13224598"
+      - ref: "Liu et al. 2026, Wildfire fuel-reduction biomass for remote energy"
+        url: "https://doi.org/10.1016/j.jclepro.2026.147892"
+    what: >-
+      Plan fuel-reduction treatments and route the resulting biomass to energy or
+      fiber products, with cost and carbon accounting.
+    fresh_targets: [fhops, ws4]
+    integration: model
+    gap: >-
+      Fuel treatment is outside FHOPS; biomass recovery and utilization are not linked
+      to treatment scheduling.
+    inputs: "Fuel layers; treatment prescriptions; biomass yield; energy/fiber prices."
+    dependencies: [OPS-01, CARB-01]
+    effort: L
+    impact: 4
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Add a fuel-treatment scenario and a biomass product to FHOPS for one wildland-
+      urban-interface pilot.
+    risks: >-
+      Fuel-model uncertainty; biomass market thinness; treatment effectiveness.
+  - id: OPS-03
+    title: "Salvage harvest scheduling with shelf-life"
+    workstream: OPS
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Silva21 AD 4, Salvage harvesting of dead trees"
+        url: "https://www.silva21.com/projects/salvage-harvesting-of-dead-trees"
+      - ref: "Chagnon et al. 2022, Broad-scale wood degradation"
+        url: "https://doi.org/10.1111/gcbb.12951"
+    what: >-
+      Add a salvage scenario template that schedules dead-wood harvest under access,
+      decay, product-mix, and mill-demand constraints.
+    fresh_targets: [fhops]
+    integration: workflow
+    gap: >-
+      Salvage is a mode, not a planning workflow with urgency and value decay.
+    inputs: "Dead-wood inventory; decay curves; road access; mill demand; costs."
+    dependencies: [DIS-09, CARB-03, OPS-05]
+    effort: M
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Build one end-to-end salvage example from a burned landscape and report value
+      under two access scenarios.
+    risks: >-
+      Data on dead-wood quality; safety and regulatory constraints; market capacity.
+  - id: OPS-04
+    title: "Harvest detection and plan-versus-actual monitoring"
+    workstream: OPS
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Keay et al. 2022, Automated forest harvest detection with PlanetScope"
+        url: "https://doi.org/10.1080/07038992.2022.2154598"
+      - ref: "IRSS harvest and change detection publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+    what: >-
+      Import remotely sensed harvest polygons and compare them with FHOPS plans and
+      FEMIC harvest history to close the plan-actual loop.
+    fresh_targets: [fhops, femic]
+    integration: workflow
+    gap: >-
+      There is no feedback from what was actually harvested to the next planning cycle.
+    inputs: "PlanetScope/HLS imagery; harvest detection model; FHOPS schedules; block boundaries."
+    dependencies: [DIS-01, DEC-03]
+    effort: M
+    impact: 3
+    readiness: 3
+    risk: 3
+    first_step: >-
+      Prototype a plan-versus-actual report for one operating area.
+    risks: >-
+      Detection timing; partial harvests; attribution to operators.
+  - id: OPS-05
+    title: "Road access and status-aware scheduling"
+    workstream: OPS
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "Roussel et al. 2022, Forestry road maps from ALS"
+        url: "https://doi.org/10.1016/j.jag.2022.103020"
+      - ref: "ws4 road network and access accounts"
+        url: "https://github.com/UBC-FRESH/ws4"
+    what: >-
+      Use a shared road-status layer to constrain FHOPS access and align operational
+      scheduling with ws4 road construction and maintenance.
+    fresh_targets: [fhops, ws4]
+    integration: data-contract
+    gap: >-
+      FHOPS assumes blocks are accessible; ws4 builds roads but does not hand a
+      time-varying access status to operations.
+    inputs: "Road network; status; construction schedule; block locations."
+    dependencies: [INV-09]
+    effort: M
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Define `road.status` and add an access constraint to one FHOPS scenario.
+    risks: >-
+      Status data freshness; topology mismatch; maintenance cost assumptions.
+  - id: OPS-06
+    title: "Taper and product recovery from LiDAR and photogrammetry"
+    workstream: OPS
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Qi et al. 2022, Tree attributes from quantitative structure models"
+        url: "https://doi.org/10.1016/j.isprsjprs.2022.07.021"
+      - ref: "IRSS taper, tree volume, and terrestrial photogrammetry publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+      - ref: "FEMIC Phase 109, log-grade value/cost accounts and CT diameter response"
+        url: "https://github.com/UBC-FRESH/femic"
+    what: >-
+      Build on FEMIC P109's log-grade value/cost accounts and add taper and
+      product-recovery inputs from terrestrial or drone point clouds and quantitative
+      structure models, then feed FHOPS product mix and value assumptions.
+    fresh_targets: [fhops, femic]
+    integration: algorithm
+    gap: >-
+      FEMIC P109 exports log grades and value from BTC, but taper and within-block
+      variation are not measured. FHOPS product mix still uses block-level average
+      stem size and recovery assumptions.
+    inputs: "Terrestrial/drone point clouds; QSM; species; mill recovery rules."
+    dependencies: [INV-02, INV-07]
+    effort: L
+    impact: 3
+    readiness: 2
+    risk: 3
+    first_step: >-
+      Prototype taper curves for one species from a plot and compare the predicted
+      product mix with the FHOPS default.
+    risks: >-
+      QSM accuracy; mill-specific recovery; small sample; species coverage.
+  - id: DATA-01
+    title: "Distribution fitting and uncertainty propagation for curves"
+    workstream: DATA
+    status: complete
+    wave: 1
+    sources:
+      - ref: "Nemora fit and distributions modules"
+        url: "https://github.com/UBC-FRESH/nemora"
+      - ref: "IRSS growth and yield uncertainty publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+    what: >-
+      Fit distributions to curve residuals and parameter uncertainty, then propagate
+      them into ws4 scenarios as confidence bands or stochastic draws.
+    fresh_targets: [nemora, femic]
+    integration: algorithm
+    gap: >-
+      Curves are deterministic point estimates; reports imply a precision the
+      underlying data do not support.
+    inputs: "Curve residuals; PSP data; distribution registry; scenario sampler."
+    dependencies: []
+    effort: M
+    impact: 5
+    readiness: 5
+    risk: 1
+    first_step: >-
+      Fit a distribution to one curve family and emit a 90% band into a ws4 report.
+    risks: >-
+      Residual dependence; mis-specified distributions; users ignoring bands.
+    risks: >-
+      Residual dependence; mis-specified distributions; users ignoring bands.
+    resolution: >-
+      Created as UBC-FRESH/nemora#6, child of P5 (#7). Merged in
+      UBC-FRESH/nemora#11 as `cbf504d`; band CSV and coverage check delivered.
+
+  - id: DATA-02
+    title: "Synthetic forest and stand generator for tests and scenarios"
+    workstream: DATA
+    status: complete
+    wave: 1
+    sources:
+      - ref: "Nemora synthesis module"
+        url: "https://github.com/UBC-FRESH/nemora"
+      - ref: "IRSS LiDAR sampling and inventory research"
+        url: "https://irsslab.forestry.ubc.ca/research/lidar/"
+    what: >-
+      Generate synthetic landscapes and stem populations with known attributes for
+      testing ws4/FHOPS pipelines and exploring scenario extremes.
+    fresh_targets: [nemora, ws4]
+    integration: algorithm
+    gap: >-
+      Test fixtures are small and hand-built; edge cases and scale are hard to exercise.
+    inputs: "Tessellation and stem generators; attribute distributions; export formats."
+    dependencies: [DATA-01]
+    effort: M
+    impact: 4
+    readiness: 4
+    risk: 1
+    first_step: >-
+      Generate one synthetic landscape with known volume and run it through ws4 build
+      and simulate.
+    risks: >-
+      Synthetic realism; false confidence; maintaining fixtures.
+    resolution: Merged in UBC-FRESH/nemora #13 (`d094c01`); deterministic WS4 synthetic fixture and local build/simulate smoke test.
+  - id: DATA-03
+    title: "Measurement campaign simulation"
+    workstream: DATA
+    status: candidate
+    wave: 2
+    sources:
+      - ref: "Nemora simulation plan"
+        url: "https://github.com/UBC-FRESH/nemora"
+      - ref: "IRSS plot, LiDAR, and sampling methods"
+        url: "https://irsslab.forestry.ubc.ca/research/lidar/"
+    what: >-
+      Simulate plot, LiDAR, and transect campaigns against synthetic forests with
+      configurable error models to evaluate sampling designs and EFI accuracy.
+    fresh_targets: [nemora]
+    integration: algorithm
+    gap: >-
+      There is no way to ask how much a sampling or LiDAR design would tell us before
+      spending the money.
+    inputs: "Synthetic forest; sensor models; plot layout; error distributions."
+    dependencies: [DATA-02, INV-06]
+    effort: L
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Implement a plot-sampling simulator and reproduce a known inventory variance
+      result.
+    risks: >-
+      Error-model realism; computational cost; validation against real campaigns.
+  - id: DATA-04
+    title: "Open inventory ingest harmonization"
+    workstream: DATA
+    status: complete
+    wave: 1
+    sources:
+      - ref: "Nemora ingest modules (FAIB/FIA/HPS)"
+        url: "https://github.com/UBC-FRESH/nemora"
+      - ref: "FEMIC data preparation"
+        url: "https://github.com/UBC-FRESH/femic"
+    what: >-
+      Converge inventory ingest adapters on a shared tidy schema so FEMIC and Nemora
+      stop maintaining parallel parsers.
+    fresh_targets: [nemora, femic]
+    integration: packaging
+    gap: >-
+      FAIB/FIA/HPS parsing exists in more than one place with different assumptions.
+    inputs: "FAIB/FIA/HPS sources; shared schema; validation fixtures."
+    dependencies: []
+    effort: M
+    impact: 3
+    readiness: 5
+    risk: 1
+    first_step: >-
+      Publish the shared schema and migrate one ingest path, keeping byte-level
+      regression fixtures.
+    risks: >-
+      Upstream schema drift; licensing; breaking existing scripts.
+    resolution: Merged in UBC-FRESH/nemora #12 (`9e7ea9e`); `nemora.inventory.v1` schema and HPS migration.
+  - id: DATA-05
+    title: "Imputation and data fusion toolkit"
+    workstream: DATA
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "IRSS LiDAR imputation and GEDI publications"
+        url: "https://irsslab.forestry.ubc.ca/publications/"
+      - ref: "Nemora fit and sampling modules"
+        url: "https://github.com/UBC-FRESH/nemora"
+    what: >-
+      Add k-nearest-neighbour and model-based imputation with uncertainty for missing
+      inventory attributes and multi-source fusion.
+    fresh_targets: [nemora, femic]
+    integration: algorithm
+    gap: >-
+      Missing attributes are filled by ad hoc rules; there is no uncertainty-aware
+      imputation lane.
+    inputs: "Reference plots; auxiliary layers; distance metrics; validation folds."
+    dependencies: [DATA-01, INV-01]
+    effort: M
+    impact: 4
+    readiness: 3
+    risk: 2
+    first_step: >-
+      Implement kNN imputation for one missing attribute and report out-of-sample error.
+    risks: >-
+      Donor bias; spatial autocorrelation; extrapolation.
+  - id: DATA-06
+    title: "Uncertainty-aware optimization"
+    workstream: DATA
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "ws4 optimization and Nemora uncertainty"
+        url: "https://github.com/UBC-FRESH/ws4"
+    what: >-
+      Prototype robust or chance-constrained optimization so plans remain feasible
+      under yield, price, and disturbance uncertainty.
+    fresh_targets: [ws4]
+    integration: model
+    gap: >-
+      ws4 assumes deterministic yields and prices; a plan that is optimal on the mean
+      can be fragile.
+    inputs: "Uncertainty distributions; scenario tree; solver support."
+    dependencies: [DATA-01, GRO-03]
+    effort: L
+    impact: 5
+    readiness: 2
+    risk: 4
+    first_step: >-
+      Run a small robust reformulation on an existing instance and compare the cost of
+      robustness.
+    risks: >-
+      Solver tractability; scenario explosion; interpretation and adoption.
+  - id: DEC-01
+    title: "Scenario explorer with climate and risk layers"
+    workstream: DEC
+    status: shortlisted
+    wave: 2
+    sources:
+      - ref: "ws4 web front end"
+        url: "https://github.com/UBC-FRESH/ws4"
+      - ref: "Silva21 AN 8b, Landscape-level visualisations"
+        url: "https://www.silva21.com/projects/viability-of-climate-informed%2C-landscape-level-strategies"
+    what: >-
+      Extend the ws4 web UI, and mirror the layer contract in the queued FHOPS P12
+      web surface, with climate, disturbance, carbon, and habitat layer toggles plus
+      scenario comparison across those dimensions.
+    fresh_targets: [ws4, fhops]
+    integration: ui
+    gap: >-
+      The ws4 and FHOPS web surfaces expose the models but not the environmental
+      intelligence layers that make scenarios meaningful, and they are being built
+      separately without a shared layer contract.
+    inputs: "Map layers; scenario results; layer metadata; UI components."
+    dependencies: [GRO-01, DIS-01, CARB-01, BIO-01]
+    effort: M
+    impact: 4
+    readiness: 4
+    risk: 2
+    first_step: >-
+      Add one climate layer and one disturbance layer to the existing map, with
+      provenance popovers.
+    risks: >-
+      Layer performance; visual clutter; stale data.
+  - id: DEC-02
+    title: "Forest condition report cards"
+    workstream: DEC
+    status: complete
+    wave: 2
+    sources:
+      - ref: "Silva21 OB 3b, Early alert system"
+        url: "https://www.silva21.com/projects/early-alert-system-for-forest-management"
+    what: >-
+      Produce a periodic, stand-level report card summarizing condition, trend, and
+      alerts in a form managers can act on.
+    fresh_targets: [ws4]
+    integration: ui
+    gap: >-
+      Monitoring outputs are maps or papers, not a recurring management product.
+    inputs: "Condition indicators; baselines; alert rules; report template."
+    dependencies: [DIS-03]
+    effort: S
+    impact: 3
+    readiness: 4
+    risk: 1
+    first_step: >-
+      Design the report-card schema and generate one from a pilot dataset.
+    risks: >-
+      Indicator interpretation; alert fatigue; liability.
+    resolution: Complete. P90 added the `ws4.forest_condition.report.v1` schema and static pilot; P91 added the account-derived CLI; P92 added the read-only API; P93 added the Reports-tab view. All cards are review-required/advisory, not operational early warning.
+  - id: DEC-03
+    title: "Provenance and uncertainty communication"
+    workstream: DEC
+    status: complete
+    wave: 2
+    sources:
+      - ref: "ws4 provenance phases P32/P35"
+        url: "https://github.com/UBC-FRESH/ws4"
+      - ref: "Silva21 data management lessons (Extension Note Vol 14)"
+        url: "https://www.silva21.com/extensionnotes?lang=en"
+    what: >-
+      Turn technical provenance into user-facing badges, source links, and uncertainty
+      bands in reports and the web UI.
+    fresh_targets: [cross]
+    integration: ui
+    gap: >-
+      Provenance exists in manifests but is not legible to decision-makers.
+    inputs: "Provenance records; uncertainty estimates; report templates."
+    dependencies: [DATA-01, DEC-04]
+    effort: M
+    impact: 4
+    readiness: 4
+    risk: 1
+    first_step: >-
+      Add a provenance block and uncertainty band to one existing ws4 report.
+    risks: >-
+      Information overload; provenance gaps; false reassurance.
+    resolution: >-
+      Complete as UBC-FRESH/ws4 P108 (#734, PR #741, merge `00c0b6c`): the
+      `ws4.report.provenance.v1` sidecar records report names, bytes, and SHA-256
+      digests, source metadata and hashes, run and dataset identity, and an explicit
+      `not_stated` uncertainty status when inputs carry no uncertainty metadata. The
+      reports API exposes the sidecar and recorded digests, and the Reports tab shows
+      a provenance badge with links to the sidecar and source metadata. The earlier
+      condition-card uncertainty column and provenance block landed in P100 (#670,
+      PR #690, `d14f4ff`). Uncertainty bands beyond `not_stated` remain absent
+      because the inputs do not state them.
+  - id: DEC-04
+    title: "EFI model card and applicability metadata"
+    workstream: DEC
+    status: complete
+    wave: 1
+    sources:
+      - ref: "IRSS LiDAR and EFI research"
+        url: "https://irsslab.forestry.ubc.ca/research/lidar/"
+      - ref: "Goodbody et al. 2024, Integrating ALS into forest ecosystem management"
+        url: "https://doi.org/10.5558/tfc2024-014"
+      - ref: "FEMIC LiDAR product bundle contract"
+        url: "https://github.com/UBC-FRESH/femic"
+    what: >-
+      Publish an EFI model-card schema (training data, predictors, accuracy,
+      applicability domain, version) that travels with ALS-derived inventory
+      attributes. It complements, rather than replaces, the existing
+      `femic.lidar.product.v1` bundle manifest.
+    fresh_targets: [cross]
+    integration: data-contract
+    gap: >-
+      FEMIC's LiDAR bundle manifest describes the sensor product, not the inventory
+      model. Two EFI layers can share a sensor specification but have different
+      accuracy, training data, and applicability.
+    inputs: "Existing metadata; ABA model reports; acquisition specs; validation results."
+    dependencies: []
+    effort: S
+    impact: 4
+    readiness: 4
+    risk: 1
+    first_step: >-
+      Publish `efi.model.v1` with two model cards and validate them against FEMIC's
+      existing bundle metadata.
+    risks: >-
+      Over-specific schema; adoption; vendor metadata gaps.
+    risks: >-
+      Over-specific schema; adoption; vendor metadata gaps.
+    resolution: >-
+      Created as UBC-FRESH/femic#372, child of P116 (#369). Contract merged in
+      UBC-FRESH/femic#380 as `f833ed9`; #372 remains open for real model cards
+      and FEMIC pipeline wiring.
+
+  - id: DEC-05
+    title: "Silva21 hub validation network and data access"
+    workstream: DEC
+    status: candidate
+    wave: 3
+    sources:
+      - ref: "Silva21 data portal"
+        url: "https://www.silva21.com/dataportal?lang=en"
+      - ref: "Silva21 research sites and hubs"
+        url: "https://www.silva21.com/sitesderecherche?lang=en"
+    what: >-
+      Establish data-sharing and validation agreements for a small set of Silva21 hubs
+      so FRESH models can be tested against independent, long-term sites.
+    fresh_targets: [cross]
+    integration: validation
+    gap: >-
+      FRESH validation is concentrated in BC inventory and a few instances; there is
+      no independent multi-hub benchmark.
+    inputs: "Hub data; data-sharing agreements; validation protocol; benchmark harness."
+    dependencies: [DEC-04, DATA-02]
+    effort: L
+    impact: 5
+    readiness: 2
+    risk: 4
+    first_step: >-
+      Identify two hubs with the most relevant data and draft a one-page validation
+      protocol and data request.
+    risks: >-
+      Access restrictions; data harmonization; long lead time; partner priorities.

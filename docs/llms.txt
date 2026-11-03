@@ -1,0 +1,10 @@
+# IRSS x Silva21 Expansion Mine
+
+> Agent-facing index for the IRSS x Silva21 Expansion Mine. Read the linked pages before you change the project.
+
+## Start here
+
+- [Home](index.html): the documentation home for the project.
+- [Candidate register](register.html): how the registry is validated, ranked, and rendered.
+- [Generated register](https://github.com/UBC-FRESH/irss-expansion/blob/main/docs/candidates.md): the browsable candidate queue.
+- [API reference](api/index.html): every public function, with its parameters, types, and return values.

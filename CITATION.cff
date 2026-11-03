@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this register or its planning notes, please cite the repository."
+title: "IRSS x Silva21 Expansion Mine"
+abstract: "A public-safe planning mine of IRSS and Silva21 outputs, screened against the FRESH forest modelling stack, with a prioritised integration queue and traceable public provenance."
+authors:
+  - name: "UBC FRESH Lab"
+repository-code: "https://github.com/UBC-FRESH/irss-expansion"
+url: "https://github.com/UBC-FRESH/irss-expansion"
+license: "MIT"
+version: "0.1.0"
+date-released: "2026-11-03"
