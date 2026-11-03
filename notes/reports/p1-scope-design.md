@@ -70,9 +70,15 @@ changed scoring formula must add a numbered ADR under `notes/adr/` with status `
 
 ## 5. Scoring rubric confirmation (P1.4)
 
-The formula, effort points, and first-wave table in `notes/04-prioritization.md` were checked
-against `scripts/check_registry.py` and its current output. The review date and result are
-recorded in that note.
+- The formula `priority = (impact * readiness) / (effort_points * risk)` matches
+  `priority_score` in `scripts/check_registry.py`, including the S/M/L/XL effort map and
+  two-decimal rounding.
+- The impact, readiness, effort, and risk rubrics are unchanged, and a wave remains a dependency
+  and sequencing judgement rather than a score threshold.
+- All 13 first-wave rows match the validator output on ID, score, and effort code. The registry
+  wave counts are 2 in wave 0, 13 in wave 1, 25 in wave 2, and 22 in wave 3.
+- No candidate was re-scored and no wave changed. Readiness remains an integration judgement,
+  not an author-confirmed science claim.
 
 ## 6. Workflow compliance
 

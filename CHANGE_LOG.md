@@ -819,3 +819,20 @@ Limitations:
   or `deferred`.
 - Left the ADR template and every accepted contract-wave decision unchanged.
 - Verification: `python scripts/check_workflow.py` and `python scripts/dashboard.py` pass.
+
+## 2026-11-03
+
+### P1.4 confirm the scoring rubric
+
+- Confirmed the formula `priority = (impact * readiness) / (effort_points * risk)` against
+  `priority_score` in `scripts/check_registry.py`, including the S/M/L/XL effort map and
+  two-decimal rounding.
+- Checked all 13 rows of the first-wave table against the validator output: every ID, score, and
+  effort code matches. The registry wave counts are 2 in wave 0, 13 in wave 1, 25 in wave 2, and
+  22 in wave 3.
+- Confirmed the impact, readiness, effort, and risk rubrics and the wave logic are unchanged. A
+  wave remains a dependency and sequencing judgement, not a score threshold.
+- Kept readiness described as an integration judgement, not an author-confirmed science claim.
+- No candidate was re-scored, no wave changed, and the formula was not altered.
+- Verification: `python scripts/check_registry.py`, `python scripts/check_workflow.py`, and
+  `python scripts/dashboard.py` pass.
