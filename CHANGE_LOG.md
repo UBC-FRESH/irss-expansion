@@ -1439,6 +1439,8 @@ environment at P5.1 commit `2f013b3`.
 - Recorded the evidence and its limits in
   `notes/24-p5-clean-checkout-verification.md` and updated `ROADMAP.md` and
   `notes/README.md`.
+- Opened pull request #34 (`P5: write the release notes and verify the public
+  surfaces from a clean checkout`) with `Part of #30`, and set P5 to `pr-open`.
 - P5.3 (#33) remains `planned` and blocked on a separate maintainer approval. No
   tag, release, package-index artifact, setting, or target-repository record was
   created or changed.

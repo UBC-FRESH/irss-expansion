@@ -71,8 +71,9 @@ candidate reconciliation is in
 [`notes/22-p4-candidate-reconciliation.md`](notes/22-p4-candidate-reconciliation.md),
 and the close-out is in [`notes/reports/p4-verify.md`](notes/reports/p4-verify.md).
 
-Phase 5 (release and deploy) is active under parent issue
-[#30](https://github.com/UBC-FRESH/irss-expansion/issues/30). Tasks
+Phase 5 (release and deploy) is `pr-open` under parent issue
+[#30](https://github.com/UBC-FRESH/irss-expansion/issues/30), with pull request
+[#34](https://github.com/UBC-FRESH/irss-expansion/pull/34). Tasks
 [#31](https://github.com/UBC-FRESH/irss-expansion/issues/31) and
 [#32](https://github.com/UBC-FRESH/irss-expansion/issues/32) prepare the
 release notes and verify the public surfaces from a clean checkout on
