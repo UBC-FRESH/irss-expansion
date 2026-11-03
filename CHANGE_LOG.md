@@ -1412,3 +1412,47 @@ python scripts/dashboard.py
 The workflow validator reports 0 errors and 0 warnings; the registry is valid
 with 62 candidates; the renderer is idempotent; the full suite passes with 100%
 branch coverage of `scripts/`; the dashboard reports all six gates GREEN.
+
+## 2026-11-03
+
+### P5.2 clean-checkout verification
+
+Verified the public register and docs from a fresh clone and a fresh virtual
+environment at P5.1 commit `2f013b3`.
+
+- Cloned `https://github.com/UBC-FRESH/irss-expansion.git` outside the working
+  tree, fetched `feature/p5-release`, and checked out
+  `2f013b3e4a8504182937b0f51dab367e2718785f`. The clone showed
+  `registry/candidates.yaml`, `docs/candidates.md`, `scripts/check_workflow.py`,
+  and both workflow files.
+- Created a new virtual environment with Python 3.12.3 and installed
+  `requirements-dev.txt` from scratch (Sphinx 9.1.1, pytest 9.2.0, ruff 0.17.3,
+  mypy 2.4.1, pre-commit 4.7.0).
+- Ran the workflow validator (0 errors, 0 warnings), the registry validator (62
+  valid candidates), the renderer (idempotent, no diff), the test suite (186
+  passed, 100% branch coverage), and the dashboard (all six gates GREEN).
+- Confirmed the public Pages index, `register.html`, `candidates.md`, and
+  `llms.txt` return HTTP 200 on the deployed `main` at `c05d955`. The new
+  `releases.html` returned 404, as expected before the P5 merge and docs deploy.
+- Confirmed that `main` and `feature/p5-release` resolve to the expected commits,
+  and that no tag and no GitHub release exists.
+- Recorded the evidence and its limits in
+  `notes/24-p5-clean-checkout-verification.md` and updated `ROADMAP.md` and
+  `notes/README.md`.
+- P5.3 (#33) remains `planned` and blocked on a separate maintainer approval. No
+  tag, release, package-index artifact, setting, or target-repository record was
+  created or changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+In the clean clone: 0 errors and 0 warnings; 62 valid candidates; renderer
+idempotent; 186 passed with 100% branch coverage; all six dashboard gates GREEN.

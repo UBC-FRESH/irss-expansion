@@ -168,12 +168,12 @@ Parent issue: #30
 Branch: `feature/p5-release`
 Status: active
 Child issues: #31 P5.1, #32 P5.2, #33 P5.3
-Next step: P5.1 and P5.2 are in progress on `feature/p5-release` after the maintainer approved P5 governance and activation. P5.3 remains planned and blocked on a separate approval naming the tag `v0.1.0`, the release title, and each command. Do not create a tag or publish a release before that approval.
+Next step: P5.1 and P5.2 are complete on `feature/p5-release`. P5.1 records the release notes and known gaps in `notes/23-p5-release-notes.md`; P5.2 records the clean clone, the fresh-environment dashboard, and the public Pages statuses in `notes/24-p5-clean-checkout-verification.md`. P5.3 remains planned and blocked on a separate approval naming the tag `v0.1.0`, the release title, and each command. Do not create a tag or publish a release before that approval.
 
 Goal: publish the register and docs, then verify them from a clean checkout.
 
 - [x] P5.1 Write the release notes and the known-gaps list
-- [ ] P5.2 Verify the public register and docs from a clean checkout
+- [x] P5.2 Verify the public register and docs from a clean checkout
 - [ ] P5.3 Tag and publish (maintainer approval required)
 
 Acceptance criteria:
@@ -208,6 +208,6 @@ Acceptance criteria:
 4. Phase 2 is `complete` under parent issue #13. Pull request #18 squash-merged to `main` at `b2d4c25`; `feature/p2-contracts-prototype` was deleted, and issues #13-#17 were closed with closeout comments. The audit confirmed eleven contract-wave candidates with merged evidence and `GRO-06` as the one open candidate.
 5. Phase 3 is `complete` under parent issue #19. Pull request #24 squash-merged to `main` at `9637b46`; `feature/p3-build` was deleted, and issues #19-#23 were closed with closeout comments. The re-score is in `notes/20-p3-model-integration-rescore.md` and the handoff is `handoffs/femic-child-biomass-curves-p3.md`. The selected candidate is `GRO-06`, target `femic` P117.2 (#376). No target-repository issue, branch, or pull request was created; the handoff remains queued for a separate approval.
 6. Phase 4 is `complete` under parent issue #25. Pull request #29 squash-merged to `main` at `ee94e8e`; `feature/p4-verify` was deleted, and issues #25-#28 were closed with closeout comments. The acceptance evidence is in `notes/21-p4-acceptance-evidence.md`, the candidate reconciliation is in `notes/22-p4-candidate-reconciliation.md`, and the close-out is in `notes/reports/p4-verify.md`.
-7. Phase 5 is `active` under parent issue #30. P5.1 (#31) and P5.2 (#32) are approved on `feature/p5-release`; P5.3 (#33), the tag and publish action, remains planned and needs a separate maintainer approval naming the tag `v0.1.0`, the release title, and each command.
+7. Phase 5 is `active` under parent issue #30. P5.1 (#31) and P5.2 (#32) are complete on `feature/p5-release`; the release notes are in `notes/23-p5-release-notes.md` and the clean-checkout evidence is in `notes/24-p5-clean-checkout-verification.md`. P5.3 (#33), the tag and publish action, remains planned and needs a separate maintainer approval naming the tag `v0.1.0`, the release title, and each command.
 8. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 9. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.

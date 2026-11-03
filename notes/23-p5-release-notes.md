@@ -77,7 +77,7 @@ python -m pytest -q
 ```
 
 P5.2 records the clean-checkout result and the exact commit that it covered in
-`notes/24-p5-clean-checkout-verification.md`.
+[`24-p5-clean-checkout-verification.md`](24-p5-clean-checkout-verification.md).
 
 ## 5. Licence and citation
 
