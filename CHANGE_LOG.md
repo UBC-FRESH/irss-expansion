@@ -1239,3 +1239,37 @@ python scripts/dashboard.py
 The workflow validator reports 0 errors and 0 warnings; the registry is valid
 with 62 candidates; the renderer is idempotent; the full suite passes with 100%
 branch coverage of `scripts/`; the dashboard reports all six gates GREEN.
+
+### P4.2 reconcile completed candidates against live merged records
+
+- Added `notes/22-p4-candidate-reconciliation.md` and indexed it in
+  `notes/README.md`. It reconciles all seventeen `complete` candidates, both
+  `adopted` candidates, and the one `queued` candidate against live target
+  issues, pull requests, and merge commits.
+- Confirmed every `complete` row has a live target record. `CARB-01` is adopted
+  and merged. `CARB-03` remains adopted but unmerged: FHOPS P44 (#380), P44.1
+  (#381), and PR #383 are open, with CI green and the PR mergeable.
+- Confirmed `GRO-06` stays queued: `femic` P117 (#374) and P117.2 (#376) are
+  open, `feature/p117-efi-attributes` is at `67cba53`, and the acceptance test
+  file is still absent before implementation.
+- Recorded target drift: FHOPS P44 has no roadmap section despite the issue
+  body, and the `ws4` PR #408 title still says P57 while the issue and roadmap
+  say P58. Neither was changed from this repository.
+- Added live PR and merge-commit provenance to `DEC-02`; no status or score
+  changed. Updated the registry `audit_note` to name this reconciliation and
+  regenerated `docs/candidates.md`.
+- No candidate was re-scored or retired: the live target heads match the P3
+  snapshot, and no record contradicted a carried score or status. No target
+  issue, branch, pull request, tag, release, or setting was created or changed.
+
+Verification:
+
+```bash
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python scripts/dashboard.py
+```
+
+The registry is valid with 62 candidates; the renderer is idempotent; the
+dashboard reports all six gates GREEN.

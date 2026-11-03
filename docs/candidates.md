@@ -534,6 +534,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Resolution.** Complete. P90 added the `ws4.forest_condition.report.v1` schema and static pilot; P91 added the account-derived CLI; P92 added the read-only API; P93 added the Reports-tab view. All cards are review-required/advisory, not operational early warning.
 
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/ws4#650, #655, #659, and #662 are closed; PRs #653, #657, #661, and #669 are merged as `6aecccb`, `a0f395a`, `4ce820c`, and `5cf5444`. See notes/22-p4-candidate-reconciliation.md.
+
 **Sources.**
 
 - [Silva21 OB 3b, Early alert system](https://www.silva21.com/projects/early-alert-system-for-forest-management)

@@ -24,6 +24,7 @@
 | [`19-carb03-salvage-decay.md`](19-carb03-salvage-decay.md) | CARB-03 first slice: FHOPS P44 decay contract, sources, boundaries, and remaining work |
 | [`20-p3-model-integration-rescore.md`](20-p3-model-integration-rescore.md) | P3 re-score of the model-integration queue, the selected candidate, target confirmation, and rejected alternatives |
 | [`21-p4-acceptance-evidence.md`](21-p4-acceptance-evidence.md) | P4.1 acceptance checks, `main` CI and Docs runs, Pages check, and clean-checkout reproduction |
+| [`22-p4-candidate-reconciliation.md`](22-p4-candidate-reconciliation.md) | P4.2 reconciliation of every complete, adopted, and queued candidate against live target records |
 
 The machine-readable source is [`../registry/candidates.yaml`](../registry/candidates.yaml).
 The generated browse view is [`../docs/candidates.md`](../docs/candidates.md).
