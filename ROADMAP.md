@@ -21,7 +21,7 @@ gates, and approval rules.
 | P1 Scope and design | #7 | `feature/p1-scope-design` | complete |
 | P2 Contracts and prototype | #13 | `feature/p2-contracts-prototype` | complete |
 | P3 Build | #19 | `feature/p3-build` | complete |
-| P4 Verify | #25 | `feature/p4-verify` | planned |
+| P4 Verify | #25 | `feature/p4-verify` | active |
 | P5 Release and deploy | TBD | `feature/p5-release` | planned |
 | P6 Operate and maintain | TBD | `feature/p6-operate` | planned |
 
@@ -146,9 +146,9 @@ Acceptance criteria:
 
 Parent issue: #25
 Branch: `feature/p4-verify`
-Status: planned
+Status: active
 Child issues: #26 P4.1, #27 P4.2, #28 P4.3
-Next step: P4 governance is queued. The parent and child issues exist; activating P4, creating `feature/p4-verify`, and starting P4.1 await explicit maintainer approval. Do not implement P4 or create target-repository issues before activation.
+Next step: P4.1 is running on `feature/p4-verify`, created from `main` at `8b23206`. Run the acceptance checks, confirm the `main` CI and Docs runs and the public Pages site, and record the evidence. Target-repository checks remain read-only.
 
 Goal: show that the carried queue and its evidence meet the acceptance criteria, and record the proof.
 

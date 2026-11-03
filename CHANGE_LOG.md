@@ -1203,3 +1203,39 @@ python -m pytest -q
 The workflow validator reports 0 errors and 0 warnings; the registry is valid with 62 candidates;
 the renderer is idempotent; the dashboard reports all six gates GREEN; the full suite passes with
 100% branch coverage of `scripts/`.
+
+### P4.1 activate Phase 4 and record the acceptance evidence
+
+- Created `feature/p4-verify` from `main` at `8b23206` and set P4 to `active`
+  in `ROADMAP.md` under parent issue #25.
+- Ran the acceptance checks on the P4 working tree: workflow validator 0 errors
+  and 0 warnings; registry valid with 62 candidates; renderer idempotent; 186
+  tests pass with 100% branch coverage of `scripts/`; dashboard all six gates
+  GREEN.
+- Confirmed `main` CI run
+  [41721924289](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41721924289)
+  and Docs run
+  [41721924173](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41721924173)
+  both succeed on `8b23206`; the Docs build and deploy jobs succeed.
+- Verified the public Pages site returns HTTP 200 for the index, `register.html`,
+  `candidates.md`, and `llms.txt`.
+- Reproduced the dashboard from a clean clone of the public repository at
+  `8b23206`: all six gates GREEN.
+- Added `notes/21-p4-acceptance-evidence.md` and indexed it in `notes/README.md`.
+  Target-repository checks were read-only; no target issue, branch, pull
+  request, tag, release, or setting was created or changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid
+with 62 candidates; the renderer is idempotent; the full suite passes with 100%
+branch coverage of `scripts/`; the dashboard reports all six gates GREEN.
