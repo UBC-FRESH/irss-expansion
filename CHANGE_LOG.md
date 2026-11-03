@@ -807,3 +807,15 @@ Limitations:
 - No source was re-mined, no candidate evidence changed, and no score changed.
 - Verification: `python scripts/check_workflow.py`, `python scripts/check_registry.py`, and
   `python scripts/dashboard.py` pass.
+
+## 2026-11-03
+
+### P1.3 record the design-decision outcome
+
+- Decided that P1 produced no new design decision. The scope rule, the out-of-scope list, and the
+  scoring rubric were confirmed, not changed, so no numbered ADR was created.
+- Recorded the no-decision outcome and its reasoning in `notes/reports/p1-scope-design.md`.
+  A future boundary or formula change must add an ADR under `notes/adr/` with status `accepted`
+  or `deferred`.
+- Left the ADR template and every accepted contract-wave decision unchanged.
+- Verification: `python scripts/check_workflow.py` and `python scripts/dashboard.py` pass.
