@@ -22,6 +22,7 @@
 | [`17-p2-contract-audit.md`](17-p2-contract-audit.md) | P2 audit of the twelve contract-wave candidates against live target issues, pull requests, and merge commits |
 | [`18-plan08-prices.md`](18-plan08-prices.md) | PLAN-08 `prices.v1` readiness and the merged P114 outcome |
 | [`19-carb03-salvage-decay.md`](19-carb03-salvage-decay.md) | CARB-03 first slice: FHOPS P44 decay contract, sources, boundaries, and remaining work |
+| [`20-p3-model-integration-rescore.md`](20-p3-model-integration-rescore.md) | P3 re-score of the model-integration queue, the selected candidate, target confirmation, and rejected alternatives |
 
 The machine-readable source is [`../registry/candidates.yaml`](../registry/candidates.yaml).
 The generated browse view is [`../docs/candidates.md`](../docs/candidates.md).

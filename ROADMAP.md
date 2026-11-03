@@ -20,7 +20,7 @@ gates, and approval rules.
 | P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | complete |
 | P1 Scope and design | #7 | `feature/p1-scope-design` | complete |
 | P2 Contracts and prototype | #13 | `feature/p2-contracts-prototype` | complete |
-| P3 Build | #19 | `feature/p3-build` | planned |
+| P3 Build | #19 | `feature/p3-build` | pr-open |
 | P4 Verify | TBD | `feature/p4-verify` | planned |
 | P5 Release and deploy | TBD | `feature/p5-release` | planned |
 | P6 Operate and maintain | TBD | `feature/p6-operate` | planned |
@@ -125,16 +125,16 @@ Acceptance criteria:
 
 Parent issue: #19
 Branch: `feature/p3-build`
-Status: planned
+Status: pr-open
 Child issues: #20 P3.1, #21 P3.2, #22 P3.3, #23 P3.4
-Next step: P3 governance is queued. The parent and child issues exist; activating P3, creating `feature/p3-build`, and starting P3.1 await explicit maintainer approval. Do not implement P3 or create target-repository issues before activation.
+Next step: P3.1-P3.4 are complete and the P3 pull request is queued for maintainer review. The selected handoff is `GRO-06` to `femic` P117.2 (#376); no candidate was implemented and no target-repository issue, branch, or pull request was created.
 
 Goal: prioritise the model-integration wave and prepare bounded handoffs, one candidate at a time.
 
-- [ ] P3.1 Re-score the model-integration candidates against current evidence
-- [ ] P3.2 Select the first candidate and write its handoff issue body
-- [ ] P3.3 Confirm the target repository, phase number, and acceptance test
-- [ ] P3.4 Record the handoff decision in `CHANGE_LOG.md`
+- [x] P3.1 Re-score the model-integration candidates against current evidence
+- [x] P3.2 Select the first candidate and write its handoff issue body
+- [x] P3.3 Confirm the target repository, phase number, and acceptance test
+- [x] P3.4 Record the handoff decision in `CHANGE_LOG.md`
 
 Acceptance criteria:
 
@@ -202,6 +202,6 @@ Acceptance criteria:
 2. Child issues #2-#5 are closed with closeout comments that cite the merge commit and the gate evidence.
 3. Phase 1 is `complete` under parent issue #7. Pull request #12 squash-merged to `main` at `2b4620d`; `feature/p1-scope-design` was deleted, and issues #7-#11 were closed with closeout comments.
 4. Phase 2 is `complete` under parent issue #13. Pull request #18 squash-merged to `main` at `b2d4c25`; `feature/p2-contracts-prototype` was deleted, and issues #13-#17 were closed with closeout comments. The audit confirmed eleven contract-wave candidates with merged evidence and `GRO-06` as the one open candidate.
-5. Phase 3 is `planned` under parent issue #19, with child issues #20-#23 created and linked as sub-issues. The parent and children exist for governance only; branch creation, activation, and P3.1 await explicit maintainer approval.
+5. Phase 3 is `pr-open` under parent issue #19. P3.1-P3.4 are complete on `feature/p3-build`; the re-score is in `notes/20-p3-model-integration-rescore.md` and the handoff is `handoffs/femic-child-biomass-curves-p3.md`. The selected candidate is `GRO-06`, target `femic` P117.2 (#376). No target-repository issue, branch, or pull request was created; the P3 pull request waits for maintainer review.
 6. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 7. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.

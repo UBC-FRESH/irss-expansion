@@ -3,7 +3,7 @@ meta:
   version: "0.1"
   generated: "2026-10-25"
   last_audited: "2026-11-03"
-  audit_note: "notes/17-p2-contract-audit.md"
+  audit_note: "notes/17-p2-contract-audit.md; notes/20-p3-model-integration-rescore.md"
   scope: >-
     Candidate projects, algorithms, data products, and technologies mined from the UBC
     Integrated Remote Sensing Studio (IRSS) and the Silva21 research program, screened
@@ -348,7 +348,7 @@ candidates:
     dependencies: [DEC-04]
     effort: M
     impact: 4
-    readiness: 3
+    readiness: 4
     risk: 2
     first_step: >-
       Define `road.status` (segment_id, status, surface, passability, source, date)
@@ -456,7 +456,7 @@ candidates:
     dependencies: [GRO-01, DATA-01]
     effort: L
     impact: 5
-    readiness: 3
+    readiness: 4
     risk: 3
     first_step: >-
       Implement one published response function for one species/BEC and compare
@@ -486,7 +486,7 @@ candidates:
     dependencies: [GRO-01, DIS-01]
     effort: L
     impact: 5
-    readiness: 3
+    readiness: 4
     risk: 3
     first_step: >-
       Implement a published mortality function as a transition and validate predicted
@@ -583,10 +583,18 @@ candidates:
       the live issue.
     unresolved_dependency: >-
       Parent P117 (#374) and child #376 remain open. The candidate still needs a
-      biomass curve source and a declared carbon-fraction boundary before
-      integration.
+      published biomass curve selection and a declared carbon-fraction boundary
+      before integration; P117.1 is still active on the shared phase branch.
+    provenance: >-
+      P3 selected this candidate as the first model-integration handoff after the
+      2026-11-03 re-score. Live target confirmed: UBC-FRESH/femic P117 (#374,
+      active) and P117.2 (#376, open), branch `feature/p117-efi-attributes` at
+      `67cba53`. No implementation exists and no target issue was created or
+      edited by P3. Handoff: handoffs/femic-child-biomass-curves-p3.md.
     resolution: >-
-      Open. Tracked as UBC-FRESH/femic#376, child of P117 (#374).
+      Open. Tracked as UBC-FRESH/femic#376, child of P117 (#374). P3.2 wrote the
+      reviewed handoff body; creating or updating the target issue waits for
+      separate maintainer approval.
 
   - id: GRO-07
     title: "Tree-ring, Landsat, and ALS integration for growth decline"
@@ -1129,7 +1137,7 @@ candidates:
     dependencies: [PLAN-03, INV-09]
     effort: M
     impact: 4
-    readiness: 3
+    readiness: 2
     risk: 2
     first_step: >-
       Implement a least-cost or circuit-style connectivity metric on one ws4 dataset
@@ -1353,7 +1361,8 @@ candidates:
       Context dependence; limited species coverage; interaction with product grade.
     resolution: >-
       First bounded slice adopted in UBC-FRESH/fhops P44 (parent #380, child
-      #381, PR #383, CI green). Adds the shared `salvage.decay.v1` contract, the published
+      #381, PR #383, CI green, not merged on 2026-11-03). Adds the shared
+      `salvage.decay.v1` contract, the published
       Prestemon & Holmes (2008) mixed-conifer fire-killed retention curve, the
       Barrette et al. (2015) product windows, and `fhops report
       salvage-shelf-life`. The curve is a US Pacific Northwest reference, not a
@@ -1685,7 +1694,7 @@ candidates:
     dependencies: [INV-09]
     effort: M
     impact: 4
-    readiness: 3
+    readiness: 2
     risk: 2
     first_step: >-
       Define `road.status` and add an access constraint to one FHOPS scenario.
@@ -1882,7 +1891,7 @@ candidates:
     dependencies: [DATA-01, INV-01]
     effort: M
     impact: 4
-    readiness: 3
+    readiness: 4
     risk: 2
     first_step: >-
       Implement kNN imputation for one missing attribute and report out-of-sample error.

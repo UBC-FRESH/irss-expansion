@@ -1040,3 +1040,122 @@ python -m pytest -q
 The workflow validator reports 0 errors and 0 warnings; the registry is valid with 62 candidates;
 the renderer is idempotent; the dashboard reports all six gates GREEN; the full suite passes with
 100% branch coverage of `scripts/`.
+
+### P3.1 activate Phase 3 and re-score the model-integration queue
+
+- Created `feature/p3-build` from `main` at `e37ac5c` and set P3 to `active` in
+  `ROADMAP.md` under parent issue #19.
+- Added `notes/20-p3-model-integration-rescore.md`. It records 26 rows: the 25
+  wave-2 candidates plus `GRO-06`, the one contract-wave candidate that is
+  neither complete nor adopted.
+- Re-scored six readiness values against live evidence:
+  `INV-09` 3 -> 4, `GRO-02` 3 -> 4, `GRO-03` 3 -> 4, `PLAN-05` 3 -> 2,
+  `OPS-05` 3 -> 2, and `DATA-05` 3 -> 4. No impact, effort, risk, or wave value
+  changed. The other twenty rows are unchanged.
+- Corrected the `CARB-03` resolution to say the FHOPS P44 pull request #383 is
+  open with CI green, not merged. Added `GRO-06` provenance for the P3 handoff.
+- Recorded target drift: `OPS-01` carries wave 2 but depends on wave-3
+  `INV-02` and `INV-07`; several ws4 roadmap statuses say `pr-open` even though
+  the issues are closed and the pull requests are merged.
+- No target-repository issue, branch, pull request, or setting was created or
+  changed.
+
+Verification:
+
+```bash
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python scripts/dashboard.py
+```
+
+The registry is valid with 62 candidates; the renderer is idempotent after the
+generated register is staged; the dashboard reports all six gates GREEN.
+
+### P3.2 select GRO-06 and write the handoff issue body
+
+- Selected `GRO-06` biomass yield curves as the first model-integration
+  handoff. It has the highest carried score (5.00) among candidates that are not
+  complete, adopted, deferred, or blocked by an in-flight target phase, and it
+  is the only eligible candidate whose target phase, child issue, branch, and
+  acceptance test already exist.
+- Confirmed the target as `UBC-FRESH/femic` P117 (#374), child P117.2 (#376), on
+  `feature/p117-efi-attributes`. No implementation exists on that branch.
+- Added `handoffs/femic-child-biomass-curves-p3.md`. The body names the
+  provenance, the named consumer, the validation boundary, the limits, the
+  first step, and executable acceptance tests. It is written for the existing
+  P117.2 issue, not a new issue.
+- Recorded the rejected alternatives and the target confirmation in
+  `notes/20-p3-model-integration-rescore.md`. No target issue, branch, or pull
+  request was created or edited.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the dashboard reports
+all six gates GREEN.
+
+### P3.3 confirm the target repository, phase, and acceptance test
+
+- Confirmed `UBC-FRESH/femic` P117 (#374) as `active` and P117.2 (#376) as open
+  on branch `feature/p117-efi-attributes` at `67cba53`, with `femic` `main` at
+  `faf00af`.
+- Checked the live issues and pull requests for duplicate biomass work. The
+  only matches are the P117/P117.2 issues, P115.2, and the INV-01 high-biomass
+  calibration history; no biomass curve family exists.
+- Confirmed the acceptance command is executable in `femic`:
+  `python -m pytest tests/test_biomass_curves.py -q`. The test file is a
+  deliverable and intentionally does not exist yet.
+- Recorded the confirmation and the P117.1 active-lane drift in
+  `notes/20-p3-model-integration-rescore.md`. The phase number did not drift.
+- No target issue, branch, pull request, or setting was changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the dashboard reports
+all six gates GREEN.
+
+### P3.4 record the handoff decision and close out P3
+
+- Wrote `notes/reports/p3-build.md`. It records the selected `GRO-06` handoff,
+  target `femic` P117.2 (#376), the six re-score changes, the drift, the gate
+  evidence, and what remains unverified.
+- Updated `README.md` and `ROADMAP.md`: P3 is `pr-open`, P3.1-P3.4 are complete,
+  and the next step is maintainer review of the P3 pull request.
+- Added the P3 decision summary to this changelog. Every completion claim cites a
+  local commit or a live target record.
+- Opened pull request [#24](https://github.com/UBC-FRESH/irss-expansion/pull/24)
+  (`feature/p3-build` into `main`) with `Part of #19`. It is not merged.
+- CI run [41720689673](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41720689673)
+  passes Quality gates, Green dashboard summary, and Pre-commit parity on
+  `b224453`.
+- The handoff remains a draft. Updating `femic` #376, creating a target branch or
+  pull request, or implementing the biomass curve family still needs separate
+  maintainer approval.
+- No target-repository issue, branch, pull request, tag, release, or setting was
+  created or changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid
+with 62 candidates; the renderer is idempotent; the full suite passes with 100%
+branch coverage of `scripts/`; the dashboard reports all six gates GREEN. The
+pull request CI run is the public evidence for the report commit.

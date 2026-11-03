@@ -13,18 +13,18 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 | 1 | `CARB-03` | 2 | 6.00 | S | 3 | 4 | 2 | Wood degradation and storage value loss |
 | 2 | `CARB-01` | 1 | 5.00 | M | 5 | 4 | 2 | Carbon account v0 across ws3 and ws4 |
 | 3 | `GRO-06` | 1 | 5.00 | M | 5 | 4 | 2 | Biomass yield curves from time-series remote sensing |
-| 4 | `DEC-01` | 2 | 4.00 | M | 4 | 4 | 2 | Scenario explorer with climate and risk layers |
-| 5 | `OPS-01` | 2 | 4.00 | M | 4 | 4 | 2 | Commercial thinning prioritization from drone LiDAR |
-| 6 | `DATA-05` | 2 | 3.00 | M | 4 | 3 | 2 | Imputation and data fusion toolkit |
-| 7 | `DIS-09` | 2 | 3.00 | M | 4 | 3 | 2 | Salvage shelf-life and value-decay model |
-| 8 | `INV-09` | 2 | 3.00 | M | 4 | 3 | 2 | Road extraction and status from ALS |
+| 4 | `DATA-05` | 2 | 4.00 | M | 4 | 4 | 2 | Imputation and data fusion toolkit |
+| 5 | `DEC-01` | 2 | 4.00 | M | 4 | 4 | 2 | Scenario explorer with climate and risk layers |
+| 6 | `INV-09` | 2 | 4.00 | M | 4 | 4 | 2 | Road extraction and status from ALS |
+| 7 | `OPS-01` | 2 | 4.00 | M | 4 | 4 | 2 | Commercial thinning prioritization from drone LiDAR |
+| 8 | `DIS-09` | 2 | 3.00 | M | 4 | 3 | 2 | Salvage shelf-life and value-decay model |
 | 9 | `OPS-03` | 2 | 3.00 | M | 4 | 3 | 2 | Salvage harvest scheduling with shelf-life |
-| 10 | `OPS-05` | 2 | 3.00 | M | 4 | 3 | 2 | Road access and status-aware scheduling |
-| 11 | `PLAN-02` | 2 | 3.00 | M | 4 | 3 | 2 | Resilience-productivity trade-off portfolio |
-| 12 | `PLAN-05` | 2 | 3.00 | M | 4 | 3 | 2 | Habitat connectivity account over the road and patch network |
-| 13 | `DIS-05` | 3 | 3.00 | M | 4 | 3 | 2 | Burn severity and post-fire mortality inputs |
-| 14 | `BIO-04` | 3 | 2.25 | M | 3 | 3 | 2 | Stream and riparian habitat metrics from ALS |
-| 15 | `GRO-07` | 3 | 2.25 | M | 3 | 3 | 2 | Tree-ring, Landsat, and ALS integration for growth decline |
+| 10 | `PLAN-02` | 2 | 3.00 | M | 4 | 3 | 2 | Resilience-productivity trade-off portfolio |
+| 11 | `DIS-05` | 3 | 3.00 | M | 4 | 3 | 2 | Burn severity and post-fire mortality inputs |
+| 12 | `BIO-04` | 3 | 2.25 | M | 3 | 3 | 2 | Stream and riparian habitat metrics from ALS |
+| 13 | `GRO-07` | 3 | 2.25 | M | 3 | 3 | 2 | Tree-ring, Landsat, and ALS integration for growth decline |
+| 14 | `INV-08` | 3 | 2.25 | M | 3 | 3 | 2 | LiDAR structural change detection |
+| 15 | `GRO-02` | 2 | 2.22 | L | 5 | 4 | 3 | Climate-adjusted yield curve modifiers |
 
 ## By workstream
 
@@ -54,7 +54,7 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 | `DATA-01` | 1 | 12.50 | M | `nemora`, `femic` | Distribution fitting and uncertainty propagation for curves | Fit a distribution to one curve family and emit a 90% band into a ws4 report. |
 | `DATA-02` | 1 | 8.00 | M | `nemora`, `ws4` | Synthetic forest and stand generator for tests and scenarios | Generate one synthetic landscape with known volume and run it through ws4 build and simulate. |
 | `DATA-04` | 1 | 7.50 | M | `nemora`, `femic` | Open inventory ingest harmonization | Publish the shared schema and migrate one ingest path, keeping byte-level regression fixtures. |
-| `DATA-05` | 2 | 3.00 | M | `nemora`, `femic` | Imputation and data fusion toolkit | Implement kNN imputation for one missing attribute and report out-of-sample error. |
+| `DATA-05` | 2 | 4.00 | M | `nemora`, `femic` | Imputation and data fusion toolkit | Implement kNN imputation for one missing attribute and report out-of-sample error. |
 | `DATA-03` | 2 | 2.00 | L | `nemora` | Measurement campaign simulation | Implement a plot-sampling simulator and reproduce a known inventory variance result. |
 | `DATA-06` | 3 | 0.83 | L | `ws4` | Uncertainty-aware optimization | Run a small robust reformulation on an existing instance and compare the cost of robustness. |
 
@@ -88,8 +88,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 | --- | ---: | ---: | --- | --- | --- | --- |
 | `GRO-01` | 1 | 25.00 | S | `cross` | Climate data contract and GCM ensemble | Publish `climate.v1` with a JSON schema, a small sample for one AOI, and a reader in FEMIC or Nemora. |
 | `GRO-06` | 1 | 5.00 | M | `femic`, `ws4` | Biomass yield curves from time-series remote sensing | Add a biomass curve table and a carbon conversion report to one FEMIC instance. |
-| `GRO-02` | 2 | 1.67 | L | `femic`, `ws4` | Climate-adjusted yield curve modifiers | Implement one published response function for one species/BEC and compare scenario output against the unmodified curve. |
-| `GRO-03` | 2 | 1.67 | L | `femic`, `ws4` | Climate-sensitive mortality transitions | Implement a published mortality function as a transition and validate predicted losses against a held-out PSP set. |
+| `GRO-02` | 2 | 2.22 | L | `femic`, `ws4` | Climate-adjusted yield curve modifiers | Implement one published response function for one species/BEC and compare scenario output against the unmodified curve. |
+| `GRO-03` | 2 | 2.22 | L | `femic`, `ws4` | Climate-sensitive mortality transitions | Implement a published mortality function as a transition and validate predicted losses against a held-out PSP set. |
 | `GRO-05` | 2 | 1.50 | M | `femic` | Age-independent height-growth trajectories | Derive trajectories for a pilot and test whether they select a different curve family than the current age-based rule. |
 | `GRO-07` | 3 | 2.25 | M | `femic`, `nemora` | Tree-ring, Landsat, and ALS integration for growth decline | Define a tree-ring series schema and test it on one Silva21 hub. |
 | `GRO-08` | 3 | 1.67 | L | `femic`, `ws4` | Species suitability and assisted-migration layers | Ingest one published suitability layer for a pilot AOI and add it as a fragment attribute with provenance. |
@@ -103,8 +103,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 | `INV-06` | 1 | 15.00 | S | `nemora`, `femic` | Structurally guided sampling with sgsR | Wrap or port the sgsR sampling workflow into `nemora.sampling` with a CLI and a small worked example. |
 | `INV-04` | 1 | 4.00 | M | `femic` | Site index and potential height from ALS | Add an optional `si_als` field with provenance and backtest it against the current TSA 48 or K3Z SI assignment, using the ws4 P48/P49 ground-plot validation surfaces where they apply. |
 | `INV-05` | 2 | 4.00 | M | `femic`, `ws4` | Species composition and mixedwood fraction layers | Define a species-fraction schema and ingest one public Canada-wide layer into a pilot FEMIC instance. |
+| `INV-09` | 2 | 4.00 | M | `ws4`, `fhops` | Road extraction and status from ALS | Define `road.status` (segment_id, status, surface, passability, source, date) and import one ALS-derived centerline set into ws4. |
 | `INV-01` | 2 | 3.33 | M | `femic`, `nemora` | ALS area-based inventory imputation contract | Define an `inventory.als` model-card table (fragment_id, attribute, value, model_id, rmse) and a reader that applies a fitted ABA model to one FEMIC LiDAR bundle; use the ws4 P48/P49 plot reconciliation as the validation lane. |
-| `INV-09` | 2 | 3.00 | M | `ws4`, `fhops` | Road extraction and status from ALS | Define `road.status` (segment_id, status, surface, passability, source, date) and import one ALS-derived centerline set into ws4. |
 | `INV-08` | 3 | 2.25 | M | `femic`, `ws4` | LiDAR structural change detection | Run the polar change-vector method on one two-epoch pilot and compare with HLS NSR detections. |
 | `INV-10` | 3 | 1.50 | M | `femic`, `ws4` | Genetic gain and seedlot performance from ALS | Reproduce a published breeding-value or gain estimate on one trial and compare it with the default TIPSY gain assumption. |
 | `INV-03` | 3 | 1.33 | L | `femic`, `ws4` | Multi-temporal ALS harmonization and periodic annual increment | Run a two-epoch pilot in one TSA and compare height increment with VDYP/TIPSY predictions at the same locations. |
@@ -117,7 +117,7 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 | --- | ---: | ---: | --- | --- | --- | --- |
 | `OPS-01` | 2 | 4.00 | M | `fhops`, `femic` | Commercial thinning prioritization from drone LiDAR | Build a `thinning_priority` input table and a prescription generator for one pilot stand. |
 | `OPS-03` | 2 | 3.00 | M | `fhops` | Salvage harvest scheduling with shelf-life | Build one end-to-end salvage example from a burned landscape and report value under two access scenarios. |
-| `OPS-05` | 2 | 3.00 | M | `fhops`, `ws4` | Road access and status-aware scheduling | Define `road.status` and add an access constraint to one FHOPS scenario. |
+| `OPS-05` | 2 | 2.00 | M | `fhops`, `ws4` | Road access and status-aware scheduling | Define `road.status` and add an access constraint to one FHOPS scenario. |
 | `OPS-04` | 3 | 1.50 | M | `fhops`, `femic` | Harvest detection and plan-versus-actual monitoring | Prototype a plan-versus-actual report for one operating area. |
 | `OPS-02` | 3 | 1.33 | L | `fhops`, `ws4` | Fuel-reduction treatment and biomass recovery planning | Add a fuel-treatment scenario and a biomass product to FHOPS for one wildland- urban-interface pilot. |
 | `OPS-06` | 3 | 0.67 | L | `fhops`, `femic` | Taper and product recovery from LiDAR and photogrammetry | Prototype taper curves for one species from a plot and compare the predicted product mix with the FHOPS default. |
@@ -131,7 +131,7 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 | `PLAN-07` | 2 | 6.00 | M | `ws4` | Scenario storytelling and visualisation | Design a one-page scenario storyboard template and generate it from an existing run. |
 | `PLAN-08` | 2 | 6.00 | S | `ws4`, `fhops` | Market and policy shock scenarios | Add a `prices.v1` table and a small set of named price paths to one ws4/FHOPS scenario. |
 | `PLAN-02` | 2 | 3.00 | M | `ws4` | Resilience-productivity trade-off portfolio | Define three archetype strategies (productivity, resilience, balanced) and run them through the existing portfolio search. |
-| `PLAN-05` | 2 | 3.00 | M | `ws4` | Habitat connectivity account over the road and patch network | Implement a least-cost or circuit-style connectivity metric on one ws4 dataset and compare two road strategies. |
+| `PLAN-05` | 2 | 2.00 | M | `ws4` | Habitat connectivity account over the road and patch network | Implement a least-cost or circuit-style connectivity metric on one ws4 dataset and compare two road strategies. |
 | `PLAN-01` | 2 | 1.67 | L | `ws4`, `ws3` | Risk-aware forest estate planning | Add a scenario-level expected-loss report before adding it to the objective, so the risk signal can be inspected without changing optimisation. |
 | `PLAN-04` | 3 | 1.33 | L | `ws4` | Caribou habitat and dynamic mitigation | Ingest one lichen/habitat layer and add a habitat account before adding a constraint. |
 
@@ -320,7 +320,7 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Risks.** Context dependence; limited species coverage; interaction with product grade.
 
-**Resolution.** First bounded slice adopted in UBC-FRESH/fhops P44 (parent #380, child #381, PR #383, CI green). Adds the shared `salvage.decay.v1` contract, the published Prestemon & Holmes (2008) mixed-conifer fire-killed retention curve, the Barrette et al. (2015) product windows, and `fhops report salvage-shelf-life`. The curve is a US Pacific Northwest reference, not a BC-specific, species-specific, or roadside-storage operational curve. Storage-specific and species/product curves, grade/value loss, a ws4 consumer, and OPS-03 scheduling remain follow-on. See notes/19-carb03-salvage-decay.md.
+**Resolution.** First bounded slice adopted in UBC-FRESH/fhops P44 (parent #380, child #381, PR #383, CI green, not merged on 2026-11-03). Adds the shared `salvage.decay.v1` contract, the published Prestemon & Holmes (2008) mixed-conifer fire-killed retention curve, the Barrette et al. (2015) product windows, and `fhops report salvage-shelf-life`. The curve is a US Pacific Northwest reference, not a BC-specific, species-specific, or roadside-storage operational curve. Storage-specific and species/product curves, grade/value loss, a ws4 consumer, and OPS-03 scheduling remain follow-on. See notes/19-carb03-salvage-decay.md.
 
 **Sources.**
 
@@ -456,8 +456,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 - **Status / wave:** shortlisted / 2
 - **FRESH targets:** `nemora`, `femic`
 - **Integration:** algorithm
-- **Effort / impact / readiness / risk:** M / 4 / 3 / 2
-- **Screening score:** 3.00
+- **Effort / impact / readiness / risk:** M / 4 / 4 / 2
+- **Screening score:** 4.00
 
 **What.** Add k-nearest-neighbour and model-based imputation with uncertainty for missing inventory attributes and multi-source fusion.
 
@@ -858,8 +858,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 - **Status / wave:** shortlisted / 2
 - **FRESH targets:** `femic`, `ws4`
 - **Integration:** model
-- **Effort / impact / readiness / risk:** L / 5 / 3 / 3
-- **Screening score:** 1.67
+- **Effort / impact / readiness / risk:** L / 5 / 4 / 3
+- **Screening score:** 2.22
 
 **What.** Implement a modifier API that adjusts VDYP/TIPSY-style yield curves for climate covariates while preserving the original curve and recording the modifier version.
 
@@ -881,8 +881,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 - **Status / wave:** shortlisted / 2
 - **FRESH targets:** `femic`, `ws4`
 - **Integration:** model
-- **Effort / impact / readiness / risk:** L / 5 / 3 / 3
-- **Screening score:** 1.67
+- **Effort / impact / readiness / risk:** L / 5 / 4 / 3
+- **Screening score:** 2.22
 
 **What.** Add annual or periodic stand-level mortality probability as a model transition, driven by climate, age, density, and disturbance history.
 
@@ -956,11 +956,13 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Risks.** Species-specific allometry; belowground omission; curve vintage.
 
-**Resolution.** Open. Tracked as UBC-FRESH/femic#376, child of P117 (#374).
+**Resolution.** Open. Tracked as UBC-FRESH/femic#376, child of P117 (#374). P3.2 wrote the reviewed handoff body; creating or updating the target issue waits for separate maintainer approval.
+
+**Provenance.** P3 selected this candidate as the first model-integration handoff after the 2026-11-03 re-score. Live target confirmed: UBC-FRESH/femic P117 (#374, active) and P117.2 (#376, open), branch `feature/p117-efi-attributes` at `67cba53`. No implementation exists and no target issue was created or edited by P3. Handoff: handoffs/femic-child-biomass-curves-p3.md.
 
 **Owner.** UBC-FRESH/femic P117 (#374); no individual GitHub assignee is recorded on the live issue.
 
-**Unresolved dependency.** Parent P117 (#374) and child #376 remain open. The candidate still needs a biomass curve source and a declared carbon-fraction boundary before integration.
+**Unresolved dependency.** Parent P117 (#374) and child #376 remain open. The candidate still needs a published biomass curve selection and a declared carbon-fraction boundary before integration; P117.1 is still active on the shared phase branch.
 
 **Sources.**
 
@@ -1230,8 +1232,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 - **Status / wave:** shortlisted / 2
 - **FRESH targets:** `ws4`, `fhops`
 - **Integration:** data-contract
-- **Effort / impact / readiness / risk:** M / 4 / 3 / 2
-- **Screening score:** 3.00
+- **Effort / impact / readiness / risk:** M / 4 / 4 / 2
+- **Screening score:** 4.00
 
 **What.** Derive or refresh road centerlines, surface condition, and access status from ALS, and feed a shared road-status layer to ws4 and FHOPS.
 
@@ -1365,8 +1367,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 - **Status / wave:** shortlisted / 2
 - **FRESH targets:** `fhops`, `ws4`
 - **Integration:** data-contract
-- **Effort / impact / readiness / risk:** M / 4 / 3 / 2
-- **Screening score:** 3.00
+- **Effort / impact / readiness / risk:** M / 4 / 2 / 2
+- **Screening score:** 2.00
 
 **What.** Use a shared road-status layer to constrain FHOPS access and align operational scheduling with ws4 road construction and maintenance.
 
@@ -1503,8 +1505,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 - **Status / wave:** shortlisted / 2
 - **FRESH targets:** `ws4`
 - **Integration:** algorithm
-- **Effort / impact / readiness / risk:** M / 4 / 3 / 2
-- **Screening score:** 3.00
+- **Effort / impact / readiness / risk:** M / 4 / 2 / 2
+- **Screening score:** 2.00
 
 **What.** Compute connectivity and barrier effects from ws4's road and patch topology and report them alongside volume and cost.
 
