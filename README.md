@@ -31,12 +31,18 @@ wave, model integration, and review) are recorded in `ROADMAP.md` and
 `CHANGE_LOG.md`. Carrying that history does not create parent issues in this
 repository.
 
-Phase 1 (scope and design) is in review under parent issue
+Phase 1 (scope and design) is complete under parent issue
 [#7](https://github.com/UBC-FRESH/irss-expansion/issues/7), with tasks
 [#8](https://github.com/UBC-FRESH/irss-expansion/issues/8)-[#11](https://github.com/UBC-FRESH/irss-expansion/issues/11)
-tracked on `feature/p1-scope-design` and pull request
-[#12](https://github.com/UBC-FRESH/irss-expansion/pull/12). It confirms the
+completed on `feature/p1-scope-design` and squash-merged in pull request
+[#12](https://github.com/UBC-FRESH/irss-expansion/pull/12). It confirmed the
 carried scope and scoring decisions without re-mining the sources.
+
+Phase 2 (contracts and prototype) is planned under parent issue
+[#13](https://github.com/UBC-FRESH/irss-expansion/issues/13), with tasks
+[#14](https://github.com/UBC-FRESH/irss-expansion/issues/14)-[#17](https://github.com/UBC-FRESH/irss-expansion/issues/17)
+queued for activation on `feature/p2-contracts-prototype`. The issues exist; the
+branch and P2 work wait for maintainer approval.
 
 ## How this project works
 
@@ -272,13 +278,13 @@ operational early warning. A real condition source and `DIS-03` alerting remain
 out of scope; see `notes/15-dec02-readiness.md` and
 `notes/16-dis03-readiness.md`.
 
-Phase 0 is complete and merged. Phase 1 (scope and design) is complete and
-queued in pull request #12: it confirmed the scope rule and out-of-scope list,
+Phase 0 and Phase 1 are complete and merged. Phase 1 squash-merged in pull
+request #12 at `2b4620d`: it confirmed the scope rule and out-of-scope list,
 reviewed the source inventory and publication signals, recorded that no new ADR
-is required, and confirmed the scoring rubric. The next action is maintainer
-review of that pull request. Phase 2 does not start until P1 merges and its
-close-out is approved. No new candidate or target-repo issue is queued by this
-review step.
+is required, and confirmed the scoring rubric. Phase 2 (contracts and prototype)
+is planned under parent issue #13 with child issues #14-#17; its branch and work
+wait for maintainer approval. No new candidate or target-repo issue is queued by
+this close-out.
 
 ## Reading order
 

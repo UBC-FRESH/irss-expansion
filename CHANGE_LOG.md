@@ -855,3 +855,28 @@ Limitations:
 - Verification: `python scripts/dashboard.py` reports all six gates GREEN;
   `python scripts/check_workflow.py` reports 0 errors and 0 warnings; `python scripts/check_registry.py`
   reports 62 valid candidates; `python scripts/render_registry.py` produces no diff.
+
+## 2026-11-03
+
+### P1 close-out approved; Phase 1 marked complete
+
+- The maintainer approved the P1 close-out on 2026-11-03 and authorized the squash merge of pull
+  request #12, deletion of `feature/p1-scope-design`, closure of issues #7-#11, and creation of the
+  P2 governance issues.
+- Squash-merged pull request #12 to `main` at `2b4620d` (`P1: confirm scope, sources, design
+  decision, and scoring`). The branch `feature/p1-scope-design` was deleted after the merge.
+- Closed parent issue #7 and child issues #8-#11 with closeout comments that cite `2b4620d` and the
+  gate evidence.
+- `ROADMAP.md` marks P1 `complete` and records P2 parent issue #13 with child issues #14-#17.
+  `README.md` records the completed phase and the P2 activation gate.
+- Created P2 governance only: parent issue #13 (`P2: Contracts and prototype`) with child issues
+  #14 P2.1, #15 P2.2, #16 P2.3, and #17 P2.4, each linked as a sub-issue and labelled `task`.
+  P2 remains `planned`; no P2 branch, commit, or implementation exists.
+- Verification on the merged `main` with the close-out edits: `python scripts/check_workflow.py`
+  reports 0 errors and 0 warnings; `python scripts/dashboard.py` reports all six gates GREEN with
+  `OVERALL: GREEN`; `python scripts/check_registry.py` reports a valid registry with 62 candidates;
+  `python scripts/render_registry.py` produces no diff.
+- CI run 41710569721 and Docs run 41710569637 pass on `main` at `2b4620d`; the Pages site
+  `https://ubc-fresh.github.io/irss-expansion/` returns HTTP 200.
+- No new ADR, no candidate was re-scored, no source was re-mined, and no target-repository issue,
+  branch, or pull request was created.

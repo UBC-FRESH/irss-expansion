@@ -18,8 +18,8 @@ gates, and approval rules.
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
 | P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | complete |
-| P1 Scope and design | #7 | `feature/p1-scope-design` | pr-open |
-| P2 Contracts and prototype | TBD | `feature/p2-contracts-prototype` | planned |
+| P1 Scope and design | #7 | `feature/p1-scope-design` | complete |
+| P2 Contracts and prototype | #13 | `feature/p2-contracts-prototype` | planned |
 | P3 Build | TBD | `feature/p3-build` | planned |
 | P4 Verify | TBD | `feature/p4-verify` | planned |
 | P5 Release and deploy | TBD | `feature/p5-release` | planned |
@@ -83,9 +83,9 @@ Acceptance criteria:
 
 Parent issue: #7
 Branch: `feature/p1-scope-design`
-Status: pr-open
+Status: complete
 Child issues: #8 P1.1, #9 P1.2, #10 P1.3, #11 P1.4
-Next step: P1.1-P1.4 are complete; pull request #12 is queued for maintainer approval. Do not merge until the phase close-out is approved.
+Next step: Complete. P1.1-P1.4 passed close-out and pull request #12 squash-merged to `main` at `2b4620d` with maintainer approval.
 
 Goal: confirm the question, the users, the scope rule, and the out-of-scope items that the source draft established.
 
@@ -102,9 +102,11 @@ Acceptance criteria:
 
 ## Phase 2: Contracts and prototype
 
-Parent issue: TBD
+Parent issue: #13
 Branch: `feature/p2-contracts-prototype`
 Status: planned
+Child issues: #14 P2.1, #15 P2.2, #16 P2.3, #17 P2.4
+Next step: P2 governance is queued. The parent and child issues exist; activating P2 and creating `feature/p2-contracts-prototype` from the merged `main` await maintainer approval. Do not implement P2 before activation.
 
 Goal: keep the shared contracts and their evidence in step with the target repositories, without creating parallel work.
 
@@ -196,6 +198,7 @@ Acceptance criteria:
 
 1. Phase 0 is complete under parent issue #1. P0.1-P0.4 were carried on `feature/p0-bootstrap` and squash-merged in pull request #6 with maintainer approval.
 2. Child issues #2-#5 are closed with closeout comments that cite the merge commit and the gate evidence.
-3. Phase 1 is `pr-open` under parent issue #7. `feature/p1-scope-design` was created from the merged `main` at `aacd102`; pull request #12 is queued for maintainer approval.
-4. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
-5. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.
+3. Phase 1 is `complete` under parent issue #7. Pull request #12 squash-merged to `main` at `2b4620d`; `feature/p1-scope-design` was deleted, and issues #7-#11 were closed with closeout comments.
+4. Phase 2 is `planned` under parent issue #13, with child issues #14-#17 created and linked as sub-issues. The parent and children exist; branch creation and phase activation await maintainer approval.
+5. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
+6. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.

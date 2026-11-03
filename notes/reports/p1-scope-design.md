@@ -6,7 +6,7 @@ Pull request: #12, `feature/p1-scope-design` into `main`
 Evidence head: `320809e` (P1.4), the head that the gates in section 7 cover
 Report commit: the commit that adds this report. Its CI run is posted on the pull request.
 Date: 2026-11-03
-Status: queued for approval. Not merged.
+Status: approved by the maintainer on 2026-11-03; squash-merged to `main` as `2b4620d`.
 
 ## Recommendation
 
@@ -88,8 +88,8 @@ changed scoring formula must add a numbered ADR under `notes/adr/` with status `
   `320809e` P1.4.
 - Roadmap and changelog in step: each task updates `CHANGE_LOG.md`; the roadmap status is
   updated when the phase activates and when the pull request opens.
-- Child issues closed with closeout evidence: pending the merge; progress comments cite each
-  task commit, the gate result, and pull request #12.
+- Child issues closed with closeout evidence: issues #7-#11 are closed with comments that cite
+  each task commit, the gate result, pull request #12, and the merge commit `2b4620d`.
 - Approval gates: no target-repository issue, branch, or pull request was created; no candidate
   was queued; no tag, release, visibility change, or settings change was made.
 
@@ -121,10 +121,20 @@ changed scoring formula must add a numbered ADR under `notes/adr/` with status `
 P2 Contracts and prototype remains `planned`. After the P1 merge and close-out approval:
 
 - Create `feature/p2-contracts-prototype` from the merged `main`.
-- Activate P2 under its parent issue and create its child issues.
+- Activate P2 under parent issue #13 and start P2.1.
 - Audit the contract-wave records against the live target repositories.
+
+P2 parent issue #13 and child issues #14-#17 now exist. P2 remains `planned`; activation and branch creation await maintainer approval.
 
 ## 11. Decision
 
-- [ ] Approve as written.
+- [x] Approve as written.
 - [ ] Approve with the changes stated here: <changes>.
+
+## 12. Close-out record
+
+- Pull request #12 squash-merged to `main` at `2b4620d` on 2026-11-03.
+- `feature/p1-scope-design` was deleted after the merge.
+- Issues #7-#11 were closed with closeout comments citing `2b4620d`.
+- `main` CI run 41710569721 and Docs run 41710569637 pass on `2b4620d`; the Pages site returns HTTP 200.
+- P2 governance was created as parent issue #13 and child issues #14-#17. P2 remains `planned`; no P2 branch or implementation exists.
