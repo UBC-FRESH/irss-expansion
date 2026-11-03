@@ -19,7 +19,7 @@ gates, and approval rules.
 | --- | --- | --- | --- |
 | P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | complete |
 | P1 Scope and design | #7 | `feature/p1-scope-design` | complete |
-| P2 Contracts and prototype | #13 | `feature/p2-contracts-prototype` | planned |
+| P2 Contracts and prototype | #13 | `feature/p2-contracts-prototype` | active |
 | P3 Build | TBD | `feature/p3-build` | planned |
 | P4 Verify | TBD | `feature/p4-verify` | planned |
 | P5 Release and deploy | TBD | `feature/p5-release` | planned |
@@ -104,13 +104,13 @@ Acceptance criteria:
 
 Parent issue: #13
 Branch: `feature/p2-contracts-prototype`
-Status: planned
+Status: active
 Child issues: #14 P2.1, #15 P2.2, #16 P2.3, #17 P2.4
-Next step: P2 governance is queued. The parent and child issues exist; activating P2 and creating `feature/p2-contracts-prototype` from the merged `main` await maintainer approval. Do not implement P2 before activation.
+Next step: Audit the twelve contract-wave candidates against the live target repositories, then add the resolution and provenance metadata that the evidence supports. Do not create target-repository issues, branches, or pull requests.
 
 Goal: keep the shared contracts and their evidence in step with the target repositories, without creating parallel work.
 
-- [ ] P2.1 Audit the contract-wave records against the live target repositories
+- [x] P2.1 Audit the contract-wave records against the live target repositories
 - [ ] P2.2 Confirm every accepted candidate has a resolution link and a provenance record
 - [ ] P2.3 Regenerate the register after any registry change
 - [ ] P2.4 Record the audit result in `CHANGE_LOG.md`
@@ -199,6 +199,6 @@ Acceptance criteria:
 1. Phase 0 is complete under parent issue #1. P0.1-P0.4 were carried on `feature/p0-bootstrap` and squash-merged in pull request #6 with maintainer approval.
 2. Child issues #2-#5 are closed with closeout comments that cite the merge commit and the gate evidence.
 3. Phase 1 is `complete` under parent issue #7. Pull request #12 squash-merged to `main` at `2b4620d`; `feature/p1-scope-design` was deleted, and issues #7-#11 were closed with closeout comments.
-4. Phase 2 is `planned` under parent issue #13, with child issues #14-#17 created and linked as sub-issues. The parent and children exist; branch creation and phase activation await maintainer approval.
+4. Phase 2 is `active` under parent issue #13, with child issues #14-#17 created and linked as sub-issues. The branch `feature/p2-contracts-prototype` was created from the merged `main` at `d991dea`; P2.1 audits the twelve contract-wave candidates against the live target repositories.
 5. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 6. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.

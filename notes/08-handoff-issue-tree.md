@@ -54,14 +54,14 @@ Parent: [#375](https://github.com/UBC-FRESH/ws4/issues/375)
 
 P54 is used because P53 was taken by a release-preparation phase while this
 handoff was in progress. Carbon is **not** in this parent; it is owned by FEMIC
-P115 and ws4 P51.
+P115 and ws4 P58.
 
 ## Carbon is adopted, not queued
 
 `CARB-01` is covered by:
 
 - `UBC-FRESH/femic` [#361 P115: Forest carbon domain](https://github.com/UBC-FRESH/femic/issues/361)
-- `UBC-FRESH/ws4` [#357 P51: Forest carbon accounting](https://github.com/UBC-FRESH/ws4/issues/357)
+- `UBC-FRESH/ws4` [#357 P58: Forest carbon accounting](https://github.com/UBC-FRESH/ws4/issues/357)
 
 The carbon drafts are in `handoffs/superseded/`. Do not create a parallel
 carbon contract. The register marks `CARB-01` as `adopted`.
@@ -88,7 +88,7 @@ carbon contract. The register marks `CARB-01` as `adopted`.
 - Do not start wave 2 before the wave-1 contracts have a merged consumer.
 - Do not copy the register into each repo. Link to it and keep one source of
   truth.
-- Do not duplicate P79, P109, P114, P115, P51, P52, or P53.
+- Do not duplicate P79, P109, P114, P115, P58, P52, or P53.
 
 ## Next action
 

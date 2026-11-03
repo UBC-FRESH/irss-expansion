@@ -38,11 +38,11 @@ completed on `feature/p1-scope-design` and squash-merged in pull request
 [#12](https://github.com/UBC-FRESH/irss-expansion/pull/12). It confirmed the
 carried scope and scoring decisions without re-mining the sources.
 
-Phase 2 (contracts and prototype) is planned under parent issue
+Phase 2 (contracts and prototype) is active under parent issue
 [#13](https://github.com/UBC-FRESH/irss-expansion/issues/13), with tasks
 [#14](https://github.com/UBC-FRESH/irss-expansion/issues/14)-[#17](https://github.com/UBC-FRESH/irss-expansion/issues/17)
-queued for activation on `feature/p2-contracts-prototype`. The issues exist; the
-branch and P2 work wait for maintainer approval.
+running on `feature/p2-contracts-prototype`. P2.1 audits the twelve contract-wave
+candidates against the live target repositories without changing them.
 
 ## How this project works
 
@@ -172,7 +172,7 @@ short, contract-shaped moves that unlock later model work.
 ### Recommended starting set
 
 `CARB-01` is already in flight under live carbon phases (FEMIC P115 and ws4
-P51), so it has moved from "recommended" to "adopted". The remaining starting
+P58), so it has moved from "recommended" to "adopted". The remaining starting
 set is four contracts plus the first quick win:
 
 1. **`GRO-01` Climate data contract and GCM ensemble.** A canonical climate
@@ -189,7 +189,7 @@ set is four contracts plus the first quick win:
    cheapest credibility win in the ecosystem.
 5. **`BIO-01` Dynamic Habitat Indices.** A public, mature biodiversity layer
    and a quick account that makes the environmental layer visible. (`CARB-01`
-   is adopted by FEMIC P115 and ws4 P51; see `notes/10-repo-state-check.md`.)
+   is adopted by FEMIC P115 and ws4 P58; see `notes/10-repo-state-check.md`.)
 
 The full first-wave table, with effort and dependencies, is in
 [`notes/05-first-wave.md`](notes/05-first-wave.md).
@@ -223,10 +223,10 @@ All wave-1 issues were created on 2026-10-25:
 
 - `femic`: **P116** [#369](https://github.com/UBC-FRESH/femic/issues/369) with
   [#370](https://github.com/UBC-FRESH/femic/issues/370) (merged as `9e16be9`),
-  [#371](https://github.com/UBC-FRESH/femic/issues/371) (open; ws4 consumer
+  [#371](https://github.com/UBC-FRESH/femic/issues/371) (closed; ws4 consumer
   merged as `5ea4a05`), and
-  [#372](https://github.com/UBC-FRESH/femic/issues/372) (contract merged
-  `f833ed9`; real cards/pipeline open); **P117**
+  [#372](https://github.com/UBC-FRESH/femic/issues/372) (closed; contract merged
+  `f833ed9`, cards and annotation merged as `69af694`); **P117**
   [#374](https://github.com/UBC-FRESH/femic/issues/374) with
   [#375](https://github.com/UBC-FRESH/femic/issues/375) and
   [#376](https://github.com/UBC-FRESH/femic/issues/376).
@@ -241,7 +241,7 @@ All wave-1 issues were created on 2026-10-25:
   [#378](https://github.com/UBC-FRESH/ws4/issues/378).
 
 `CARB-01` is **adopted** by live carbon work: `UBC-FRESH/femic` `#361` (P115)
-and `UBC-FRESH/ws4` `#357` (P51). Its drafts are in
+and `UBC-FRESH/ws4` `#357` (P58; carried as P51). Its drafts are in
 [`handoffs/superseded/`](handoffs/superseded/README.md); do not create a
 parallel carbon issue.
 

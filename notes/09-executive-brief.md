@@ -33,7 +33,7 @@ Start with **four contracts and one proof**:
 4. **Curve uncertainty** (`DATA-01`): distribution-based bands for one curve
    family, propagated into a report.
 5. **Carbon account v0** (`CARB-01`): already adopted by FEMIC P115 and ws4
-   P51; do not open a parallel carbon issue.
+   P58; do not open a parallel carbon issue.
 
 Then add the quick wins that make the layer visible: DHI biodiversity
 (`BIO-01`), structure habitat index (`BIO-02`), sgsR sampling (`INV-06`), ALS
@@ -70,7 +70,7 @@ All wave-1 issues are created (2026-10-25):
 - Nemora P5 `#7`, with `#6`, `#8`, `#9`, and `#10`.
 - ws4 P54 `#375`, with `#376`, `#377`, and `#378`.
 
-`CARB-01` is adopted by FEMIC P115 and ws4 P51. No branch, commit, or release
+`CARB-01` is adopted by FEMIC P115 and ws4 P58. No branch, commit, or release
 was created by this handoff; phase setup is the first checkbox in each parent.
 
 ## Decision requested

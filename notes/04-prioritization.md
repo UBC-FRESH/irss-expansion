@@ -103,7 +103,7 @@ The first wave is deliberately **contract-heavy**:
 | `BIO-01` | 20.00 | S | A public biodiversity layer with an immediate account |
 | `INV-06` | 15.00 | S | A reference implementation already exists |
 | `INV-04` | 4.00 | M | Improves curve selection at fragment resolution |
-| `CARB-01` | 5.00 | M | Adopted by FEMIC P115 and ws4 P51; no parallel issue |
+| `CARB-01` | 5.00 | M | Adopted by FEMIC P115 and ws4 P58; no parallel issue |
 | `GRO-06` | 5.00 | M | Biomass curves unlock carbon and habitat |
 | `PLAN-03` | 4.00 | M | Turns existing spatial accounts into a resilience story |
 | `DATA-02` | 8.00 | M | Makes testing at scale possible |

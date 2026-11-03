@@ -19,8 +19,8 @@ Checked on 2026-10-25.
 | `fhops` | **P11/P13**, log hauling, marine/barge cycles | Road access, transport | `OPS-05` is road **status/access**; it links to the hauling contract rather than replacing it |
 | `fhops` | **P12**, FHOPS web application (queued) | Scenario explorer, maps, comparison | `DEC-01` targets both ws4 and FHOPS P12 and proposes a shared layer contract |
 | `femic` | **P115**, forest carbon domain, CBM packages, GCBM export (`#361`, active) | Carbon domain, package, parity | `CARB-01` is **adopted** by P115; do not open a parallel carbon contract |
-| `ws4` | **P51**, forest carbon accounting and carbon-aware planning (`#357`, active) | Carbon runtime, accounts, targets | `CARB-01` is **adopted** by P51; the ws4 environmental-accounts parent is now habitat/resilience-only (`P54`) |
-| `ws3` | CBM linkage and avoided-fire/avoided-harvest examples | Carbon reference lane | ws3 is the reference implementation in P115/P51; no separate ws3 carbon issue |
+| `ws4` | **P58**, forest carbon accounting and carbon-aware planning (`#357`, complete) | Carbon runtime, accounts, targets | `CARB-01` is **adopted** by P58; the ws4 environmental-accounts parent is habitat/resilience-only (`P54`) |
+| `ws3` | CBM linkage and avoided-fire/avoided-harvest examples | Carbon reference lane | ws3 is the reference implementation in P115/P58; no separate ws3 carbon issue |
 | `nemora` | Phase 2 synthesis and ingest | Synthetic forests, ingest | `DATA-02`/`DATA-04` build on the existing modules, not parallel ones |
 
 ## What this means for issue creation

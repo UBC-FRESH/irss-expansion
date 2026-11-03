@@ -880,3 +880,35 @@ Limitations:
   `https://ubc-fresh.github.io/irss-expansion/` returns HTTP 200.
 - No new ADR, no candidate was re-scored, no source was re-mined, and no target-repository issue,
   branch, or pull request was created.
+
+## 2026-11-03
+
+### P2.1 activate Phase 2 and audit the contract-wave records
+
+- Created `feature/p2-contracts-prototype` from the merged `main` at `d991dea`
+  and set P2 to `active` under parent issue #13 in `ROADMAP.md` and `README.md`.
+- Added `notes/17-p2-contract-audit.md`, which audits the twelve contract-wave
+  candidates (`GRO-01`, `DIS-01`, `DEC-04`, `DATA-01`, `CARB-01`, `BIO-01`,
+  `BIO-02`, `PLAN-03`, `DATA-02`, `DATA-04`, `INV-06`, `GRO-06`) against the
+  live target issues, pull requests, and merge commits.
+- Result: eleven candidates are complete or adopted with merged evidence, and
+  `GRO-06` is open. No candidate has a missing target record.
+- Recorded six drift items, including the ws4 carbon phase label (`P51` carried,
+  live `P58`), the `DEC-04` follow-up merge (#418), the `BIO-02` real-data
+  follow-up (#484), and stale open/active wording in `README.md` and
+  `handoffs/README.md`.
+- Updated the stale carbon references from ws4 P51 to P58 in `README.md` and
+  the affected notes and handoff index. The audit note preserves the carried
+  label and the reason for the correction.
+- No target repository was changed; no candidate was re-scored or retired.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/dashboard.py
+```
+
+`check_workflow.py` reports 0 errors and 0 warnings; `check_registry.py` reports
+62 valid candidates; the dashboard reports all six gates GREEN.
