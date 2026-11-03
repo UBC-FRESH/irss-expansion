@@ -129,3 +129,12 @@ create it, and it is blocked on a separate maintainer approval.
   public planning surfaces, not target science.
 - The `releases.html` 404 is expected before the merge; it is recorded rather
   than hidden because it marks the boundary of what P5.2 can verify.
+
+## 7. Final head evidence
+
+Pull request #34 CI run
+[41729549516](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41729549516)
+passed Quality gates, Green dashboard summary, and Pre-commit parity on
+`c03dc78`. A later documentation-only commit that records this run is covered by
+the pull request CI run triggered by that commit; the substantive gates were the
+ones above, run in the clean clone and on `c03dc78`.
