@@ -836,3 +836,22 @@ Limitations:
 - No candidate was re-scored, no wave changed, and the formula was not altered.
 - Verification: `python scripts/check_registry.py`, `python scripts/check_workflow.py`, and
   `python scripts/dashboard.py` pass.
+
+## 2026-11-03
+
+### P1 scope and design complete; pull request #12 queued
+
+- Opened pull request #12 (`feature/p1-scope-design` into `main`) with `Part of #7`, and set P1
+  to `pr-open` in `ROADMAP.md` and the README status.
+- Confirmed every P1 acceptance criterion and recorded the evidence in
+  `notes/reports/p1-scope-design.md`.
+- Fixed the notes index gap so the readiness notes 15 and 16 are listed, and refreshed the
+  source-inventory and publication-signal review dates.
+- No new ADR: the scope rule, out-of-scope list, and scoring rubric were confirmed, not changed.
+- No candidate was re-scored, no source was re-mined, and no target-repository issue, branch, or
+  pull request was created.
+- The pull request is queued for maintainer approval. It is not merged, no branch was deleted,
+  and no P1 issue was closed.
+- Verification: `python scripts/dashboard.py` reports all six gates GREEN;
+  `python scripts/check_workflow.py` reports 0 errors and 0 warnings; `python scripts/check_registry.py`
+  reports 62 valid candidates; `python scripts/render_registry.py` produces no diff.

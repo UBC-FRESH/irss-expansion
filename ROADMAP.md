@@ -18,7 +18,7 @@ gates, and approval rules.
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
 | P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | complete |
-| P1 Scope and design | #7 | `feature/p1-scope-design` | active |
+| P1 Scope and design | #7 | `feature/p1-scope-design` | pr-open |
 | P2 Contracts and prototype | TBD | `feature/p2-contracts-prototype` | planned |
 | P3 Build | TBD | `feature/p3-build` | planned |
 | P4 Verify | TBD | `feature/p4-verify` | planned |
@@ -83,16 +83,16 @@ Acceptance criteria:
 
 Parent issue: #7
 Branch: `feature/p1-scope-design`
-Status: active
+Status: pr-open
 Child issues: #8 P1.1, #9 P1.2, #10 P1.3, #11 P1.4
-Next step: P1.1-P1.4 are in progress on `feature/p1-scope-design`; confirm only, do not re-mine or re-score.
+Next step: P1.1-P1.4 are complete; pull request #12 is queued for maintainer approval. Do not merge until the phase close-out is approved.
 
 Goal: confirm the question, the users, the scope rule, and the out-of-scope items that the source draft established.
 
-- [ ] P1.1 Confirm the scope rule and the out-of-scope list in `notes/06-out-of-scope.md` (#8)
-- [ ] P1.2 Review the source inventory and publication signals (#9)
-- [ ] P1.3 Record any new design decision as an ADR in `notes/adr/` (#10)
-- [ ] P1.4 Confirm the scoring rubric in `notes/04-prioritization.md` (#11)
+- [x] P1.1 Confirm the scope rule and the out-of-scope list in `notes/06-out-of-scope.md` (#8)
+- [x] P1.2 Review the source inventory and publication signals (#9)
+- [x] P1.3 Record any new design decision as an ADR in `notes/adr/` (#10)
+- [x] P1.4 Confirm the scoring rubric in `notes/04-prioritization.md` (#11)
 
 Acceptance criteria:
 
@@ -196,6 +196,6 @@ Acceptance criteria:
 
 1. Phase 0 is complete under parent issue #1. P0.1-P0.4 were carried on `feature/p0-bootstrap` and squash-merged in pull request #6 with maintainer approval.
 2. Child issues #2-#5 are closed with closeout comments that cite the merge commit and the gate evidence.
-3. Phase 1 remains `planned` until `feature/p1-scope-design` is created from the merged `main` and parent issue #7 is activated.
+3. Phase 1 is `pr-open` under parent issue #7. `feature/p1-scope-design` was created from the merged `main` at `aacd102`; pull request #12 is queued for maintainer approval.
 4. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 5. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.

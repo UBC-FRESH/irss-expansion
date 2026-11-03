@@ -2,17 +2,17 @@
 
 Phase: P1 Scope and design
 Parent issue: #7
-Pull request: not opened yet; `feature/p1-scope-design` into `main`
-Evidence head: the P1.4 commit; the pull-request head is recorded in section 4
+Pull request: #12, `feature/p1-scope-design` into `main`
+Evidence head: `320809e` (P1.4), the head that the gates in section 7 cover
 Report commit: the commit that adds this report. Its CI run is posted on the pull request.
 Date: 2026-11-03
-Status: in progress. Not merged.
+Status: queued for approval. Not merged.
 
 ## Recommendation
 
-Approve these actions after the pull request is reviewed. The agent carries them out in this order, and reads back each result.
+Approve these actions. The agent carries them out in this order, and reads back each result.
 
-1. Squash-merge the P1 pull request, and delete the branch `feature/p1-scope-design`.
+1. Squash-merge pull request #12, and delete the branch `feature/p1-scope-design`.
 2. Close parent issue #7 and child issues #8-#11 with a closeout comment that cites the merge commit.
 3. Launch P2 Contracts and prototype from the merged `main`.
 
@@ -84,11 +84,12 @@ changed scoring formula must add a numbered ADR under `notes/adr/` with status `
 
 - Parent issue before the branch: #7 and children #8-#11 were created before
   `feature/p1-scope-design`; the branch was created from the merged `main` at `aacd102`.
-- Commit messages that start with task IDs: P1.1, P1.2, P1.3, and P1.4 commits.
+- Commit messages that start with task IDs: `f9cdc7d` P1.1, `8eafb8c` P1.2, `050dfd9` P1.3,
+  `320809e` P1.4.
 - Roadmap and changelog in step: each task updates `CHANGE_LOG.md`; the roadmap status is
   updated when the phase activates and when the pull request opens.
 - Child issues closed with closeout evidence: pending the merge; progress comments cite each
-  task commit and the gate result.
+  task commit, the gate result, and pull request #12.
 - Approval gates: no target-repository issue, branch, or pull request was created; no candidate
   was queued; no tag, release, visibility change, or settings change was made.
 
@@ -96,16 +97,16 @@ changed scoring formula must add a numbered ADR under `notes/adr/` with status `
 
 | Commit | Gate run | Result |
 | --- | --- | --- |
-| P1.1 commit | `python scripts/check_workflow.py`; `python scripts/dashboard.py` | 0 errors and 0 warnings; all six gates GREEN |
-| P1.2 commit | `python scripts/check_workflow.py`; `python scripts/check_registry.py`; `python scripts/dashboard.py` | 0 errors and 0 warnings; 62 valid candidates; all six gates GREEN |
-| P1.3 commit | `python scripts/check_workflow.py`; `python scripts/dashboard.py` | 0 errors and 0 warnings; all six gates GREEN |
-| P1.4 commit | `python scripts/check_workflow.py`; `python scripts/dashboard.py` | 0 errors and 0 warnings; all six gates GREEN |
+| `f9cdc7d` P1.1 | `python scripts/check_workflow.py`; `python scripts/dashboard.py` | 0 errors and 0 warnings; all six gates GREEN |
+| `8eafb8c` P1.2 | `python scripts/check_workflow.py`; `python scripts/check_registry.py`; `python scripts/dashboard.py` | 0 errors and 0 warnings; 62 valid candidates; all six gates GREEN |
+| `050dfd9` P1.3 | `python scripts/check_workflow.py`; `python scripts/dashboard.py` | 0 errors and 0 warnings; all six gates GREEN |
+| `320809e` P1.4 | `python scripts/check_workflow.py`; `python scripts/check_registry.py`; `python scripts/dashboard.py` | 0 errors and 0 warnings; 62 valid candidates; all six gates GREEN |
 
 ## 8. CI evidence
 
 | Run ID | Head commit | Conclusion | Notes |
 | --- | --- | --- | --- |
-| pending | pull-request head | pending | The pull-request run is posted on the P1 pull request. |
+| pending | pull-request head | pending | The pull-request run is posted on pull request #12. The report commit triggers its own run, visible on the same pull request. |
 
 ## 9. Deviations
 
