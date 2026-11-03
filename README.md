@@ -20,12 +20,17 @@ prioritised queue of candidate integrations.
 
 ## Status
 
-This repository is seeded from the UBC-FRESH dev workflow. Its Phase 0
-(bootstrap and publish) is planned; `ROADMAP.md` lists the phases, and the GitHub
+Phase 0 (bootstrap and publish) is active under parent issue
+[#1](https://github.com/UBC-FRESH/irss-expansion/issues/1), with tasks
+[#2](https://github.com/UBC-FRESH/irss-expansion/issues/2)-[#5](https://github.com/UBC-FRESH/irss-expansion/issues/5)
+tracked on `feature/p0-bootstrap`. `ROADMAP.md` lists the phases, and the GitHub
 issues carry the live status. The planning content was carried over from the
 source draft, whose own programme phases (mine, contract wave, model integration,
 and review) are recorded in `ROADMAP.md` and `CHANGE_LOG.md`. Carrying that
 history does not create parent issues in this repository.
+
+Phase 1 (scope and design) remains planned until Phase 0 merges and the
+maintainer approves its close-out.
 
 ## How this project works
 
@@ -258,10 +263,13 @@ operational early warning. A real condition source and `DIS-03` alerting remain
 out of scope; see `notes/15-dec02-readiness.md` and
 `notes/16-dis03-readiness.md`.
 
-The next action in this repository is to create the Phase 0 parent issue from
-`.github/ISSUE_TEMPLATE/phase.md`, activate the phase in `ROADMAP.md`, and open
-the bootstrap tasks. The programme content itself is carried and validated; no
-new candidate or target-repo issue is queued by this publication step.
+The next action in this repository is to review and merge the Phase 0 bootstrap
+pull request. Phase 0 has carried and validated the programme content, verified
+the workflow validator and dashboard, and confirmed the public remote, the Pages
+deployment, and the documentation site. Phase 1 starts only after that merge and
+the maintainer's close-out approval; it will confirm the scope rule, the source
+inventory, the scoring rubric, and any new design decision as an ADR. No new
+candidate or target-repo issue is queued by this publication step.
 
 ## Reading order
 
