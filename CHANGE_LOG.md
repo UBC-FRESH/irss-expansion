@@ -1071,3 +1071,30 @@ python scripts/dashboard.py
 
 The registry is valid with 62 candidates; the renderer is idempotent after the
 generated register is staged; the dashboard reports all six gates GREEN.
+
+### P3.2 select GRO-06 and write the handoff issue body
+
+- Selected `GRO-06` biomass yield curves as the first model-integration
+  handoff. It has the highest carried score (5.00) among candidates that are not
+  complete, adopted, deferred, or blocked by an in-flight target phase, and it
+  is the only eligible candidate whose target phase, child issue, branch, and
+  acceptance test already exist.
+- Confirmed the target as `UBC-FRESH/femic` P117 (#374), child P117.2 (#376), on
+  `feature/p117-efi-attributes`. No implementation exists on that branch.
+- Added `handoffs/femic-child-biomass-curves-p3.md`. The body names the
+  provenance, the named consumer, the validation boundary, the limits, the
+  first step, and executable acceptance tests. It is written for the existing
+  P117.2 issue, not a new issue.
+- Recorded the rejected alternatives and the target confirmation in
+  `notes/20-p3-model-integration-rescore.md`. No target issue, branch, or pull
+  request was created or edited.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the dashboard reports
+all six gates GREEN.

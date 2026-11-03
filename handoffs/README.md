@@ -80,6 +80,21 @@ Phase numbers: FEMIC **P116** and **P117**; Nemora **P5**; ws4 **P54**. The ws4
 number is P54 because P53 was taken by a release-preparation phase while this
 handoff was in progress.
 
+## P3 selected handoff
+
+P3 selected `GRO-06` biomass yield curves as the first model-integration
+handoff. The target is `UBC-FRESH/femic` P117 (#374), child P117.2 (#376), on
+`feature/p117-efi-attributes`. The reviewed body is
+[`femic-child-biomass-curves-p3.md`](femic-child-biomass-curves-p3.md). It is
+written for the existing P117.2 issue, not a new issue, and it does not create or
+edit a target issue, branch, or pull request.
+
+The selection re-score is in
+[`../notes/20-p3-model-integration-rescore.md`](../notes/20-p3-model-integration-rescore.md).
+The earlier wave-1 draft remains at
+[`femic-child-biomass-curves.md`](femic-child-biomass-curves.md) as the
+historical issue text.
+
 ## Superseded by live carbon phases
 
 `CARB-01` is **already covered** by work created before this handoff:
