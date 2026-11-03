@@ -38,13 +38,19 @@ completed on `feature/p1-scope-design` and squash-merged in pull request
 [#12](https://github.com/UBC-FRESH/irss-expansion/pull/12). It confirmed the
 carried scope and scoring decisions without re-mining the sources.
 
-Phase 2 (contracts and prototype) is active under parent issue
+Phase 2 (contracts and prototype) is complete under parent issue
 [#13](https://github.com/UBC-FRESH/irss-expansion/issues/13), with tasks
 [#14](https://github.com/UBC-FRESH/irss-expansion/issues/14)-[#17](https://github.com/UBC-FRESH/irss-expansion/issues/17)
-running on `feature/p2-contracts-prototype`. P2.1 audits the twelve contract-wave
-candidates against the live target repositories without changing them. Pull
-request [#18](https://github.com/UBC-FRESH/irss-expansion/pull/18) is open,
-queued for maintainer approval.
+completed on `feature/p2-contracts-prototype` and squash-merged in pull request
+[#18](https://github.com/UBC-FRESH/irss-expansion/pull/18). It audited the twelve
+contract-wave candidates against the live target repositories: eleven are
+complete or adopted with merged evidence, and `GRO-06` remains open.
+
+Phase 3 (build) is planned under parent issue
+[#19](https://github.com/UBC-FRESH/irss-expansion/issues/19), with tasks
+[#20](https://github.com/UBC-FRESH/irss-expansion/issues/20)-[#23](https://github.com/UBC-FRESH/irss-expansion/issues/23)
+created and linked as sub-issues. The issues exist; the branch, phase activation,
+and P3.1 wait for explicit maintainer approval.
 
 ## How this project works
 
@@ -280,13 +286,13 @@ operational early warning. A real condition source and `DIS-03` alerting remain
 out of scope; see `notes/15-dec02-readiness.md` and
 `notes/16-dis03-readiness.md`.
 
-Phase 0 and Phase 1 are complete and merged. Phase 1 squash-merged in pull
-request #12 at `2b4620d`: it confirmed the scope rule and out-of-scope list,
-reviewed the source inventory and publication signals, recorded that no new ADR
-is required, and confirmed the scoring rubric. Phase 2 (contracts and prototype)
-is planned under parent issue #13 with child issues #14-#17; its branch and work
-wait for maintainer approval. No new candidate or target-repo issue is queued by
-this close-out.
+Phase 0, Phase 1, and Phase 2 are complete and merged. Phase 2 squash-merged in
+pull request #18 at `b2d4c25`: it audited the twelve contract-wave candidates,
+restored their resolution and provenance links, and recorded the drift between
+the carried and live target state. Phase 3 (build) is planned under parent issue
+#19 with child issues #20-#23; its branch, activation, and work wait for explicit
+maintainer approval. No new candidate or target-repo issue is queued by this
+close-out.
 
 ## Reading order
 

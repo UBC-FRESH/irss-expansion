@@ -997,3 +997,46 @@ python -m pytest -q
 The workflow validator reports 0 errors and 0 warnings; the dashboard reports
 all six gates GREEN; the full suite passes with 100% branch coverage of
 `scripts/`.
+
+## 2026-11-03
+
+### P2 close-out approved; Phase 2 marked complete; P3 governance created
+
+- The maintainer approved the P2 close-out on 2026-11-03 and authorized the squash merge of pull
+  request #18, deletion of `feature/p2-contracts-prototype`, closure of issues #13-#17, and creation
+  of the P3 governance issues without activating P3.
+- Squash-merged pull request #18 to `main` at `b2d4c25` (`P2: audit the contract-wave records and
+  their provenance`). The branch `feature/p2-contracts-prototype` was deleted after the merge.
+- Closed parent issue #13 and child issues #14-#17 with closeout comments that cite `b2d4c25` and the
+  gate evidence.
+- `ROADMAP.md` marks P2 `complete` and records P3 parent issue #19 with child issues #20-#23.
+  `README.md` records the completed phase and the P3 activation gate.
+- Created P3 governance only: parent issue #19 (`P3: Build`) with child issues #20 P3.1, #21 P3.2,
+  #22 P3.3, and #23 P3.4, each linked as a sub-issue and labelled `task`. P3 remains `planned`; no
+  P3 branch, commit, or implementation exists.
+- Updated the P2 close-out report to record the merge, the branch deletion, the issue closures, and
+  the P3 governance decision. The report now records P3 as `planned` rather than launched.
+- Verification on the merged `main` with the close-out edits: `python scripts/check_workflow.py`
+  reports 0 errors and 0 warnings; `python scripts/dashboard.py` reports all six gates GREEN with
+  `OVERALL: GREEN`; `python scripts/check_registry.py` reports a valid registry with 62 candidates;
+  `python scripts/render_registry.py` produces no diff; `python -m pytest -q` reports 186 passed
+  with 100% branch coverage of `scripts/`.
+- CI run 41717870160 and Docs run 41717869886 pass on `main` at `b2d4c25`; the Docs deploy job
+  succeeded and the Pages site `https://ubc-fresh.github.io/irss-expansion/` returns HTTP 200.
+- No new ADR, no candidate was re-scored, no source was re-mined, and no target-repository issue,
+  branch, or pull request was created. P3 activation remains a separate maintainer decision.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python scripts/dashboard.py
+python -m pytest -q
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid with 62 candidates;
+the renderer is idempotent; the dashboard reports all six gates GREEN; the full suite passes with
+100% branch coverage of `scripts/`.

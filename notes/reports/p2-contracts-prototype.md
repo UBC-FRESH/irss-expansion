@@ -4,9 +4,9 @@ Phase: P2 Contracts and prototype
 Parent issue: #13
 Pull request: [#18](https://github.com/UBC-FRESH/irss-expansion/pull/18), `feature/p2-contracts-prototype` into `main`
 Evidence head: `2e6b25b` (P2.4), the head that the gates in section 3 cover
-Report commit: the commit that adds this report. Its CI run is posted on the pull request.
+Report commit: the commit that adds this report to the pull request; the post-merge record is section 8.
 Date: 2026-11-03
-Status: queued for approval. Not merged.
+Status: approved by the maintainer on 2026-11-03; squash-merged to `main` as `b2d4c25`.
 
 ## Recommendation
 
@@ -14,7 +14,7 @@ Approve these actions. The agent carries them out in this order, and reads back 
 
 1. Squash-merge pull request #18, and delete `feature/p2-contracts-prototype`.
 2. Close parent issue #13 and child issues #14-#17 with a closeout comment that cites the merge commit.
-3. Launch P3 Build: create its branch, set the phase statuses in `ROADMAP.md`, create its child issues as sub-issues, and start its first task.
+3. Create P3 governance only: the parent issue and child issues as sub-issues, and record the phase as `planned` in `ROADMAP.md`. Do not create the P3 branch or start P3.1; activation needs a separate maintainer approval.
 
 Settings changes, each with its exact command. Each one runs only after its own approval.
 
@@ -35,7 +35,7 @@ Settings changes, each with its exact command. Each one runs only after its own 
 - Parent issue before the branch: #13 and child issues #14-#17 existed before `feature/p2-contracts-prototype`; the branch was created from the merged `main` at `d991dea`.
 - Commit messages that start with task IDs: `4098217` P2.1, `ac26748` P2.2, `13f7a27` P2.3, and the report commit P2.4.
 - Roadmap and changelog in step: each task updates `CHANGE_LOG.md`; P2.1 activates the phase and each task ticks its roadmap checkbox.
-- Child issues closed with closeout evidence: not yet; they close after the merge, with comments citing the merge commit.
+- Child issues closed with closeout evidence: issues #13-#17 are closed with comments that cite each task commit, the gate result, pull request #18, and the merge commit `b2d4c25`.
 - Approval gates: no target-repository issue, branch, or pull request was created; no candidate was queued in a target repository; no tag, release, visibility change, or settings change was made.
 
 ## 3. Gate evidence
@@ -65,7 +65,9 @@ Settings changes, each with its exact command. Each one runs only after its own 
 
 ## 6. Next phase
 
-P3 Build is `planned`. After the P2 merge and close-out approval:
+P3 Build is `planned` under parent issue #19, with child issues #20-#23. The issues exist for governance only; no P3 branch, commit, or implementation exists.
+
+After the maintainer approves P3 activation:
 
 - Re-score the model-integration candidates against current evidence (P3.1).
 - Select the first candidate and write its handoff issue body (P3.2).
@@ -76,5 +78,13 @@ Recommended default: start with a model-integration candidate whose target phase
 
 ## 7. Decision
 
-- [ ] Approve as written.
+- [x] Approve as written.
 - [ ] Approve with the changes stated here: <changes>.
+
+## 8. Close-out record
+
+- Pull request #18 squash-merged to `main` at `b2d4c25` on 2026-11-03.
+- `feature/p2-contracts-prototype` was deleted after the merge.
+- Issues #13-#17 were closed with closeout comments citing `b2d4c25` and the gate evidence.
+- `main` CI run 41717870160 passes on `b2d4c25`; the Docs run and Pages deployment are recorded in `CHANGE_LOG.md` after they complete.
+- P3 governance was created as parent issue #19 and child issues #20-#23. P3 remains `planned`; no P3 branch or implementation exists. The maintainer approved P2 close-out and P3 governance, not P3 activation.
