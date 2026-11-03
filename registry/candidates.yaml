@@ -2,6 +2,8 @@ meta:
   project: "IRSS x Silva21 Expansion Mine for the FRESH forest modelling ecosystem"
   version: "0.1"
   generated: "2026-10-25"
+  last_audited: "2026-11-03"
+  audit_note: "notes/17-p2-contract-audit.md"
   scope: >-
     Candidate projects, algorithms, data products, and technologies mined from the UBC
     Integrated Remote Sensing Studio (IRSS) and the Silva21 research program, screened
@@ -255,7 +257,13 @@ candidates:
     risks: >-
       R/Python bridge maintenance; licensing of the original implementation; user
       confusion between sampling design and model validation.
-    resolution: Merged in UBC-FRESH/nemora #14 (`2e8776c`); the optional sgsR R bridge and worked example are in the Nemora sampling surface.
+    resolution: >-
+      Created as UBC-FRESH/nemora#10, child of P5 (#7). Merged in
+      UBC-FRESH/nemora#14 as `2e8776c`; the optional sgsR R bridge and worked
+      example are in the Nemora sampling surface.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/nemora#10 is closed, PR #14 is merged as
+      `2e8776c`, and parent P5 (#7) is closed. See notes/17-p2-contract-audit.md.
   - id: INV-07
     title: "Drone and mobile LiDAR pilot ingestion"
     workstream: INV
@@ -419,6 +427,9 @@ candidates:
     resolution: >-
       Created as UBC-FRESH/femic#370, child of P116 (#369). Merged in
       UBC-FRESH/femic#378 as `9e16be9`.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/femic#370 is closed and PR #378 is merged
+      as `9e16be9`. See notes/17-p2-contract-audit.md.
 
   - id: GRO-02
     title: "Climate-adjusted yield curve modifiers"
@@ -567,8 +578,15 @@ candidates:
       Add a biomass curve table and a carbon conversion report to one FEMIC instance.
     risks: >-
       Species-specific allometry; belowground omission; curve vintage.
+    owner: >-
+      UBC-FRESH/femic P117 (#374); no individual GitHub assignee is recorded on
+      the live issue.
+    unresolved_dependency: >-
+      Parent P117 (#374) and child #376 remain open. The candidate still needs a
+      biomass curve source and a declared carbon-fraction boundary before
+      integration.
     resolution: >-
-      Created as UBC-FRESH/femic#376, child of P117 (#374).
+      Open. Tracked as UBC-FRESH/femic#376, child of P117 (#374).
 
   - id: GRO-07
     title: "Tree-ring, Landsat, and ALS integration for growth decline"
@@ -697,6 +715,10 @@ candidates:
       Created as UBC-FRESH/femic#371, child of P116 (#369). Contract merged in
       UBC-FRESH/femic#379 as `ef4cff2`; ws4 consumer merged in
       UBC-FRESH/ws4#398 as `5ea4a05`.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/femic#371 is closed, femic PR #379 is
+      merged as `ef4cff2`, and ws4 PR #398 is merged as `5ea4a05`. See
+      notes/17-p2-contract-audit.md.
 
   - id: DIS-02
     title: "NSR detection and attribution adapter"
@@ -1052,6 +1074,9 @@ candidates:
       Implemented in UBC-FRESH/ws4#378, child of P54 (#375); PR #475 adds
       connectivity, age-class diversity, and fragmentation accounts plus a
       two-run comparison and report block.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/ws4#378 is closed, PR #475 is merged as
+      `865bef6`, and parent P54 (#375) is closed. See notes/17-p2-contract-audit.md.
 
   - id: PLAN-04
     title: "Caribou habitat and dynamic mitigation"
@@ -1235,8 +1260,8 @@ candidates:
       At the time of the mine, ws3 had CBM linkage and notebook-level
       avoided-fire and avoided-harvest examples, but there was no shared carbon
       contract, no ws4 account, and no provenance-bearing conversion from FEMIC
-      curves. This is now being addressed by FEMIC P115 and ws4 P51; the
-      candidate is retained as the adoption record.
+      curves. This is now being addressed by FEMIC P115 and ws4 P58 (carried as
+      P51); the candidate is retained as the adoption record.
     inputs: "Biomass curves; carbon fractions; product recovery; decay assumptions; ws3 CBM setup."
     dependencies: [DATA-01]
     effort: M
@@ -1244,7 +1269,7 @@ candidates:
     readiness: 4
     risk: 2
     first_step: >-
-      No new work. Track FEMIC P115 (#361) and ws4 P51 (#357) to closeout, and
+      No new work. Track FEMIC P115 (#361) and ws4 P58 (#357) to closeout, and
       record the parity result and the account boundary in this register.
     risks: >-
       Boundary definition (stand vs product vs soil); double counting; false precision.
@@ -1255,9 +1280,14 @@ candidates:
       ws3 and ws4 may disagree on product and decay boundaries. Volume-to-biomass
       conversion adds uncertainty until `GRO-06` lands.
     resolution: >-
-      Adopted by UBC-FRESH/femic#361 (P115, forest carbon domain) and
-      UBC-FRESH/ws4#357 (P51, carbon accounting and carbon-aware planning).
-      Do not open a parallel carbon contract.
+      Adopted by UBC-FRESH/femic#361 (P115, forest carbon domain; PR #394,
+      `30b1444`) and UBC-FRESH/ws4#357 (live phase P58, carbon accounting and
+      carbon-aware planning; PR #408, `ddf4ed8`). The carried ws4 label P51 was
+      stale: P51 is the release-candidate verification phase. Do not open a
+      parallel carbon contract.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/femic#361 and UBC-FRESH/ws4#357 are closed
+      and both cited pull requests are merged. See notes/17-p2-contract-audit.md.
 
   - id: CARB-02
     title: "Disturbance emissions and avoided emissions"
@@ -1389,6 +1419,9 @@ candidates:
     resolution: >-
       Implemented in UBC-FRESH/ws4#376, child of P54 (#375); PR #463 adds the
       DHI ingest, account, report block, and web layer.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/ws4#376 is closed, PR #463 is merged as
+      `b0438de`, and parent P54 (#375) is closed. See notes/17-p2-contract-audit.md.
 
   - id: BIO-02
     title: "Forest structure habitat index from ALS"
@@ -1421,7 +1454,12 @@ candidates:
     resolution: >-
       Implemented in UBC-FRESH/ws4#377, child of P54 (#375); PR #471 adds the
       exact Coops et al. (2016) index, coverage diagnostics, accounts, report,
-      and DHI comparison. The real TFL 6 bundle reports missing exact metrics.
+      and DHI comparison. The real TFL 6 point-cloud run is PR #484; it reports
+      missing exact first-return metrics.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/ws4#377 is closed, PRs #471 and #484 are
+      merged as `b4f7caa` and `84fb562`, and parent P54 (#375) is closed. See
+      notes/17-p2-contract-audit.md.
 
   - id: BIO-03
     title: "Species distribution modelling pipeline"
@@ -1719,6 +1757,9 @@ candidates:
     resolution: >-
       Created as UBC-FRESH/nemora#6, child of P5 (#7). Merged in
       UBC-FRESH/nemora#11 as `cbf504d`; band CSV and coverage check delivered.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/nemora#6 is closed and PR #11 is merged
+      as `cbf504d`; parent P5 (#7) is closed. See notes/17-p2-contract-audit.md.
 
   - id: DATA-02
     title: "Synthetic forest and stand generator for tests and scenarios"
@@ -1748,7 +1789,13 @@ candidates:
       and simulate.
     risks: >-
       Synthetic realism; false confidence; maintaining fixtures.
-    resolution: Merged in UBC-FRESH/nemora #13 (`d094c01`); deterministic WS4 synthetic fixture and local build/simulate smoke test.
+    resolution: >-
+      Created as UBC-FRESH/nemora#8, child of P5 (#7). Merged in
+      UBC-FRESH/nemora#13 as `d094c01`; deterministic WS4 synthetic fixture and
+      local build/simulate smoke test.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/nemora#8 is closed, PR #13 is merged as
+      `d094c01`, and parent P5 (#7) is closed. See notes/17-p2-contract-audit.md.
   - id: DATA-03
     title: "Measurement campaign simulation"
     workstream: DATA
@@ -1806,7 +1853,13 @@ candidates:
       regression fixtures.
     risks: >-
       Upstream schema drift; licensing; breaking existing scripts.
-    resolution: Merged in UBC-FRESH/nemora #12 (`9e7ea9e`); `nemora.inventory.v1` schema and HPS migration.
+    resolution: >-
+      Created as UBC-FRESH/nemora#9, child of P5 (#7). Merged in
+      UBC-FRESH/nemora#12 as `9e7ea9e`; `nemora.inventory.v1` schema and HPS
+      migration.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/nemora#9 is closed, PR #12 is merged as
+      `9e7ea9e`, and parent P5 (#7) is closed. See notes/17-p2-contract-audit.md.
   - id: DATA-05
     title: "Imputation and data fusion toolkit"
     workstream: DATA
@@ -1994,8 +2047,11 @@ candidates:
       Over-specific schema; adoption; vendor metadata gaps.
     resolution: >-
       Created as UBC-FRESH/femic#372, child of P116 (#369). Contract merged in
-      UBC-FRESH/femic#380 as `f833ed9`; #372 remains open for real model cards
-      and FEMIC pipeline wiring.
+      UBC-FRESH/femic#380 as `f833ed9`; published model cards and the attribute
+      annotation seam merged in UBC-FRESH/femic#418 as `69af694`. #372 is closed.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/femic#372 is closed and PRs #380 and #418
+      are merged. See notes/17-p2-contract-audit.md.
 
   - id: DEC-05
     title: "Silva21 hub validation network and data access"

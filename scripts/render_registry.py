@@ -69,6 +69,7 @@ def render(data: dict[str, Any]) -> str:
         f"_{meta.get('project', 'IRSS x Silva21 expansion mine')}_",
         "",
         f"Generated: {meta.get('generated', 'unknown')}. "
+        f"Last audited: {meta.get('last_audited', 'not recorded')}. "
         f"Candidates: {len(candidates)}. "
         f"Scoring: `{meta.get('scoring', {}).get('formula', 'not stated')}`.",
         "",
@@ -143,6 +144,13 @@ def render(data: dict[str, Any]) -> str:
                 f"**Risks.** {item['risks']}",
                 "",
                 *([f"**Resolution.** {item['resolution']}", ""] if item.get("resolution") else []),
+                *([f"**Provenance.** {item['provenance']}", ""] if item.get("provenance") else []),
+                *([f"**Owner.** {item['owner']}", ""] if item.get("owner") else []),
+                *(
+                    [f"**Unresolved dependency.** {item['unresolved_dependency']}", ""]
+                    if item.get("unresolved_dependency")
+                    else []
+                ),
                 "**Sources.**",
                 "",
                 _source_list(item),

@@ -880,3 +880,120 @@ Limitations:
   `https://ubc-fresh.github.io/irss-expansion/` returns HTTP 200.
 - No new ADR, no candidate was re-scored, no source was re-mined, and no target-repository issue,
   branch, or pull request was created.
+
+## 2026-11-03
+
+### P2.1 activate Phase 2 and audit the contract-wave records
+
+- Created `feature/p2-contracts-prototype` from the merged `main` at `d991dea`
+  and set P2 to `active` under parent issue #13 in `ROADMAP.md` and `README.md`.
+- Added `notes/17-p2-contract-audit.md`, which audits the twelve contract-wave
+  candidates (`GRO-01`, `DIS-01`, `DEC-04`, `DATA-01`, `CARB-01`, `BIO-01`,
+  `BIO-02`, `PLAN-03`, `DATA-02`, `DATA-04`, `INV-06`, `GRO-06`) against the
+  live target issues, pull requests, and merge commits.
+- Result: eleven candidates are complete or adopted with merged evidence, and
+  `GRO-06` is open. No candidate has a missing target record.
+- Recorded six drift items, including the ws4 carbon phase label (`P51` carried,
+  live `P58`), the `DEC-04` follow-up merge (#418), the `BIO-02` real-data
+  follow-up (#484), and stale open/active wording in `README.md` and
+  `handoffs/README.md`.
+- Updated the stale carbon references from ws4 P51 to P58 in `README.md` and
+  the affected notes and handoff index. The audit note preserves the carried
+  label and the reason for the correction.
+- No target repository was changed; no candidate was re-scored or retired.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/dashboard.py
+```
+
+`check_workflow.py` reports 0 errors and 0 warnings; `check_registry.py` reports
+62 valid candidates; the dashboard reports all six gates GREEN.
+
+### P2.2 confirm resolutions and add provenance metadata
+
+- Added a `provenance` record to the eleven complete or adopted contract-wave
+  candidates, citing the live target issue, pull request, and merge commit for
+  each.
+- Corrected the `CARB-01` resolution to the live ws4 phase `P58` and to the
+  merged carbon PRs (`femic#394` `30b1444`; ws4#408 `ddf4ed8`). The carried
+  `P51` label remains recorded as stale in the audit note.
+- Corrected the `DEC-04` resolution: `femic#372` is closed after PR #418
+  (`69af694`) added the published cards and annotation seam.
+- Added the `BIO-02` real TFL 6 follow-up PR #484 (`84fb562`) to its
+  resolution.
+- Recorded `GRO-06` as the only open contract-wave candidate with a phase-level
+  owner, its existing first step, an empty candidate dependency list, and the
+  unresolved parent/child dependency (`femic#374`/`#376`). No individual
+  assignee is recorded on the live issue, so none was invented.
+- `scripts/render_registry.py` now displays provenance, owner, and unresolved
+  dependency. `scripts/check_registry.py` rejects empty optional metadata.
+  Added registry tests for both behaviours.
+- No status, score, wave, source, or risk changed.
+
+Verification:
+
+```bash
+python scripts/check_registry.py
+python -m pytest
+```
+
+`check_registry.py` reports a valid registry with 62 candidates; the full test
+suite passes with the coverage gate met.
+
+### P2.3 regenerate the candidate register
+
+- Ran `python scripts/render_registry.py` after the P2.2 registry changes.
+  `docs/candidates.md` now shows the last-audited date and the new provenance,
+  owner, and unresolved-dependency fields.
+- The generated diff is limited to the audit fields for the twelve
+  contract-wave candidates and the `CARB-01` phase-label correction. No
+  candidate was added, removed, or re-scored.
+- Re-ran the renderer and `git diff --exit-code -- docs/candidates.md` against
+  the staged generated file: no further change. `python scripts/check_registry.py`
+  reports 62 valid candidates.
+
+Verification:
+
+```bash
+python scripts/render_registry.py
+git diff --exit-code -- docs/candidates.md
+python scripts/check_registry.py
+```
+
+The renderer is idempotent on the updated registry and the validator passes.
+
+### P2.4 record the contract-wave audit result
+
+- Added `notes/reports/p2-contracts-prototype.md`. It records the audit
+  outcome, the gate evidence, the six drift items, and the recommendation to
+  merge, close #13-#17, and launch P3 Build.
+- Audit summary: eleven of the twelve contract-wave candidates are complete or
+  adopted with merged target evidence; `GRO-06` remains queued and open. Every
+  completed or adopted row now has a resolution and a provenance record. The one
+  open row states its phase-level owner, first step, empty candidate dependency
+  list, and unresolved `femic#374`/`#376` dependency.
+- Confirmed the target-repository evidence read-only. No target issue, branch,
+  pull request, tag, release, or setting was changed.
+- Remaining unverified: the audit did not re-run the target repositories' test
+  suites or independently re-validate their science. The live state is a
+  2026-11-03 snapshot and must be re-checked before any later handoff.
+- Opened pull request #18 (`feature/p2-contracts-prototype` into `main`) with
+  `Part of #13` and queued it for maintainer approval. CI run 41717081717 on
+  `2e6b25b` passes Quality gates, Green dashboard summary, and Pre-commit
+  parity. It is not merged, no branch was deleted, and no P2 issue was closed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/dashboard.py
+python -m pytest -q
+```
+
+The workflow validator reports 0 errors and 0 warnings; the dashboard reports
+all six gates GREEN; the full suite passes with 100% branch coverage of
+`scripts/`.

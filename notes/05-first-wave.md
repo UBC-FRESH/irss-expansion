@@ -5,8 +5,8 @@ small enough to become one parent issue in the target repo. If a brief cannot
 name a consumer, an acceptance test, and a public source, it is not ready.
 
 **Status note (2026-10-25).** `CARB-01` is now **adopted** by live work:
-FEMIC P115 (`#361`, forest carbon domain) and ws4 P51 (`#357`, carbon
-accounting). Its brief is retained for context and should not be opened as a
+FEMIC P115 (`#361`, forest carbon domain) and ws4 P58 (`#357`, carbon
+accounting; the carried label was P51). Its brief is retained for context and should not be opened as a
 parallel issue.
 
 Created issues:

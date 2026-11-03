@@ -57,9 +57,10 @@ P119 is the software response to the `INV-04` rejection: site index is already a
 provincial data product, so the useful work is provenance, reconciliation, and
 deployment, not a new ALS model.
 
-P54.1 (`BIO-01`, ws4 #376) is active: the DHI ingest/account/report/web-layer
-change is open for review as [PR #463](https://github.com/UBC-FRESH/ws4/pull/463)
-on `feature/p54.1-dhi-account`. The pilot uses a real SILVIS MODIS 6.1 Terra NDVI
+P54.1 (`BIO-01`, ws4 #376) is complete: the DHI
+ingest/account/report/web-layer change merged as
+[PR #463](https://github.com/UBC-FRESH/ws4/pull/463) (`b0438de`) on
+`feature/p54.1-dhi-account`. The pilot uses a real SILVIS MODIS 6.1 Terra NDVI
 2003-2022 500 m subset and synthetic test blocks; the account is reported, not
 optimised.
 
@@ -84,7 +85,7 @@ handoff was in progress.
 `CARB-01` is **already covered** by work created before this handoff:
 
 - `UBC-FRESH/femic` [#361 P115: Forest carbon domain, CBM packages, and GCBM export](https://github.com/UBC-FRESH/femic/issues/361)
-- `UBC-FRESH/ws4` [#357 P51: Forest carbon accounting and carbon-aware planning](https://github.com/UBC-FRESH/ws4/issues/357)
+- `UBC-FRESH/ws4` [#357 P58: Forest carbon accounting and carbon-aware planning](https://github.com/UBC-FRESH/ws4/issues/357) (carried as P51)
 
 The carbon drafts are in `superseded/`. Do not create them. `CARB-01` is marked
 `adopted` in the register with those links.
@@ -109,7 +110,7 @@ created.
   phases appeared while this handoff was being written.
 - **Confirm the phase number** still matches the roadmap. If a number is taken,
   renumber before creating the branch.
-- **Do not duplicate P79, P109, P114, P115, P51, P52, or P53.**
+- **Do not duplicate P79, P109, P114, P115, P58, P52, or P53.**
 
 ## Draft files
 
