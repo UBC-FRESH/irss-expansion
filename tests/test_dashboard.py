@@ -149,7 +149,7 @@ def test_default_gates_include_seed_gates_only_when_the_generator_exists(tmp_pat
     """A repository without the project generator does not get the seed gates."""
     bare = {gate.name for gate in db.default_gates(tmp_path, python="python")}
     assert "seed" not in bare
-    assert {"lint", "format", "types", "tests", "validator", "docs"} <= bare
+    assert {"lint", "format", "types", "tests", "validator", "maintenance", "docs"} <= bare
     (tmp_path / "scripts").mkdir()
     (tmp_path / "scripts" / "new_project.py").write_text("", encoding="utf-8")
     full = {gate.name for gate in db.default_gates(tmp_path, python="python")}

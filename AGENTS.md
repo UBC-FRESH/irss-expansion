@@ -35,7 +35,7 @@ Cite the pages you relied on in your report.
 ## The green dashboard rule
 
 `python scripts/dashboard.py` runs every quality gate: lint, format, strict types, tests with a coverage
-gate, the workflow validator, and the docs build with warnings as errors.
+gate, the workflow validator, the maintenance consistency check, and the docs build with warnings as errors.
 
 - Every commit leaves the dashboard green.
 - Any change from green is investigated and fixed immediately. There are no exceptions.

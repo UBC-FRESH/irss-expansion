@@ -23,7 +23,7 @@ gates, and approval rules.
 | P3 Build | #19 | `feature/p3-build` | complete |
 | P4 Verify | #25 | `feature/p4-verify` | complete |
 | P5 Release and deploy | #30 | `feature/p5-release` | complete |
-| P6 Operate and maintain | TBD | `feature/p6-operate` | planned |
+| P6 Operate and maintain | #35 | `feature/p6-operate` | active |
 
 ## Lifecycle Map
 
@@ -184,15 +184,17 @@ Acceptance criteria:
 
 ## Phase 6: Operate and maintain
 
-Parent issue: TBD
+Parent issue: #35
 Branch: `feature/p6-operate`
-Status: planned
+Status: active
+Child issues: #36 P6.1, #37 P6.2, #38 P6.3
+Next step: P6.1-P6.3 are in progress on `feature/p6-operate`. The cadence, source refresh, drift checks, first review, and recurring decision are recorded; the pull request is next.
 
 Goal: keep the queue honest: re-score after each wave, retire stale candidates, and decide whether the mine recurs.
 
-- [ ] P6.1 Set a review cadence and record the first review
-- [ ] P6.2 Re-score the registry and retire candidates that did not survive contact
-- [ ] P6.3 Decide whether the mine is recurring or one-off
+- [x] P6.1 Set a review cadence and record the first review (#36)
+- [x] P6.2 Re-score the registry and retire candidates that did not survive contact (#37)
+- [x] P6.3 Decide whether the mine is recurring or one-off (#38)
 
 Acceptance criteria:
 
@@ -211,3 +213,4 @@ Acceptance criteria:
 7. Phase 5 is `complete` under parent issue #30. Pull request #34 squash-merged to `main` at `d3d5ce2`; `feature/p5-release` was deleted, and issues #30-#33 were closed with closeout comments. P5.1 records the release notes and known gaps in `notes/23-p5-release-notes.md`; P5.2 records the clean-clone dashboard and Pages evidence in `notes/24-p5-clean-checkout-verification.md`; P5.3 created the annotated tag `v0.1.0` on `d3d5ce2` and the GitHub release [IRSS x Silva21 Expansion Mine 0.1.0](https://github.com/UBC-FRESH/irss-expansion/releases/tag/v0.1.0). The close-out is in `notes/reports/p5-release.md`. No package-index artifact and no DOI exist. P6 remains `planned` and needs a separate maintainer approval.
 8. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 9. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.
+10. Phase 6 is active under parent issue #35. P6.1-P6.3 are in progress on `feature/p6-operate`: the cadence is in `registry/maintenance.yaml`, the plan is in `notes/25-p6-maintenance-plan.md`, the first review and re-score are in `notes/26-p6-first-review.md`, and the recurring decision is in `notes/adr/0001-recurring-maintenance.md`. The source refresh checked 84 unique URLs (63 reachable, 21 publisher-blocked, 0 broken); the active target records matched on 2026-11-03; no candidate score or status changed. The pull request is next, and P6 becomes `complete` only after the maintainer approves the merge.
