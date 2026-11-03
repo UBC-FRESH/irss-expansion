@@ -106,7 +106,8 @@ changed scoring formula must add a numbered ADR under `notes/adr/` with status `
 
 | Run ID | Head commit | Conclusion | Notes |
 | --- | --- | --- | --- |
-| pending | pull-request head | pending | The pull-request run is posted on pull request #12. The report commit triggers its own run, visible on the same pull request. |
+| 41705451883 | `2cfb2a4` | success | Quality gates, Green dashboard summary, and Pre-commit parity all pass. The report-update commit triggers its own run, visible on the same pull request. |
+| 41705264296 | `320809e` | success | The P1.4 head passes the same three jobs. |
 
 ## 9. Deviations
 
