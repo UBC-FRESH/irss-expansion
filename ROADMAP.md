@@ -18,7 +18,7 @@ gates, and approval rules.
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
 | P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | complete |
-| P1 Scope and design | TBD | `feature/p1-scope-design` | planned |
+| P1 Scope and design | #7 | `feature/p1-scope-design` | active |
 | P2 Contracts and prototype | TBD | `feature/p2-contracts-prototype` | planned |
 | P3 Build | TBD | `feature/p3-build` | planned |
 | P4 Verify | TBD | `feature/p4-verify` | planned |
@@ -81,16 +81,18 @@ Acceptance criteria:
 
 ## Phase 1: Scope and design
 
-Parent issue: TBD
+Parent issue: #7
 Branch: `feature/p1-scope-design`
-Status: planned
+Status: active
+Child issues: #8 P1.1, #9 P1.2, #10 P1.3, #11 P1.4
+Next step: P1.1-P1.4 are in progress on `feature/p1-scope-design`; confirm only, do not re-mine or re-score.
 
 Goal: confirm the question, the users, the scope rule, and the out-of-scope items that the source draft established.
 
-- [ ] P1.1 Confirm the scope rule and the out-of-scope list in `notes/06-out-of-scope.md`
-- [ ] P1.2 Review the source inventory and publication signals
-- [ ] P1.3 Record any new design decision as an ADR in `notes/adr/`
-- [ ] P1.4 Confirm the scoring rubric in `notes/04-prioritization.md`
+- [ ] P1.1 Confirm the scope rule and the out-of-scope list in `notes/06-out-of-scope.md` (#8)
+- [ ] P1.2 Review the source inventory and publication signals (#9)
+- [ ] P1.3 Record any new design decision as an ADR in `notes/adr/` (#10)
+- [ ] P1.4 Confirm the scoring rubric in `notes/04-prioritization.md` (#11)
 
 Acceptance criteria:
 

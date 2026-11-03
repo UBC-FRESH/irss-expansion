@@ -31,9 +31,11 @@ wave, model integration, and review) are recorded in `ROADMAP.md` and
 `CHANGE_LOG.md`. Carrying that history does not create parent issues in this
 repository.
 
-Phase 1 (scope and design) is planned under parent issue
-[#7](https://github.com/UBC-FRESH/irss-expansion/issues/7) and starts from the
-merged `main` when `feature/p1-scope-design` is created.
+Phase 1 (scope and design) is active under parent issue
+[#7](https://github.com/UBC-FRESH/irss-expansion/issues/7), with tasks
+[#8](https://github.com/UBC-FRESH/irss-expansion/issues/8)-[#11](https://github.com/UBC-FRESH/irss-expansion/issues/11)
+tracked on `feature/p1-scope-design`. It confirms the carried scope and scoring
+decisions without re-mining the sources.
 
 ## How this project works
 
@@ -124,6 +126,9 @@ Examples of existing products that should be consumed, not reinvented:
 A useful paper is not enough. The question is whether FRESH can integrate its
 output without pretending to have produced new science.
 
+The deferred and screened-out material, with a revisit trigger for each item,
+is in [`notes/06-out-of-scope.md`](notes/06-out-of-scope.md).
+
 ## What was mined
 
 | Source | What was reviewed | Scale |
@@ -131,7 +136,7 @@ output without pretending to have produced new science.
 | IRSS research pages | 11 research themes, project narratives, methods | NTEMS, BioSpace, biodiversity, disturbance/habitat, carbon, data fusion, MPB, LiDAR, urban, mobile RS, water |
 | IRSS publications page | Titles, years, journals, DOIs as rendered | 493 records, 2004-2023 |
 | Silva21 projects | 47 project pages across the AD, AN, and OB themes | 38 funded projects, 12 hubs, 5 universities, 50 collaborators |
-| Silva21 publications | 2022-2026 scientific papers and extension notes | 50+ papers and 14 extension notes |
+| Silva21 publications | 2022-2026 scientific papers and extension notes | 50+ papers and 16 extension notes across 15 volumes |
 | Silva21 data/climate | Data portal, ClimateNA/SilvR21, hub climate products | 12 hub climate packages; Globus-hosted LiDAR and spatial data |
 
 The mining was **metadata and abstract level**, not a full-text systematic

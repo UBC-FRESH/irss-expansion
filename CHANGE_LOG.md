@@ -770,3 +770,20 @@ Limitations:
   `python scripts/check_registry.py`, and `python -m pytest -q` all pass on the merge head.
 - Phase 1 starts from the merged `main`; no candidate is queued and no target-repository issue,
   branch, or pull request is created by this close-out.
+
+## 2026-11-03
+
+### P1.1 activate Phase 1 and confirm the scope rule
+
+- Created `feature/p1-scope-design` from the merged `main` at `aacd102` and activated P1 under
+  parent issue #7, with child issues #8-#11 and status `active` in `ROADMAP.md`.
+- Confirmed the scope rule in `README.md`: candidates must consume an existing provincial product,
+  published model, dataset, reference implementation, or partner coefficient set with provenance
+  and a validation boundary. New general models remain out of scope.
+- Reviewed `notes/06-out-of-scope.md`: every deferred and screened-out entry keeps its revisit
+  trigger. No item was added, removed, or re-scored.
+- Linked the out-of-scope list directly from the scope rule in `README.md`, the only wording
+  change in this task.
+- Corrected the Silva21 extension-note count from 14 to 16 notes across 15 volumes, because
+  Volume 6 is published as two issues.
+- Verification: `python scripts/check_workflow.py` and `python scripts/dashboard.py` pass.
