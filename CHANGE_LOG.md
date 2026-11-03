@@ -690,3 +690,14 @@ Limitations:
   should re-check the live repositories before any handoff.
 - Phase 0 is planned. Its parent issue and child issues do not exist yet, so no phase is
   active in this repository.
+
+## 2026-11-03
+
+### Fix the Docs workflow dependency for the registry API
+
+- The Docs workflow installs only `docs/requirements.txt`, while the new API pages autodoc the
+  registry scripts. Those scripts import `yaml`, so the documentation build failed on the first
+  public push with `ModuleNotFoundError: No module named 'yaml'`.
+- Added `PyYAML>=6.0` to `docs/requirements.txt` so the docs and development environments agree.
+- Verification: the local docs build passes with warnings as errors, and `python scripts/dashboard.py`
+  reports every gate green.
