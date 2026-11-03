@@ -17,7 +17,7 @@ gates, and approval rules.
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap and publish | TBD | `feature/p0-bootstrap` | planned |
+| P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | active |
 | P1 Scope and design | TBD | `feature/p1-scope-design` | planned |
 | P2 Contracts and prototype | TBD | `feature/p2-contracts-prototype` | planned |
 | P3 Build | TBD | `feature/p3-build` | planned |
@@ -60,9 +60,11 @@ and it does not override the workflow phases below.
 
 ## Phase 0: Bootstrap and publish
 
-Parent issue: TBD
+Parent issue: #1
 Branch: `feature/p0-bootstrap`
-Status: planned
+Status: active
+Child issues: #2 P0.1, #3 P0.2, #4 P0.3, #5 P0.4
+Next step: the branch does not exist yet; create it, then complete P0.1-P0.4 and record a clean-checkout dashboard run.
 
 Goal: adapt the seeded contract to this project, carry the public-safe planning material, and make the first public state reviewable.
 
@@ -190,8 +192,8 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. Create the GitHub parent issue for Phase 0 from `.github/ISSUE_TEMPLATE/phase.md`. This needs maintainer approval.
-2. Activate Phase 0 by setting its parent issue number and its status to `active`, here and in the tracker map.
-3. Create one child issue per Phase 0 task from `.github/ISSUE_TEMPLATE/task.md`, and link each one as a sub-issue.
+1. Phase 0 is active under parent issue #1, created from `.github/ISSUE_TEMPLATE/phase.md` with maintainer approval.
+2. Child issues #2-#5 are linked as sub-issues of #1; the tracker map and the phase section record the active status.
+3. No implementation branch exists yet. Create `feature/p0-bootstrap` when P0 work starts, and keep each task commit tagged with its task ID.
 4. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 5. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.

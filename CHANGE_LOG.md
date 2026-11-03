@@ -711,3 +711,19 @@ Limitations:
   for this repository. The build job itself passes.
 - Enabling Pages is a repository settings change, so it needs explicit maintainer approval. No
   workflow, gate, or visibility setting was changed to work around it.
+
+## 2026-11-03
+
+### Activate P0 governance and publish the documentation site
+
+- Created the Phase 0 parent issue #1 (`P0: Bootstrap and publish`) with the `phase` label,
+  and child issues #2-#5 for P0.1-P0.4, each labelled `task` and linked as a sub-issue of #1.
+- Enabled GitHub Pages with the GitHub Actions source (`build_type: workflow`) for
+  `UBC-FRESH/irss-expansion`. The failed Docs deploy at run 41624210028 now passes on re-run,
+  and `https://ubc-fresh.github.io/irss-expansion/` returns HTTP 200.
+- Set P0 to `active` in `ROADMAP.md` and the tracker map, recording parent issue #1, child issue
+  numbers #2-#5, the `feature/p0-bootstrap` branch, and the next step. No implementation branch
+  was created.
+- Verification: `python scripts/check_workflow.py` reports 0 errors and 0 warnings;
+  `python scripts/dashboard.py` reports every gate green (lint, format, types, tests, validator,
+  docs); CI passes on the head commit.
