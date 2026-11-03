@@ -3,7 +3,7 @@
 Phase: P0 Bootstrap and publish
 Parent issue: #1
 Pull request: #6, `feature/p0-bootstrap` into `main`
-Evidence head: `9002d55`, the head that the gates and CI runs below cover
+Evidence head: `9548f7b`, the head that the gates and CI runs below cover
 Report commit: the commit that adds this report. Its CI run is posted on the pull request.
 Date: 2026-11-03
 Status: queued for approval. Not merged.
@@ -30,7 +30,7 @@ Settings changes, each with its exact command. Each one runs only after its own 
 | The registry and generated register are consistent | `python scripts/check_registry.py` reports 62 valid candidates; `python scripts/render_registry.py` produces no diff | met |
 | The repository is public at the expected remote | `gh repo view` reports `UBC-FRESH/irss-expansion`, `PUBLIC`, default branch `main` | met |
 | Pages uses the workflow source and serves the docs | `gh api repos/UBC-FRESH/irss-expansion/pages` reports `build_type: workflow` and `https://ubc-fresh.github.io/irss-expansion/`; URL returns HTTP 200 | met |
-| CI and Docs pass on the branch head | Recorded on pull request #6 after the report commit is pushed | pending the report-commit run |
+| CI and Docs pass on the branch head | Pull request CI run 41701161984 passes on `9548f7b`; Docs runs on `main` because the workflow triggers on `push` to `main` and `workflow_dispatch` | met, with the Docs trigger limit stated |
 
 ## 2. Workflow compliance
 
@@ -60,7 +60,8 @@ Settings changes, each with its exact command. Each one runs only after its own 
 | 41696981546 | `23cca3e` | success | CI on `main` before this branch |
 | 41696981559 | `23cca3e` | success | Docs on `main`; Pages deployment |
 | 41624210028 | `a0d6d81` | success | Docs deploy after Pages was enabled |
-| pull-request run | report commit | pending | CI and Docs are not triggered by pull requests for the Docs workflow; CI runs on the pull request |
+| 41701161984 | `9548f7b` | success | Pull request CI: quality gates, green dashboard summary, and pre-commit parity all pass |
+| follow-up run | the report-update commit | pending at report write time | The update changes this report only; CI runs on its head and is visible on pull request #6 |
 
 ## 5. Deviations
 
