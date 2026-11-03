@@ -770,3 +770,88 @@ Limitations:
   `python scripts/check_registry.py`, and `python -m pytest -q` all pass on the merge head.
 - Phase 1 starts from the merged `main`; no candidate is queued and no target-repository issue,
   branch, or pull request is created by this close-out.
+
+## 2026-11-03
+
+### P1.1 activate Phase 1 and confirm the scope rule
+
+- Created `feature/p1-scope-design` from the merged `main` at `aacd102` and activated P1 under
+  parent issue #7, with child issues #8-#11 and status `active` in `ROADMAP.md`.
+- Confirmed the scope rule in `README.md`: candidates must consume an existing provincial product,
+  published model, dataset, reference implementation, or partner coefficient set with provenance
+  and a validation boundary. New general models remain out of scope.
+- Reviewed `notes/06-out-of-scope.md`: every deferred and screened-out entry keeps its revisit
+  trigger. No item was added, removed, or re-scored.
+- Linked the out-of-scope list directly from the scope rule in `README.md`, the only wording
+  change in this task.
+- Corrected the Silva21 extension-note count from 14 to 16 notes across 15 volumes, because
+  Volume 6 is published as two issues.
+- Verification: `python scripts/check_workflow.py` and `python scripts/dashboard.py` pass.
+
+## 2026-11-03
+
+### P1.2 review the source inventory and publication signals
+
+- Re-fetched all 22 public source URLs in `notes/00-source-inventory.md`; every one returned
+  HTTP 200.
+- Re-derived the carried counts from the current pages: 493 IRSS publication records
+  (2004-2023), 47 Silva21 project pages, 12 hubs, 65 DOI-linked scientific publications, and
+  62 registry candidates.
+- Corrected the Silva21 extension-note count from 14 to 16 notes across 15 volumes. The source
+  page lists volumes 1-14 and publishes Volume 6 as two issues; the earlier figure counted
+  volume numbers.
+- Checked the 44 candidate references in `notes/02-publication-signals.md` against
+  `registry/candidates.yaml`; every ID exists and none was renamed or removed.
+- Fixed the notes index gap: `notes/README.md` now lists the readiness notes
+  `15-dec02-readiness.md` and `16-dis03-readiness.md`.
+- No source was re-mined, no candidate evidence changed, and no score changed.
+- Verification: `python scripts/check_workflow.py`, `python scripts/check_registry.py`, and
+  `python scripts/dashboard.py` pass.
+
+## 2026-11-03
+
+### P1.3 record the design-decision outcome
+
+- Decided that P1 produced no new design decision. The scope rule, the out-of-scope list, and the
+  scoring rubric were confirmed, not changed, so no numbered ADR was created.
+- Recorded the no-decision outcome and its reasoning in `notes/reports/p1-scope-design.md`.
+  A future boundary or formula change must add an ADR under `notes/adr/` with status `accepted`
+  or `deferred`.
+- Left the ADR template and every accepted contract-wave decision unchanged.
+- Verification: `python scripts/check_workflow.py` and `python scripts/dashboard.py` pass.
+
+## 2026-11-03
+
+### P1.4 confirm the scoring rubric
+
+- Confirmed the formula `priority = (impact * readiness) / (effort_points * risk)` against
+  `priority_score` in `scripts/check_registry.py`, including the S/M/L/XL effort map and
+  two-decimal rounding.
+- Checked all 13 rows of the first-wave table against the validator output: every ID, score, and
+  effort code matches. The registry wave counts are 2 in wave 0, 13 in wave 1, 25 in wave 2, and
+  22 in wave 3.
+- Confirmed the impact, readiness, effort, and risk rubrics and the wave logic are unchanged. A
+  wave remains a dependency and sequencing judgement, not a score threshold.
+- Kept readiness described as an integration judgement, not an author-confirmed science claim.
+- No candidate was re-scored, no wave changed, and the formula was not altered.
+- Verification: `python scripts/check_registry.py`, `python scripts/check_workflow.py`, and
+  `python scripts/dashboard.py` pass.
+
+## 2026-11-03
+
+### P1 scope and design complete; pull request #12 queued
+
+- Opened pull request #12 (`feature/p1-scope-design` into `main`) with `Part of #7`, and set P1
+  to `pr-open` in `ROADMAP.md` and the README status.
+- Confirmed every P1 acceptance criterion and recorded the evidence in
+  `notes/reports/p1-scope-design.md`.
+- Fixed the notes index gap so the readiness notes 15 and 16 are listed, and refreshed the
+  source-inventory and publication-signal review dates.
+- No new ADR: the scope rule, out-of-scope list, and scoring rubric were confirmed, not changed.
+- No candidate was re-scored, no source was re-mined, and no target-repository issue, branch, or
+  pull request was created.
+- The pull request is queued for maintainer approval. It is not merged, no branch was deleted,
+  and no P1 issue was closed.
+- Verification: `python scripts/dashboard.py` reports all six gates GREEN;
+  `python scripts/check_workflow.py` reports 0 errors and 0 warnings; `python scripts/check_registry.py`
+  reports 62 valid candidates; `python scripts/render_registry.py` produces no diff.

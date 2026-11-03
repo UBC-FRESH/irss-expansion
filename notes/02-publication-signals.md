@@ -4,6 +4,10 @@ This is a curated reading of the public record, not a citation index. It lists
 the papers and projects that most directly change a FRESH design decision. The
 full register has the per-candidate evidence; this note explains the pattern.
 
+Reviewed: 2026-11-03 (P1.2). The 44 candidate references in this note all match
+IDs in `registry/candidates.yaml`; no link was stale. The paper-level claims were
+not re-read, and no candidate mapping changed.
+
 ## How to read the signal
 
 - **Method** papers define an algorithm or workflow that could become an
@@ -150,3 +154,14 @@ cited in the table above but shapes the candidates:
 
 These are listed on the IRSS publications page and are worth a deeper read
 before any of the related candidates is accepted.
+
+## 2026-11-03 review (P1.2)
+
+- Extracted the 44 backticked candidate IDs from the signal tables and compared them with
+  the registry. All 44 exist, and none was renamed or removed.
+- Confirmed the supporting IRSS and Silva21 pages return HTTP 200. The inventory review in
+  `notes/00-source-inventory.md` records the page counts.
+- Left the signal classifications, paper list, and candidate mappings unchanged.
+- Did not re-read the papers or resolve every DOI; the review checks identifiers and links,
+  not the truth of each published claim. That limit stays explicit before any candidate is
+  accepted.

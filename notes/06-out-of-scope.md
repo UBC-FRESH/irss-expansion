@@ -4,6 +4,10 @@ A queue is defined as much by what it refuses as by what it admits. This note
 records the material that was reviewed and **not** turned into a near-term
 candidate, with the reason.
 
+Reviewed: 2026-11-03 (P1.1). The scope rule, the deferred entries, and the
+screened-out list are unchanged. The only edit is a direct link from the scope
+rule in `README.md` to this note.
+
 ## Deferred in the register
 
 These have candidate IDs because they are plausible later, but they are wave 0.

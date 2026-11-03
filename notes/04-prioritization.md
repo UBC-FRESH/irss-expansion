@@ -1,5 +1,9 @@
 # Prioritisation method
 
+Reviewed: 2026-11-03 (P1.4). The formula, effort points, rubrics, wave logic,
+and first-wave table match `scripts/check_registry.py`; no score or wave
+assignment changed.
+
 ## Why a score at all
 
 The mine produced 62 candidates. Without a transparent screen, the queue
@@ -207,3 +211,20 @@ candidate's `risks` or `first_step`.
 - Keep the first wave small enough to finish. Thirteen is already ambitious for
   a part-time programme; the recommended first five are the true starting
   point.
+
+## 2026-11-03 review (P1.4)
+
+- Confirmed `priority = (impact * readiness) / (effort_points * risk)` against
+  `priority_score` in `scripts/check_registry.py`. The effort map is still
+  S = 1, M = 2, L = 3, XL = 5, and the score is rounded to two decimals.
+- Confirmed the impact, readiness, effort, and risk rubrics and the wave logic
+  are unchanged. A wave is still a dependency and sequencing judgement, not a
+  score threshold.
+- Compared all 13 rows of the first-wave table with the validator output. Every
+  ID, score, and effort code matches, including `DATA-01` at 12.50 and the four
+  low-score wave-1 entries.
+- Confirmed the registry wave counts: wave 0 has 2 candidates, wave 1 has 13,
+  wave 2 has 25, and wave 3 has 22.
+- Did not re-score a candidate, change a wave, or alter the formula. Readiness
+  remains an integration judgement, not an author-confirmed science claim.
+

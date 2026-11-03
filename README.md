@@ -31,9 +31,12 @@ wave, model integration, and review) are recorded in `ROADMAP.md` and
 `CHANGE_LOG.md`. Carrying that history does not create parent issues in this
 repository.
 
-Phase 1 (scope and design) is planned under parent issue
-[#7](https://github.com/UBC-FRESH/irss-expansion/issues/7) and starts from the
-merged `main` when `feature/p1-scope-design` is created.
+Phase 1 (scope and design) is in review under parent issue
+[#7](https://github.com/UBC-FRESH/irss-expansion/issues/7), with tasks
+[#8](https://github.com/UBC-FRESH/irss-expansion/issues/8)-[#11](https://github.com/UBC-FRESH/irss-expansion/issues/11)
+tracked on `feature/p1-scope-design` and pull request
+[#12](https://github.com/UBC-FRESH/irss-expansion/pull/12). It confirms the
+carried scope and scoring decisions without re-mining the sources.
 
 ## How this project works
 
@@ -124,6 +127,9 @@ Examples of existing products that should be consumed, not reinvented:
 A useful paper is not enough. The question is whether FRESH can integrate its
 output without pretending to have produced new science.
 
+The deferred and screened-out material, with a revisit trigger for each item,
+is in [`notes/06-out-of-scope.md`](notes/06-out-of-scope.md).
+
 ## What was mined
 
 | Source | What was reviewed | Scale |
@@ -131,7 +137,7 @@ output without pretending to have produced new science.
 | IRSS research pages | 11 research themes, project narratives, methods | NTEMS, BioSpace, biodiversity, disturbance/habitat, carbon, data fusion, MPB, LiDAR, urban, mobile RS, water |
 | IRSS publications page | Titles, years, journals, DOIs as rendered | 493 records, 2004-2023 |
 | Silva21 projects | 47 project pages across the AD, AN, and OB themes | 38 funded projects, 12 hubs, 5 universities, 50 collaborators |
-| Silva21 publications | 2022-2026 scientific papers and extension notes | 50+ papers and 14 extension notes |
+| Silva21 publications | 2022-2026 scientific papers and extension notes | 50+ papers and 16 extension notes across 15 volumes |
 | Silva21 data/climate | Data portal, ClimateNA/SilvR21, hub climate products | 12 hub climate packages; Globus-hosted LiDAR and spatial data |
 
 The mining was **metadata and abstract level**, not a full-text systematic
@@ -266,13 +272,13 @@ operational early warning. A real condition source and `DIS-03` alerting remain
 out of scope; see `notes/15-dec02-readiness.md` and
 `notes/16-dis03-readiness.md`.
 
-Phase 0 is complete and merged. The next action in this repository is to
-activate Phase 1 (scope and design) under parent issue #7 from the merged
-`main`. Phase 0 carried and validated the programme content, verified the
-workflow validator and dashboard, and confirmed the public remote, the Pages
-deployment, and the documentation site. Phase 1 will confirm the scope rule, the
-source inventory, the scoring rubric, and any new design decision as an ADR. No
-new candidate or target-repo issue is queued by this publication step.
+Phase 0 is complete and merged. Phase 1 (scope and design) is complete and
+queued in pull request #12: it confirmed the scope rule and out-of-scope list,
+reviewed the source inventory and publication signals, recorded that no new ADR
+is required, and confirmed the scoring rubric. The next action is maintainer
+review of that pull request. Phase 2 does not start until P1 merges and its
+close-out is approved. No new candidate or target-repo issue is queued by this
+review step.
 
 ## Reading order
 
