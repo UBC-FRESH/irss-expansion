@@ -59,6 +59,10 @@ Settings changes, each with its exact command. None run in P3.
 | `6a81086` P3.3 | `python scripts/check_workflow.py`; `python scripts/dashboard.py` | 0 errors, 0 warnings; all six gates GREEN |
 | Report commit P3.4 | `python scripts/check_registry.py`; `python -m pytest -q`; `python scripts/dashboard.py` | recorded in the changelog; CI on the pull request is the public evidence |
 
+CI run [41720689673](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41720689673)
+passes Quality gates, Green dashboard summary, and Pre-commit parity on
+`b224453`.
+
 ## 4. Decision summary
 
 | Field | Value |
