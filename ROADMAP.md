@@ -21,7 +21,7 @@ gates, and approval rules.
 | P1 Scope and design | #7 | `feature/p1-scope-design` | complete |
 | P2 Contracts and prototype | #13 | `feature/p2-contracts-prototype` | complete |
 | P3 Build | #19 | `feature/p3-build` | complete |
-| P4 Verify | #25 | `feature/p4-verify` | planned |
+| P4 Verify | #25 | `feature/p4-verify` | pr-open |
 | P5 Release and deploy | TBD | `feature/p5-release` | planned |
 | P6 Operate and maintain | TBD | `feature/p6-operate` | planned |
 
@@ -146,15 +146,15 @@ Acceptance criteria:
 
 Parent issue: #25
 Branch: `feature/p4-verify`
-Status: planned
+Status: pr-open
 Child issues: #26 P4.1, #27 P4.2, #28 P4.3
-Next step: P4 governance is queued. The parent and child issues exist; activating P4, creating `feature/p4-verify`, and starting P4.1 await explicit maintainer approval. Do not implement P4 or create target-repository issues before activation.
+Next step: P4.1-P4.3 are complete and pull request #29 is queued for maintainer review. P4.1 records the local, CI, Docs, Pages, and clean-checkout evidence; P4.2 reconciled all complete, adopted, and queued candidates; P4.3 records the close-out in `notes/reports/p4-verify.md`. No candidate was implemented and no target-repository issue, branch, or pull request was created.
 
 Goal: show that the carried queue and its evidence meet the acceptance criteria, and record the proof.
 
-- [ ] P4.1 Run the acceptance checks and record the evidence
-- [ ] P4.2 Reconcile completed candidates against merged commits
-- [ ] P4.3 Write the phase close-out report in `notes/reports/`
+- [x] P4.1 Run the acceptance checks and record the evidence
+- [x] P4.2 Reconcile completed candidates against merged commits
+- [x] P4.3 Write the phase close-out report in `notes/reports/`
 
 Acceptance criteria:
 
@@ -205,6 +205,6 @@ Acceptance criteria:
 3. Phase 1 is `complete` under parent issue #7. Pull request #12 squash-merged to `main` at `2b4620d`; `feature/p1-scope-design` was deleted, and issues #7-#11 were closed with closeout comments.
 4. Phase 2 is `complete` under parent issue #13. Pull request #18 squash-merged to `main` at `b2d4c25`; `feature/p2-contracts-prototype` was deleted, and issues #13-#17 were closed with closeout comments. The audit confirmed eleven contract-wave candidates with merged evidence and `GRO-06` as the one open candidate.
 5. Phase 3 is `complete` under parent issue #19. Pull request #24 squash-merged to `main` at `9637b46`; `feature/p3-build` was deleted, and issues #19-#23 were closed with closeout comments. The re-score is in `notes/20-p3-model-integration-rescore.md` and the handoff is `handoffs/femic-child-biomass-curves-p3.md`. The selected candidate is `GRO-06`, target `femic` P117.2 (#376). No target-repository issue, branch, or pull request was created; the handoff remains queued for a separate approval.
-6. Phase 4 is `planned` under parent issue #25, with child issues #26-#28 created and linked as sub-issues. The parent and children exist for governance only; branch creation, activation, and P4.1 await explicit maintainer approval.
+6. Phase 4 is `pr-open` under parent issue #25. P4.1-P4.3 are complete on `feature/p4-verify`; the acceptance evidence is in `notes/21-p4-acceptance-evidence.md`, the candidate reconciliation is in `notes/22-p4-candidate-reconciliation.md`, and the close-out is in `notes/reports/p4-verify.md`. The P4 pull request waits for maintainer review. P5 remains planned and needs a separate approval.
 7. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 8. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.

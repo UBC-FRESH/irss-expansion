@@ -3,7 +3,7 @@ meta:
   version: "0.1"
   generated: "2026-10-25"
   last_audited: "2026-11-03"
-  audit_note: "notes/17-p2-contract-audit.md; notes/20-p3-model-integration-rescore.md"
+  audit_note: "notes/17-p2-contract-audit.md; notes/20-p3-model-integration-rescore.md; notes/22-p4-candidate-reconciliation.md"
   scope: >-
     Candidate projects, algorithms, data products, and technologies mined from the UBC
     Integrated Remote Sensing Studio (IRSS) and the Silva21 research program, screened
@@ -1981,6 +1981,10 @@ candidates:
     risks: >-
       Indicator interpretation; alert fatigue; liability.
     resolution: Complete. P90 added the `ws4.forest_condition.report.v1` schema and static pilot; P91 added the account-derived CLI; P92 added the read-only API; P93 added the Reports-tab view. All cards are review-required/advisory, not operational early warning.
+    provenance: >-
+      Live audit 2026-11-03: UBC-FRESH/ws4#650, #655, #659, and #662 are closed;
+      PRs #653, #657, #661, and #669 are merged as `6aecccb`, `a0f395a`,
+      `4ce820c`, and `5cf5444`. See notes/22-p4-candidate-reconciliation.md.
   - id: DEC-03
     title: "Provenance and uncertainty communication"
     workstream: DEC

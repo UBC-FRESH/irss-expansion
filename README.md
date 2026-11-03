@@ -59,11 +59,16 @@ with the reviewed body in
 The candidate was not implemented, and no target-repository issue, branch, or
 pull request was created.
 
-Phase 4 (verify) is planned under parent issue
+Phase 4 (verify) is complete on `feature/p4-verify` under parent issue
 [#25](https://github.com/UBC-FRESH/irss-expansion/issues/25), with tasks
 [#26](https://github.com/UBC-FRESH/irss-expansion/issues/26)-[#28](https://github.com/UBC-FRESH/irss-expansion/issues/28).
-The issues exist for governance only; branch creation, activation, and P4.1 wait
-for explicit maintainer approval.
+The acceptance evidence is in
+[`notes/21-p4-acceptance-evidence.md`](notes/21-p4-acceptance-evidence.md), the
+candidate reconciliation is in
+[`notes/22-p4-candidate-reconciliation.md`](notes/22-p4-candidate-reconciliation.md),
+and the close-out is in [`notes/reports/p4-verify.md`](notes/reports/p4-verify.md).
+The P4 pull request is queued for maintainer review as
+[#29](https://github.com/UBC-FRESH/irss-expansion/pull/29); P4 is not merged.
 
 ## How this project works
 
@@ -302,9 +307,16 @@ out of scope; see `notes/15-dec02-readiness.md` and
 Phase 0, Phase 1, Phase 2, and Phase 3 are complete and merged. Phase 3
 squash-merged in pull request #24 at `9637b46`: it re-scored the
 model-integration queue, selected `GRO-06` biomass yield curves, and wrote the
-reviewed handoff for `femic` P117.2 (#376). Phase 4 (verify) is planned under
-parent issue #25 with child issues #26-#28; its branch, activation, and work wait
-for explicit maintainer approval. No new candidate or target-repo issue is
+reviewed handoff for `femic` P117.2 (#376).
+
+Phase 4 (verify) is complete on `feature/p4-verify`. It recorded the local, CI,
+Docs, Pages, and clean-checkout evidence; reconciled all seventeen `complete`
+candidates, both `adopted` candidates, and the one `queued` candidate against
+live target records; and wrote the close-out report. The reconciliation found
+no candidate that needed a score or status change. `CARB-03` remains adopted and
+in flight in FHOPS P44, and `GRO-06` remains queued under `femic` P117.2. The P4
+pull request is queued for maintainer review; P5 release and deploy remains
+planned and needs a separate approval. No new candidate or target-repo issue is
 queued by this close-out.
 
 ## Reading order
