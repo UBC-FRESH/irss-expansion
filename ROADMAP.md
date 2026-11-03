@@ -64,14 +64,14 @@ Parent issue: #1
 Branch: `feature/p0-bootstrap`
 Status: active
 Child issues: #2 P0.1, #3 P0.2, #4 P0.3, #5 P0.4
-Next step: the branch does not exist yet; create it, then complete P0.1-P0.4 and record a clean-checkout dashboard run.
+Next step: P0.1-P0.4 are complete; the pull request is queued for maintainer approval. Do not merge until the phase close-out is approved.
 
 Goal: adapt the seeded contract to this project, carry the public-safe planning material, and make the first public state reviewable.
 
-- [ ] P0.1 Adapt `AGENTS.md` and `README.md` to this project
-- [ ] P0.2 Carry over the registry, notes, handoffs, register, scripts, and tests
-- [ ] P0.3 Confirm the workflow validator and the full dashboard pass
-- [ ] P0.4 Publish the repository and verify the remote
+- [x] P0.1 Adapt `AGENTS.md` and `README.md` to this project
+- [x] P0.2 Carry over the registry, notes, handoffs, register, scripts, and tests
+- [x] P0.3 Confirm the workflow validator and the full dashboard pass
+- [x] P0.4 Publish the repository and verify the remote
 
 Acceptance criteria:
 
@@ -194,6 +194,6 @@ Acceptance criteria:
 
 1. Phase 0 is active under parent issue #1, created from `.github/ISSUE_TEMPLATE/phase.md` with maintainer approval.
 2. Child issues #2-#5 are linked as sub-issues of #1; the tracker map and the phase section record the active status.
-3. No implementation branch exists yet. Create `feature/p0-bootstrap` when P0 work starts, and keep each task commit tagged with its task ID.
+3. `feature/p0-bootstrap` carries P0.1-P0.4 and is queued as a pull request. Do not merge it before the maintainer approves the phase close-out.
 4. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 5. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.
