@@ -701,3 +701,13 @@ Limitations:
 - Added `PyYAML>=6.0` to `docs/requirements.txt` so the docs and development environments agree.
 - Verification: the local docs build passes with warnings as errors, and `python scripts/dashboard.py`
   reports every gate green.
+
+## 2026-11-03
+
+### Docs deploy blocked on the Pages setting
+
+- The Docs workflow now builds the site successfully, including the registry API pages.
+- The deploy job fails with a 404 from `actions/deploy-pages` because GitHub Pages is not enabled
+  for this repository. The build job itself passes.
+- Enabling Pages is a repository settings change, so it needs explicit maintainer approval. No
+  workflow, gate, or visibility setting was changed to work around it.
