@@ -943,3 +943,25 @@ python -m pytest
 
 `check_registry.py` reports a valid registry with 62 candidates; the full test
 suite passes with the coverage gate met.
+
+### P2.3 regenerate the candidate register
+
+- Ran `python scripts/render_registry.py` after the P2.2 registry changes.
+  `docs/candidates.md` now shows the last-audited date and the new provenance,
+  owner, and unresolved-dependency fields.
+- The generated diff is limited to the audit fields for the twelve
+  contract-wave candidates and the `CARB-01` phase-label correction. No
+  candidate was added, removed, or re-scored.
+- Re-ran the renderer and `git diff --exit-code -- docs/candidates.md` against
+  the staged generated file: no further change. `python scripts/check_registry.py`
+  reports 62 valid candidates.
+
+Verification:
+
+```bash
+python scripts/render_registry.py
+git diff --exit-code -- docs/candidates.md
+python scripts/check_registry.py
+```
+
+The renderer is idempotent on the updated registry and the validator passes.

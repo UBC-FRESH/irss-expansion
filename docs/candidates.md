@@ -2,7 +2,7 @@
 
 _IRSS x Silva21 Expansion Mine for the FRESH forest modelling ecosystem_
 
-Generated: 2026-10-25. Candidates: 62. Scoring: `priority = (impact * readiness) / (effort_points * risk)`.
+Generated: 2026-10-25. Last audited: 2026-11-03. Candidates: 62. Scoring: `priority = (impact * readiness) / (effort_points * risk)`.
 
 This file is generated from `registry/candidates.yaml`. Edit the registry, then run `python scripts/render_registry.py`.
 
@@ -43,7 +43,7 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 | ID | Wave | Score | Effort | Targets | Candidate | First step |
 | --- | ---: | ---: | --- | --- | --- | --- |
 | `CARB-04` | 0 | 1.00 | M | `femic` | Soil carbon and site-productivity layer | Ingest the layer as a read-only fragment attribute and defer dynamic modelling. |
-| `CARB-01` | 1 | 5.00 | M | `ws3`, `ws4`, `femic` | Carbon account v0 across ws3 and ws4 | No new work. Track FEMIC P115 (#361) and ws4 P51 (#357) to closeout, and record the parity result and the account boundary in this register. |
+| `CARB-01` | 1 | 5.00 | M | `ws3`, `ws4`, `femic` | Carbon account v0 across ws3 and ws4 | No new work. Track FEMIC P115 (#361) and ws4 P58 (#357) to closeout, and record the parity result and the account boundary in this register. |
 | `CARB-03` | 2 | 6.00 | S | `fhops`, `ws4` | Wood degradation and storage value loss | Add a decay module shared by FHOPS salvage and ws4 carbon valuation. |
 | `CARB-02` | 2 | 2.00 | M | `ws3`, `ws4` | Disturbance emissions and avoided emissions | Add a post-hoc emissions report for one fire scenario before changing the objective. |
 
@@ -156,6 +156,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Resolution.** Implemented in UBC-FRESH/ws4#376, child of P54 (#375); PR #463 adds the DHI ingest, account, report block, and web layer.
 
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/ws4#376 is closed, PR #463 is merged as `b0438de`, and parent P54 (#375) is closed. See notes/17-p2-contract-audit.md.
+
 **Sources.**
 
 - [IRSS biodiversity research and Dynamic Habitat Indices](https://irsslab.forestry.ubc.ca/research/biodiversity/)
@@ -178,7 +180,9 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Risks.** Index validity; weight selection; structural metrics not available everywhere.
 
-**Resolution.** Implemented in UBC-FRESH/ws4#377, child of P54 (#375); PR #471 adds the exact Coops et al. (2016) index, coverage diagnostics, accounts, report, and DHI comparison. The real TFL 6 bundle reports missing exact metrics.
+**Resolution.** Implemented in UBC-FRESH/ws4#377, child of P54 (#375); PR #471 adds the exact Coops et al. (2016) index, coverage diagnostics, accounts, report, and DHI comparison. The real TFL 6 point-cloud run is PR #484; it reports missing exact first-return metrics.
+
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/ws4#377 is closed, PRs #471 and #484 are merged as `b4f7caa` and `84fb562`, and parent P54 (#375) is closed. See notes/17-p2-contract-audit.md.
 
 **Sources.**
 
@@ -260,13 +264,15 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **What.** Define a shared carbon-account contract and emit it from one ws4 scenario, reusing the CBM linkage and avoided-emissions examples that already exist in ws3. Version 0 may use existing volume curves with a declared basic-density and carbon-fraction conversion; the biomass curve family (`GRO-06`) is a later refinement.
 
-**Gap.** At the time of the mine, ws3 had CBM linkage and notebook-level avoided-fire and avoided-harvest examples, but there was no shared carbon contract, no ws4 account, and no provenance-bearing conversion from FEMIC curves. This is now being addressed by FEMIC P115 and ws4 P51; the candidate is retained as the adoption record.
+**Gap.** At the time of the mine, ws3 had CBM linkage and notebook-level avoided-fire and avoided-harvest examples, but there was no shared carbon contract, no ws4 account, and no provenance-bearing conversion from FEMIC curves. This is now being addressed by FEMIC P115 and ws4 P58 (carried as P51); the candidate is retained as the adoption record.
 
-**First step.** No new work. Track FEMIC P115 (#361) and ws4 P51 (#357) to closeout, and record the parity result and the account boundary in this register.
+**First step.** No new work. Track FEMIC P115 (#361) and ws4 P58 (#357) to closeout, and record the parity result and the account boundary in this register.
 
 **Risks.** Boundary definition (stand vs product vs soil); double counting; false precision. ws3 and ws4 may disagree on product and decay boundaries. Volume-to-biomass conversion adds uncertainty until `GRO-06` lands.
 
-**Resolution.** Adopted by UBC-FRESH/femic#361 (P115, forest carbon domain) and UBC-FRESH/ws4#357 (P51, carbon accounting and carbon-aware planning). Do not open a parallel carbon contract.
+**Resolution.** Adopted by UBC-FRESH/femic#361 (P115, forest carbon domain; PR #394, `30b1444`) and UBC-FRESH/ws4#357 (live phase P58, carbon accounting and carbon-aware planning; PR #408, `ddf4ed8`). The carried ws4 label P51 was stale: P51 is the release-candidate verification phase. Do not open a parallel carbon contract.
+
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/femic#361 and UBC-FRESH/ws4#357 are closed and both cited pull requests are merged. See notes/17-p2-contract-audit.md.
 
 **Sources.**
 
@@ -363,6 +369,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Resolution.** Created as UBC-FRESH/nemora#6, child of P5 (#7). Merged in UBC-FRESH/nemora#11 as `cbf504d`; band CSV and coverage check delivered.
 
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/nemora#6 is closed and PR #11 is merged as `cbf504d`; parent P5 (#7) is closed. See notes/17-p2-contract-audit.md.
+
 **Sources.**
 
 - [Nemora fit and distributions modules](https://github.com/UBC-FRESH/nemora)
@@ -385,7 +393,9 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Risks.** Synthetic realism; false confidence; maintaining fixtures.
 
-**Resolution.** Merged in UBC-FRESH/nemora
+**Resolution.** Created as UBC-FRESH/nemora#8, child of P5 (#7). Merged in UBC-FRESH/nemora#13 as `d094c01`; deterministic WS4 synthetic fixture and local build/simulate smoke test.
+
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/nemora#8 is closed, PR #13 is merged as `d094c01`, and parent P5 (#7) is closed. See notes/17-p2-contract-audit.md.
 
 **Sources.**
 
@@ -431,7 +441,9 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Risks.** Upstream schema drift; licensing; breaking existing scripts.
 
-**Resolution.** Merged in UBC-FRESH/nemora
+**Resolution.** Created as UBC-FRESH/nemora#9, child of P5 (#7). Merged in UBC-FRESH/nemora#12 as `9e7ea9e`; `nemora.inventory.v1` schema and HPS migration.
+
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/nemora#9 is closed, PR #12 is merged as `9e7ea9e`, and parent P5 (#7) is closed. See notes/17-p2-contract-audit.md.
 
 **Sources.**
 
@@ -567,7 +579,9 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Risks.** Over-specific schema; adoption; vendor metadata gaps.
 
-**Resolution.** Created as UBC-FRESH/femic#372, child of P116 (#369). Contract merged in UBC-FRESH/femic#380 as `f833ed9`; #372 remains open for real model cards and FEMIC pipeline wiring.
+**Resolution.** Created as UBC-FRESH/femic#372, child of P116 (#369). Contract merged in UBC-FRESH/femic#380 as `f833ed9`; published model cards and the attribute annotation seam merged in UBC-FRESH/femic#418 as `69af694`. #372 is closed.
+
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/femic#372 is closed and PRs #380 and #418 are merged. See notes/17-p2-contract-audit.md.
 
 **Sources.**
 
@@ -615,6 +629,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 **Risks.** Schema overreach; disagreement on severity scales; attribution uncertainty.
 
 **Resolution.** Created as UBC-FRESH/femic#371, child of P116 (#369). Contract merged in UBC-FRESH/femic#379 as `ef4cff2`; ws4 consumer merged in UBC-FRESH/ws4#398 as `5ea4a05`.
+
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/femic#371 is closed, femic PR #379 is merged as `ef4cff2`, and ws4 PR #398 is merged as `5ea4a05`. See notes/17-p2-contract-audit.md.
 
 **Sources.**
 
@@ -828,6 +844,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Resolution.** Created as UBC-FRESH/femic#370, child of P116 (#369). Merged in UBC-FRESH/femic#378 as `9e16be9`.
 
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/femic#370 is closed and PR #378 is merged as `9e16be9`. See notes/17-p2-contract-audit.md.
+
 **Sources.**
 
 - [Silva21 climate data and SilvR21](https://www.silva21.com/climatedata?lang=en)
@@ -938,7 +956,11 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Risks.** Species-specific allometry; belowground omission; curve vintage.
 
-**Resolution.** Created as UBC-FRESH/femic#376, child of P117 (#374).
+**Resolution.** Open. Tracked as UBC-FRESH/femic#376, child of P117 (#374).
+
+**Owner.** UBC-FRESH/femic P117 (#374); no individual GitHub assignee is recorded on the live issue.
+
+**Unresolved dependency.** Parent P117 (#374) and child #376 remain open. The candidate still needs a biomass curve source and a declared carbon-fraction boundary before integration.
 
 **Sources.**
 
@@ -1148,7 +1170,9 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 
 **Risks.** R/Python bridge maintenance; licensing of the original implementation; user confusion between sampling design and model validation.
 
-**Resolution.** Merged in UBC-FRESH/nemora
+**Resolution.** Created as UBC-FRESH/nemora#10, child of P5 (#7). Merged in UBC-FRESH/nemora#14 as `2e8776c`; the optional sgsR R bridge and worked example are in the Nemora sampling surface.
+
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/nemora#10 is closed, PR #14 is merged as `2e8776c`, and parent P5 (#7) is closed. See notes/17-p2-contract-audit.md.
 
 **Sources.**
 
@@ -1443,6 +1467,8 @@ This file is generated from `registry/candidates.yaml`. Edit the registry, then 
 **Risks.** Metric redundancy; scale sensitivity; false precision.
 
 **Resolution.** Implemented in UBC-FRESH/ws4#378, child of P54 (#375); PR #475 adds connectivity, age-class diversity, and fragmentation accounts plus a two-run comparison and report block.
+
+**Provenance.** Live audit 2026-11-03: UBC-FRESH/ws4#378 is closed, PR #475 is merged as `865bef6`, and parent P54 (#375) is closed. See notes/17-p2-contract-audit.md.
 
 **Sources.**
 
