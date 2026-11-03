@@ -392,3 +392,28 @@ def test_render_includes_a_resolution_and_a_source_without_a_url() -> None:
     rendered = render(data)
     assert "**Resolution.** Merged as #1." in rendered
     assert "- A text source" in rendered
+
+
+@pytest.mark.parametrize(
+    "field",
+    ["resolution", "provenance", "owner", "unresolved_dependency"],
+)
+def test_validation_rejects_empty_optional_metadata(field: str) -> None:
+    """An optional metadata field, when present, must be non-empty text."""
+    data = _valid_registry()
+    data["candidates"][0][field] = ""
+    errors = validate_registry(data)
+    assert f"candidates[0].{field} must be a non-empty string" in errors
+
+
+def test_render_includes_provenance_owner_and_unresolved_dependency() -> None:
+    """The register shows the audit metadata that a contract-wave row carries."""
+    data = _valid_registry()
+    candidate = data["candidates"][0]
+    candidate["provenance"] = "Audited against issue #1."
+    candidate["owner"] = "The P1 phase."
+    candidate["unresolved_dependency"] = "Issue #2 remains open."
+    rendered = render(data)
+    assert "**Provenance.** Audited against issue #1." in rendered
+    assert "**Owner.** The P1 phase." in rendered
+    assert "**Unresolved dependency.** Issue #2 remains open." in rendered

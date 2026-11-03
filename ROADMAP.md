@@ -106,12 +106,12 @@ Parent issue: #13
 Branch: `feature/p2-contracts-prototype`
 Status: active
 Child issues: #14 P2.1, #15 P2.2, #16 P2.3, #17 P2.4
-Next step: Audit the twelve contract-wave candidates against the live target repositories, then add the resolution and provenance metadata that the evidence supports. Do not create target-repository issues, branches, or pull requests.
+Next step: Regenerate the register from the updated registry and confirm the generated page matches. Do not create target-repository issues, branches, or pull requests.
 
 Goal: keep the shared contracts and their evidence in step with the target repositories, without creating parallel work.
 
 - [x] P2.1 Audit the contract-wave records against the live target repositories
-- [ ] P2.2 Confirm every accepted candidate has a resolution link and a provenance record
+- [x] P2.2 Confirm every accepted candidate has a resolution link and a provenance record
 - [ ] P2.3 Regenerate the register after any registry change
 - [ ] P2.4 Record the audit result in `CHANGE_LOG.md`
 

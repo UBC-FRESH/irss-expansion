@@ -912,3 +912,34 @@ python scripts/dashboard.py
 
 `check_workflow.py` reports 0 errors and 0 warnings; `check_registry.py` reports
 62 valid candidates; the dashboard reports all six gates GREEN.
+
+### P2.2 confirm resolutions and add provenance metadata
+
+- Added a `provenance` record to the eleven complete or adopted contract-wave
+  candidates, citing the live target issue, pull request, and merge commit for
+  each.
+- Corrected the `CARB-01` resolution to the live ws4 phase `P58` and to the
+  merged carbon PRs (`femic#394` `30b1444`; ws4#408 `ddf4ed8`). The carried
+  `P51` label remains recorded as stale in the audit note.
+- Corrected the `DEC-04` resolution: `femic#372` is closed after PR #418
+  (`69af694`) added the published cards and annotation seam.
+- Added the `BIO-02` real TFL 6 follow-up PR #484 (`84fb562`) to its
+  resolution.
+- Recorded `GRO-06` as the only open contract-wave candidate with a phase-level
+  owner, its existing first step, an empty candidate dependency list, and the
+  unresolved parent/child dependency (`femic#374`/`#376`). No individual
+  assignee is recorded on the live issue, so none was invented.
+- `scripts/render_registry.py` now displays provenance, owner, and unresolved
+  dependency. `scripts/check_registry.py` rejects empty optional metadata.
+  Added registry tests for both behaviours.
+- No status, score, wave, source, or risk changed.
+
+Verification:
+
+```bash
+python scripts/check_registry.py
+python -m pytest
+```
+
+`check_registry.py` reports a valid registry with 62 candidates; the full test
+suite passes with the coverage gate met.

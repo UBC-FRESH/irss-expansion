@@ -90,6 +90,22 @@ no target branch or implementation exists.
 The live issue has no assignee. The owner is therefore recorded at the phase
 level, not invented as a person.
 
+## Metadata applied
+
+The eleven complete or adopted contract-wave rows now carry a `provenance`
+field that names the live issue, pull request, and merge commit. `GRO-06` carries
+`owner`, `first_step`, `dependencies`, and `unresolved_dependency`; its
+dependency list stays empty because no candidate blocks it. The owner is recorded
+at the phase level because the live issue has no individual assignee.
+
+`scripts/render_registry.py` displays provenance, owner, and unresolved
+dependency when present. `scripts/check_registry.py` rejects an empty value in
+any of those optional fields. No status, score, wave, source, or risk changed.
+
+The remaining open candidates outside the twelve-row contract wave were not
+re-scored or given an invented owner. Their metadata is outside this audit's
+scope.
+
 ## Limits
 
 - The audit checked issue and pull-request state, merge commits, and cited

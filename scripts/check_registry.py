@@ -244,6 +244,15 @@ def validate_registry(data: dict[str, Any]) -> list[str]:
         for key in ("what", "gap", "first_step", "risks"):
             _require_string(candidate[key], f"{where}.{key}", errors)
 
+        for optional_key in (
+            "resolution",
+            "provenance",
+            "owner",
+            "unresolved_dependency",
+        ):
+            if optional_key in candidate:
+                _require_string(candidate[optional_key], f"{where}.{optional_key}", errors)
+
         targets = candidate["fresh_targets"]
         if not isinstance(targets, list) or not targets:
             errors.append(f"{where}.fresh_targets must be a non-empty list")
