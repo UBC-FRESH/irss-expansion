@@ -1098,3 +1098,28 @@ python scripts/dashboard.py
 
 The workflow validator reports 0 errors and 0 warnings; the dashboard reports
 all six gates GREEN.
+
+### P3.3 confirm the target repository, phase, and acceptance test
+
+- Confirmed `UBC-FRESH/femic` P117 (#374) as `active` and P117.2 (#376) as open
+  on branch `feature/p117-efi-attributes` at `67cba53`, with `femic` `main` at
+  `faf00af`.
+- Checked the live issues and pull requests for duplicate biomass work. The
+  only matches are the P117/P117.2 issues, P115.2, and the INV-01 high-biomass
+  calibration history; no biomass curve family exists.
+- Confirmed the acceptance command is executable in `femic`:
+  `python -m pytest tests/test_biomass_curves.py -q`. The test file is a
+  deliverable and intentionally does not exist yet.
+- Recorded the confirmation and the P117.1 active-lane drift in
+  `notes/20-p3-model-integration-rescore.md`. The phase number did not drift.
+- No target issue, branch, pull request, or setting was changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the dashboard reports
+all six gates GREEN.

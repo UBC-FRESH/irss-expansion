@@ -173,6 +173,23 @@ The phase number is not drifted. P117.1 is active on the shared branch; P117.2 i
 planned and has no implementation. The live issue has no individual assignee, so
 the owner remains the phase-level owner, not an invented person.
 
+### Confirmation record (P3.3)
+
+Checked again on 2026-11-03 before writing the handoff:
+
+- `femic` `origin/main` head `faf00af`; P117 is `active` in `ROADMAP.md` and
+  P117.2 is still an open child issue.
+- Branch `feature/p117-efi-attributes` exists at `67cba53`.
+- An all-state search for `biomass` in `femic` issues and pull requests returns
+  the P117 parent, P117.2, P115.2, and the INV-01 high-biomass calibration
+  history. None is a biomass curve family. No duplicate implementation exists.
+- The acceptance command is executable in the target repository:
+  `python -m pytest tests/test_biomass_curves.py -q`. That file does not exist
+  yet and is a deliverable, so the test is expected to fail until the work is
+  implemented.
+- No phase-number drift. The only drift is the P117.1 active state on the shared
+  branch, which does not block P117.2 because the two lanes add different files.
+
 ## Handoff artifact
 
 [`handoffs/femic-child-biomass-curves-p3.md`](../handoffs/femic-child-biomass-curves-p3.md)
