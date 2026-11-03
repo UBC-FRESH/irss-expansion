@@ -343,19 +343,20 @@ parent #7 is closed. ws4 P54 is complete.
 The 2026-11-01 registry reconciliation marks `INV-01`, `INV-06`, `DATA-02`, and
 `DATA-04` complete with their merged evidence; `INV-01` is the BA-only pilot
 (14.9% TSA coverage, strict BA RMSE 8.86 m2/ha), not a volume/height product.
-Phase 5 is released as `v0.1.0`; Phase 6 operate and maintain is active. No new
-remote-sensing model is scheduled.
+Phase 5 is released as `v0.1.0`; Phase 6 operate and maintain is complete and
+the mine recurs. No new remote-sensing model is scheduled.
 `DEC-02` is complete across WS4 P90-P93: report schema, account CLI,
 read-only API, and Reports-tab view. The cards are review-required/advisory, not
 operational early warning. A real condition source and `DIS-03` alerting remain
 out of scope; see `notes/15-dec02-readiness.md` and
 `notes/16-dis03-readiness.md`.
 
-Phases 0-5 are complete and merged. Phase 3 squash-merged in pull request #24 at
+Phases 0-6 are complete and merged. Phase 3 squash-merged in pull request #24 at
 `9637b46`: it re-scored the model-integration queue, selected `GRO-06` biomass
 yield curves, and wrote the reviewed handoff for `femic` P117.2 (#376). Phase 4
 squash-merged in pull request #29 at `ee94e8e`; Phase 5 squash-merged in pull
-request #34 at `d3d5ce2` and released `v0.1.0`.
+request #34 at `d3d5ce2` and released `v0.1.0`; Phase 6 squash-merged in pull
+request #39 at `625e354` and set the recurring maintenance cadence.
 
 Phase 4 (verify) recorded the local, CI, Docs, Pages, and clean-checkout
 evidence; reconciled all seventeen `complete` candidates, both `adopted`
@@ -363,8 +364,8 @@ candidates, and the one `queued` candidate against live target records; and
 wrote the close-out report. The reconciliation found no candidate that needed a
 score or status change. `CARB-03` remains adopted and in flight in FHOPS P44, and
 `GRO-06` remains queued under `femic` P117.2. Phase 6 keeps that state under a
-recorded review cadence; it did not change a score or status in its first
-review. No candidate or target-repo issue is queued by this close-out.
+recorded review cadence; its first review did not change a score or status. No
+candidate or target-repo issue is queued by this close-out.
 
 ## Reading order
 
