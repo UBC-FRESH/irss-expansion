@@ -1159,3 +1159,47 @@ The workflow validator reports 0 errors and 0 warnings; the registry is valid
 with 62 candidates; the renderer is idempotent; the full suite passes with 100%
 branch coverage of `scripts/`; the dashboard reports all six gates GREEN. The
 pull request CI run is the public evidence for the report commit.
+
+## 2026-11-03
+
+### P3 close-out approved; Phase 3 marked complete; P4 governance created
+
+- The maintainer approved the P3 close-out on 2026-11-03 and authorized the squash merge of pull
+  request #24, deletion of `feature/p3-build`, closure of issues #19-#23, and creation of the P4
+  governance issues without activating P4.
+- Squash-merged pull request #24 to `main` at `9637b46` (`P3: re-score the model-integration queue
+  and hand off GRO-06`). The branch `feature/p3-build` was deleted after the merge.
+- Closed parent issue #19 and child issues #20-#23 with closeout comments that cite the task commits
+  (`635cb82`, `b4794e6`, `6a81086`, `bc27c5b`, `b224453`, `52da91f`), the gate evidence, and merge
+  commit `9637b46`.
+- `ROADMAP.md` marks P3 `complete` and records P4 parent issue #25 with child issues #26 P4.1, #27
+  P4.2, and #28 P4.3. `README.md` records the completed phase and the P4 activation gate.
+- Created P4 governance only: parent issue #25 (`P4: Verify`) with child issues #26-#28, each linked
+  as a sub-issue and labelled `task`. P4 remains `planned`; no P4 branch, commit, or implementation
+  exists.
+- Updated the P3 close-out report to record the merge, the branch deletion, the issue closures, the
+  CI and Pages evidence, and the P4 governance decision.
+- Verification on the merged `main` with the close-out edits: `python scripts/check_workflow.py`
+  reports 0 errors and 0 warnings; `python scripts/dashboard.py` reports all six gates GREEN with
+  `OVERALL: GREEN`; `python scripts/check_registry.py` reports a valid registry with 62 candidates;
+  `python scripts/render_registry.py` produces no diff; `python -m pytest -q` reports 186 passed
+  with 100% branch coverage of `scripts/`.
+- CI run 41721343564 and Docs run 41721343512 pass on `main` at `9637b46`; the Docs deploy job
+  succeeded and the Pages site `https://ubc-fresh.github.io/irss-expansion/` returns HTTP 200.
+- No new ADR, no candidate was re-scored, no source was re-mined, and no target-repository issue,
+  branch, or pull request was created. P4 activation remains a separate maintainer decision.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python scripts/dashboard.py
+python -m pytest -q
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid with 62 candidates;
+the renderer is idempotent; the dashboard reports all six gates GREEN; the full suite passes with
+100% branch coverage of `scripts/`.

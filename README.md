@@ -46,16 +46,24 @@ completed on `feature/p2-contracts-prototype` and squash-merged in pull request
 contract-wave candidates against the live target repositories: eleven are
 complete or adopted with merged evidence, and `GRO-06` remains open.
 
-Phase 3 (build) is active under parent issue
+Phase 3 (build) is complete under parent issue
 [#19](https://github.com/UBC-FRESH/irss-expansion/issues/19), with tasks
 [#20](https://github.com/UBC-FRESH/irss-expansion/issues/20)-[#23](https://github.com/UBC-FRESH/irss-expansion/issues/23)
-on `feature/p3-build`. It re-scored the model-integration queue against the live
-target repositories and selected `GRO-06` biomass yield curves as the first
-handoff. The target is `UBC-FRESH/femic` P117.2 ([#376](https://github.com/UBC-FRESH/femic/issues/376)),
+completed on `feature/p3-build` and squash-merged in pull request
+[#24](https://github.com/UBC-FRESH/irss-expansion/pull/24). It re-scored the
+model-integration queue against the live target repositories and selected
+`GRO-06` biomass yield curves as the first handoff. The target is
+`UBC-FRESH/femic` P117.2 ([#376](https://github.com/UBC-FRESH/femic/issues/376)),
 with the reviewed body in
 [`handoffs/femic-child-biomass-curves-p3.md`](handoffs/femic-child-biomass-curves-p3.md).
 The candidate was not implemented, and no target-repository issue, branch, or
 pull request was created.
+
+Phase 4 (verify) is planned under parent issue
+[#25](https://github.com/UBC-FRESH/irss-expansion/issues/25), with tasks
+[#26](https://github.com/UBC-FRESH/irss-expansion/issues/26)-[#28](https://github.com/UBC-FRESH/irss-expansion/issues/28).
+The issues exist for governance only; branch creation, activation, and P4.1 wait
+for explicit maintainer approval.
 
 ## How this project works
 
@@ -284,20 +292,20 @@ parent #7 is closed. ws4 P54 is complete.
 The 2026-11-01 registry reconciliation marks `INV-01`, `INV-06`, `DATA-02`, and
 `DATA-04` complete with their merged evidence; `INV-01` is the BA-only pilot
 (14.9% TSA coverage, strict BA RMSE 8.86 m2/ha), not a volume/height product.
-The next planned wave is P2 model integration; no new remote-sensing model is
-scheduled. `DEC-02` is complete across WS4 P90-P93: report schema, account CLI,
+The next phase is P4 verification; no new remote-sensing model is scheduled.
+`DEC-02` is complete across WS4 P90-P93: report schema, account CLI,
 read-only API, and Reports-tab view. The cards are review-required/advisory, not
 operational early warning. A real condition source and `DIS-03` alerting remain
 out of scope; see `notes/15-dec02-readiness.md` and
 `notes/16-dis03-readiness.md`.
 
-Phase 0, Phase 1, and Phase 2 are complete and merged. Phase 2 squash-merged in
-pull request #18 at `b2d4c25`: it audited the twelve contract-wave candidates,
-restored their resolution and provenance links, and recorded the drift between
-the carried and live target state. Phase 3 (build) is planned under parent issue
-#19 with child issues #20-#23; its branch, activation, and work wait for explicit
-maintainer approval. No new candidate or target-repo issue is queued by this
-close-out.
+Phase 0, Phase 1, Phase 2, and Phase 3 are complete and merged. Phase 3
+squash-merged in pull request #24 at `9637b46`: it re-scored the
+model-integration queue, selected `GRO-06` biomass yield curves, and wrote the
+reviewed handoff for `femic` P117.2 (#376). Phase 4 (verify) is planned under
+parent issue #25 with child issues #26-#28; its branch, activation, and work wait
+for explicit maintainer approval. No new candidate or target-repo issue is
+queued by this close-out.
 
 ## Reading order
 

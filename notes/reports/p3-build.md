@@ -6,12 +6,11 @@ Pull request: [#24](https://github.com/UBC-FRESH/irss-expansion/pull/24),
 `feature/p3-build` into `main`
 Evidence head: `bc27c5b` (P3.4), plus the PR-record commit
 Date: 2026-11-03
-Status: PR queued for maintainer review; not merged, no target-repository action
-taken
+Status: approved by the maintainer on 2026-11-03; squash-merged to `main` as `9637b46`.
 
 ## Recommendation
 
-Approve these actions after reviewing the pull request:
+The maintainer approved these actions on 2026-11-03; the close-out record is section 9.
 
 1. Merge the P3 pull request into `main` and delete `feature/p3-build` when the
    phase close-out is approved.
@@ -120,9 +119,20 @@ values changed; no impact, effort, risk, or wave value changed.
 
 ## 8. Next action
 
-Wait for the maintainer to review the P3 pull request. After approval:
+The P3 close-out is complete. The remaining decision is separate from P3:
+whether to update `femic` #376 with the reviewed handoff body and start P117.2.
+That decision is the target-repository approval gate.
 
-1. Merge the pull request and close #19-#23 with the closeout evidence.
-2. Decide separately whether to update `femic` #376 with the reviewed handoff
-   body and start P117.2. That decision is the target-repository approval gate,
-   not part of P3.
+## 9. Close-out record
+
+- The maintainer approved the P3 close-out on 2026-11-03.
+- Pull request #24 squash-merged to `main` at `9637b46` on 2026-11-03.
+- `feature/p3-build` was deleted after the merge.
+- Issues #19-#23 were closed with closeout comments citing the task commits, the
+  gate evidence, and merge commit `9637b46`.
+- `main` CI run 41721343564 and Docs run 41721343512 pass on `9637b46`; the Docs
+  deploy job succeeded and the Pages site
+  `https://ubc-fresh.github.io/irss-expansion/` returns HTTP 200.
+- P4 governance was created as parent issue #25 and child issues #26-#28. P4
+  remains `planned`; no P4 branch or implementation exists.
+- No target-repository issue, branch, or pull request was created or edited.
