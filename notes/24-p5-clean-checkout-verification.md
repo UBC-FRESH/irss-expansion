@@ -138,3 +138,13 @@ passed Quality gates, Green dashboard summary, and Pre-commit parity on
 `c03dc78`. A later documentation-only commit that records this run is covered by
 the pull request CI run triggered by that commit; the substantive gates were the
 ones above, run in the clean clone and on `c03dc78`.
+
+## 8. Later state (P5.3)
+
+This note is a P5.2 snapshot. After it was written, pull request #34 squash-merged
+to `main` at `d3d5ce2` on 2026-11-03, `feature/p5-release` was deleted, and P5.3
+created the annotated tag `v0.1.0` (object `999a85e`) on `d3d5ce2` and the
+[GitHub release](https://github.com/UBC-FRESH/irss-expansion/releases/tag/v0.1.0).
+The "absent tag and release" observations in sections 4 and 5 are therefore
+accurate as of the P5.2 check, not as of the close-out. The post-merge Pages
+deployment is recorded in [`reports/p5-release.md`](reports/p5-release.md).

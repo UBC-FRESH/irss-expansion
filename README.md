@@ -71,17 +71,21 @@ candidate reconciliation is in
 [`notes/22-p4-candidate-reconciliation.md`](notes/22-p4-candidate-reconciliation.md),
 and the close-out is in [`notes/reports/p4-verify.md`](notes/reports/p4-verify.md).
 
-Phase 5 (release and deploy) is `pr-open` under parent issue
-[#30](https://github.com/UBC-FRESH/irss-expansion/issues/30), with pull request
-[#34](https://github.com/UBC-FRESH/irss-expansion/pull/34). Tasks
-[#31](https://github.com/UBC-FRESH/irss-expansion/issues/31) and
-[#32](https://github.com/UBC-FRESH/irss-expansion/issues/32) prepare the
-release notes and verify the public surfaces from a clean checkout on
-`feature/p5-release`. The release notes and known gaps are in
-[`notes/23-p5-release-notes.md`](notes/23-p5-release-notes.md). P5.3
-([#33](https://github.com/UBC-FRESH/irss-expansion/issues/33)) would tag and
-publish `v0.1.0`, but it remains blocked on a separate maintainer approval; no
-tag or release exists.
+Phase 5 (release and deploy) is complete under parent issue
+[#30](https://github.com/UBC-FRESH/irss-expansion/issues/30), with tasks
+[#31](https://github.com/UBC-FRESH/irss-expansion/issues/31)-[#33](https://github.com/UBC-FRESH/irss-expansion/issues/33)
+completed on `feature/p5-release` and squash-merged in pull request
+[#34](https://github.com/UBC-FRESH/irss-expansion/pull/34) at `d3d5ce2`. It
+prepared the release notes and known gaps in
+[`notes/23-p5-release-notes.md`](notes/23-p5-release-notes.md), verified the
+public register and docs from a clean checkout in
+[`notes/24-p5-clean-checkout-verification.md`](notes/24-p5-clean-checkout-verification.md),
+and published the annotated tag `v0.1.0` with the
+[IRSS x Silva21 Expansion Mine 0.1.0](https://github.com/UBC-FRESH/irss-expansion/releases/tag/v0.1.0)
+GitHub release. The close-out is in
+[`notes/reports/p5-release.md`](notes/reports/p5-release.md). No package-index
+artifact and no DOI exist. Phase 6 (operate and maintain) remains planned and
+needs a separate maintainer approval.
 
 ## How this project works
 

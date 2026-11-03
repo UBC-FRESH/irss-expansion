@@ -1,4 +1,4 @@
-# P5.1 release notes and known gaps
+# IRSS x Silva21 Expansion Mine 0.1.0 release notes and known gaps
 
 Date: 2026-11-03
 Phase: P5 Release and deploy
@@ -6,8 +6,9 @@ Parent issue: #30
 Task: P5.1
 Branch: `feature/p5-release`, created from `main` at `c05d955`
 Version: `0.1.0`, as recorded in `CITATION.cff`
-Release status: release candidate. No tag and no GitHub release exist yet; P5.3
-is blocked on a separate maintainer approval.
+Release status: released on 2026-11-03 as the annotated tag `v0.1.0` on the P5
+merge commit `d3d5ce2`, with the GitHub release `IRSS x Silva21 Expansion Mine
+0.1.0`.
 
 ## 1. What this release is
 
@@ -83,14 +84,13 @@ P5.2 records the clean-checkout result and the exact commit that it covered in
 
 The repository is MIT licensed; see `LICENSE`. Citation metadata is in
 `CITATION.cff`, which names UBC FRESH Lab, version `0.1.0`, and the repository
-URL. Until P5.3 runs, cite the repository and the commit, not a tag or a
-release.
+URL. Cite the release `v0.1.0`, or the repository and the commit it tags.
 
 ## 6. Known gaps
 
-1. **No tag and no release.** `v0.1.0` is a proposed tag, not an existing one.
-   P5.3 (#33) is blocked on a separate maintainer approval that names the tag,
-   the release title, and each command. No package-index artifact exists.
+1. **No package-index artifact.** `v0.1.0` is an annotated git tag and a GitHub
+   release only. Nothing is published to PyPI or any other package index, and
+   there is no supported installation path beyond the development requirements.
 2. **No DOI.** `CITATION.cff` carries no DOI and no concept DOI. Minting one
    would need an external account and a separate approval.
 3. **`GRO-06` is queued, not implemented.** The biomass yield curve family stays
@@ -107,28 +107,36 @@ release.
 6. **No target-repository science was re-run.** "Complete" and "adopted" mean
    that the cited target issue, pull request, or merge commit exists. They are
    not an independent re-validation of the target implementation or its tests.
-7. **External checks are dated snapshots.** The P4 CI, Docs, Pages, and
+7. **External checks are dated snapshots.** The P4 and P5 CI, Docs, Pages, and
    live-target checks are a 2026-11-03 snapshot. A later target merge, CI
    change, or site outage is outside that evidence. P5.2 records its own date.
-8. **Pages and settings are unchanged.** P5.1 does not change repository
-   visibility, Pages configuration, branch protection, or any environment. No
-   deployment action is included.
-9. **The release is documentation, not software.** There is no wheel, sdist,
-   console entry point, or supported installation path beyond the development
-   requirements in this repository.
-10. **Naming is provisional.** `0.1.0` follows `CITATION.cff`. If the maintainer
-    chooses a different tag or version at P5.3, `CITATION.cff`, this note, and
-    the release must change together before the tag is created.
+8. **No settings or deployment changes.** The release does not change repository
+   visibility, Pages configuration, branch protection, or any environment; it
+   adds an annotated tag and a GitHub release only.
+9. **The release is documentation, not software.** It carries the register, the
+   notes, and the validators and tests that protect them; it is not a library
+   with a supported public API.
+10. **Naming is provisional.** `0.1.0` follows `CITATION.cff` and the approved
+    tag. A later version must change `CITATION.cff`, this note, and the release
+    together.
 
-## 7. Release actions queued for P5.3
+## 7. Release actions carried out in P5.3
 
-Each action needs its own explicit approval. None has run.
+The maintainer approved these three actions on 2026-11-03. Each ran against the
+P5 merge commit on `main`, not the branch head.
 
 ```bash
-git tag -a v0.1.0 -m "IRSS x Silva21 Expansion Mine 0.1.0" <approved-main-commit>
+git tag -a v0.1.0 -m "IRSS x Silva21 Expansion Mine 0.1.0" d3d5ce2
 git push origin v0.1.0
 gh release create v0.1.0 --title "IRSS x Silva21 Expansion Mine 0.1.0" --notes-file notes/23-p5-release-notes.md
 ```
 
-The tag must target the P5 merge commit on `main`, not the branch head. The
-release must use the reviewed notes in this file, with the known gaps intact.
+Record:
+
+- Tag `v0.1.0` is annotated object `999a85e`, which points at commit
+  `d3d5ce2311adc3e32b7b78535b04dc4acea12a9b` (`d3d5ce2`, the pull request #34
+  squash merge).
+- The GitHub release is
+  <https://github.com/UBC-FRESH/irss-expansion/releases/tag/v0.1.0>, titled
+  `IRSS x Silva21 Expansion Mine 0.1.0`.
+- This file, with the known gaps intact, is the release body.

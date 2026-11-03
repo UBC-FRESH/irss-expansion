@@ -25,8 +25,8 @@
 | [`20-p3-model-integration-rescore.md`](20-p3-model-integration-rescore.md) | P3 re-score of the model-integration queue, the selected candidate, target confirmation, and rejected alternatives |
 | [`21-p4-acceptance-evidence.md`](21-p4-acceptance-evidence.md) | P4.1 acceptance checks, `main` CI and Docs runs, Pages check, and clean-checkout reproduction |
 | [`22-p4-candidate-reconciliation.md`](22-p4-candidate-reconciliation.md) | P4.2 reconciliation of every complete, adopted, and queued candidate against live target records |
-| [`23-p5-release-notes.md`](23-p5-release-notes.md) | P5.1 release contents, provenance, reproduction steps, and known gaps for the untagged `0.1.0` release candidate |
-| [`24-p5-clean-checkout-verification.md`](24-p5-clean-checkout-verification.md) | P5.2 clean clone, fresh environment, six-gate dashboard, public files, Pages statuses, and the absent tag and release |
+| [`23-p5-release-notes.md`](23-p5-release-notes.md) | P5.1 release contents, provenance, reproduction steps, and known gaps for the `0.1.0` release, plus the P5.3 tag and release record |
+| [`24-p5-clean-checkout-verification.md`](24-p5-clean-checkout-verification.md) | P5.2 clean clone, fresh environment, six-gate dashboard, public files, and Pages statuses before the merge |
 
 The machine-readable source is [`../registry/candidates.yaml`](../registry/candidates.yaml).
 The generated browse view is [`../docs/candidates.md`](../docs/candidates.md).

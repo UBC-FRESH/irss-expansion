@@ -1460,3 +1460,57 @@ python scripts/dashboard.py
 
 In the clean clone: 0 errors and 0 warnings; 62 valid candidates; renderer
 idempotent; 186 passed with 100% branch coverage; all six dashboard gates GREEN.
+
+## 2026-11-03
+
+### P5 close-out approved; Phase 5 complete; `v0.1.0` tagged and released
+
+The maintainer approved the P5 close-out, the squash merge, the annotated tag,
+and the GitHub release on 2026-11-03.
+
+- Squash-merged pull request #34 to `main` at
+  `d3d5ce2311adc3e32b7b78535b04dc4acea12a9b` (`d3d5ce2`,
+  `P5: write the release notes and verify the public surfaces from a clean
+  checkout`). `feature/p5-release` was deleted locally and on `origin`.
+- Closed parent issue #30 and child issues #31-#33 with closeout comments that
+  cite the task commits (`2f013b3` P5.1; `7fd9465`, `c03dc78`, and `fb6354d`
+  P5.2), the gate evidence, merge commit `d3d5ce2`, tag object `999a85e`, and
+  the release URL.
+- Created the annotated tag `v0.1.0` (object
+  `999a85e459b57afe27deba03db223afeb00ef37b`) on `d3d5ce2`, pushed it to
+  `origin`, and created the GitHub release
+  [IRSS x Silva21 Expansion Mine 0.1.0](https://github.com/UBC-FRESH/irss-expansion/releases/tag/v0.1.0)
+  from `notes/23-p5-release-notes.md`.
+- Updated `ROADMAP.md`: P5 is `complete` in the tracker map and phase section,
+  P5.3 is ticked, and the detailed next steps record the merge, the branch
+  deletion, the tag, and the release. P6 remains `planned` with no parent issue.
+- Updated `README.md`, `docs/releases.rst`, `notes/23-p5-release-notes.md`,
+  `notes/24-p5-clean-checkout-verification.md`, and `notes/README.md` to record
+  the released state. The release-status block, the citation line, the first
+  known gap, and the P5.3 action record changed; the other nine known gaps are
+  intact.
+- Added `notes/reports/p5-release.md` with the acceptance evidence, the merge,
+  tag, and release record, the CI and Pages evidence, the deviations, and what
+  remains unverified.
+- `main` CI run 41730635925 and Docs run 41730636142 pass on `d3d5ce2`; the Docs
+  deploy job succeeds and the Pages index, `releases.html`, `register.html`,
+  `candidates.md`, and `llms.txt` return HTTP 200. `releases.html` was 404 before
+  the merge, as P5.2 recorded.
+- No package-index artifact and no DOI exist. No repository setting, visibility,
+  Pages configuration, branch protection, environment, or target-repository
+  record was created or changed. No candidate was re-scored or retired.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid
+with 62 candidates; the renderer is idempotent; 186 tests pass with 100% branch
+coverage of `scripts/`; the dashboard reports all six gates GREEN.

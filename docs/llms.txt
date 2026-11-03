@@ -6,6 +6,6 @@
 
 - [Home](index.html): the documentation home for the project.
 - [Candidate register](register.html): how the registry is validated, ranked, and rendered.
-- [Release notes and known gaps](releases.html): what the `0.1.0` release candidate contains, how to reproduce it, and what it does not cover.
+- [Release notes and known gaps](releases.html): what the `0.1.0` release contains, how to reproduce it, and what it does not cover.
 - [Generated register](https://github.com/UBC-FRESH/irss-expansion/blob/main/docs/candidates.md): the browsable candidate queue.
 - [API reference](api/index.html): every public function, with its parameters, types, and return values.

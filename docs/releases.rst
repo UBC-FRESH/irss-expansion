@@ -1,14 +1,18 @@
 Release notes and known gaps
 ============================
 
-This page describes the ``0.1.0`` release candidate of the IRSS x Silva21
-Expansion Mine. The release is a public-safe planning artefact: the candidate
-register, the validators and tests that protect it, and the programme notes. It
-is not a forest model or a Python package.
+This page describes the ``0.1.0`` release of the IRSS x Silva21 Expansion
+Mine. The release is a public-safe planning artefact: the candidate register,
+the validators and tests that protect it, and the programme notes. It is not a
+forest model or a Python package.
 
-Release status: **release candidate, untagged**. No tag, GitHub release, package
-index artifact, or DOI exists yet. The tag and publish action is P5.3 and needs a
-separate maintainer approval.
+Release status: **released as ``v0.1.0`` on 2026-11-03**. The annotated tag
+``v0.1.0`` points at the P5 merge commit ``d3d5ce2``. The GitHub release is
+``IRSS x Silva21 Expansion Mine 0.1.0``. No package-index artifact and no DOI
+exist.
+
+Tag and release page:
+<https://github.com/UBC-FRESH/irss-expansion/releases/tag/v0.1.0>.
 
 What the release contains
 -------------------------
@@ -42,8 +46,8 @@ list, is `notes/23-p5-release-notes.md
 Known gaps
 ----------
 
-- No tag, GitHub release, package-index artifact, or DOI exists. ``v0.1.0`` is a
-  proposed tag only, and P5.3 needs a separate approval.
+- No package-index artifact and no DOI exist. The release is the annotated tag
+  ``v0.1.0`` and its GitHub release page only.
 - ``GRO-06`` is queued, not implemented, under ``femic`` P117.2 (#376).
 - ``CARB-03`` is adopted but unmerged in FHOPS P44.
 - The mine is metadata and abstract level, not a full-text systematic review.
