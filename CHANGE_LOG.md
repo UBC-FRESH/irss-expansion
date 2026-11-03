@@ -1514,3 +1514,58 @@ python scripts/dashboard.py
 The workflow validator reports 0 errors and 0 warnings; the registry is valid
 with 62 candidates; the renderer is idempotent; 186 tests pass with 100% branch
 coverage of `scripts/`; the dashboard reports all six gates GREEN.
+
+## 2026-11-03
+
+### P6 operate and maintain
+
+Started P6 under parent issue #35, with child issues #36 (P6.1), #37 (P6.2),
+and #38 (P6.3) on `feature/p6-operate`.
+
+- P6.1 added `registry/maintenance.yaml` with a 90-day registry review, a
+  180-day source refresh, and a 30-day issue/registry drift check; the next
+  dates are 2027-02-01, 2027-05-02, and 2026-12-03. The plan is in
+  `notes/25-p6-maintenance-plan.md`.
+- Added `scripts/check_maintenance.py` for schedule arithmetic, generated-register
+  freshness, resolution fields, and active-candidate coverage. The deterministic
+  check is a new green-dashboard gate; the `--due` calendar check stays manual.
+- Added `scripts/refresh_sources.py` and ran it once. It checked 84 unique URLs:
+  63 reachable, 21 publisher-blocked DOI pages (HTTP 403), and 0 broken. The
+  result is in `notes/26-p6-first-review.md`; it is reachability evidence, not a
+  content review.
+- P6.2 added `scripts/check_issue_drift.py` and audited the active target
+  records. `GRO-06` (femic #376) is open; `CARB-01` targets (femic #361 and ws4
+  #357) are closed; `CARB-03` (fhops #381 and pull #383) is open and unmerged.
+  The live states matched every recorded expectation.
+- The first review re-scored every status group and changed no score or status.
+  No candidate met a retirement trigger. The registry `meta.audit_note` now names
+  the maintenance plan and the first review; `docs/candidates.md` was regenerated
+  and is idempotent.
+- P6.3 recorded the recurring decision in
+  `notes/adr/0001-recurring-maintenance.md`, with the archive condition.
+- Added the public `docs/maintenance.rst` page, the three API pages, and the
+  `notes/README.md`, `README.md`, `AGENTS.md`, and `ROADMAP.md` updates.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python scripts/check_maintenance.py --due
+python scripts/check_issue_drift.py --json
+python scripts/refresh_sources.py --json
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid
+with 62 candidates; the renderer is idempotent; the maintenance due check and the
+live drift check pass; the source refresh reports 0 broken URLs; the test suite
+passes with 99.49% branch coverage of `scripts/`; the dashboard reports all seven
+gates GREEN.
+
+P6 is `pr-open` in pull request #39 (`P6: operate and maintain the queue`) with
+`Part of #35`. No merge, tag, release, setting, source URL, or target-repository
+record was created or changed.

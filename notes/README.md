@@ -27,6 +27,9 @@
 | [`22-p4-candidate-reconciliation.md`](22-p4-candidate-reconciliation.md) | P4.2 reconciliation of every complete, adopted, and queued candidate against live target records |
 | [`23-p5-release-notes.md`](23-p5-release-notes.md) | P5.1 release contents, provenance, reproduction steps, and known gaps for the `0.1.0` release, plus the P5.3 tag and release record |
 | [`24-p5-clean-checkout-verification.md`](24-p5-clean-checkout-verification.md) | P5.2 clean clone, fresh environment, six-gate dashboard, public files, and Pages statuses before the merge |
+| [`25-p6-maintenance-plan.md`](25-p6-maintenance-plan.md) | P6.1 review cadence, source-refresh procedure, issue/registry drift check, retirement triggers, and records |
+| [`26-p6-first-review.md`](26-p6-first-review.md) | P6.1-P6.2 baseline source refresh, live target audit, re-score, and status-group decisions |
+| [`adr/0001-recurring-maintenance.md`](adr/0001-recurring-maintenance.md) | P6.3 decision that the mine recurs, with its cadence and archive condition |
 
 The machine-readable source is [`../registry/candidates.yaml`](../registry/candidates.yaml).
 The generated browse view is [`../docs/candidates.md`](../docs/candidates.md).

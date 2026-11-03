@@ -3,7 +3,7 @@ meta:
   version: "0.1"
   generated: "2026-10-25"
   last_audited: "2026-11-03"
-  audit_note: "notes/17-p2-contract-audit.md; notes/20-p3-model-integration-rescore.md; notes/22-p4-candidate-reconciliation.md"
+  audit_note: "notes/17-p2-contract-audit.md; notes/20-p3-model-integration-rescore.md; notes/22-p4-candidate-reconciliation.md; notes/25-p6-maintenance-plan.md; notes/26-p6-first-review.md"
   scope: >-
     Candidate projects, algorithms, data products, and technologies mined from the UBC
     Integrated Remote Sensing Studio (IRSS) and the Silva21 research program, screened

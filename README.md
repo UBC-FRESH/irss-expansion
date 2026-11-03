@@ -84,8 +84,22 @@ and published the annotated tag `v0.1.0` with the
 [IRSS x Silva21 Expansion Mine 0.1.0](https://github.com/UBC-FRESH/irss-expansion/releases/tag/v0.1.0)
 GitHub release. The close-out is in
 [`notes/reports/p5-release.md`](notes/reports/p5-release.md). No package-index
-artifact and no DOI exist. Phase 6 (operate and maintain) remains planned and
-needs a separate maintainer approval.
+artifact and no DOI exist.
+
+Phase 6 (operate and maintain) is `pr-open` under parent issue
+[#35](https://github.com/UBC-FRESH/irss-expansion/issues/35), with tasks
+[#36](https://github.com/UBC-FRESH/irss-expansion/issues/36)-[#38](https://github.com/UBC-FRESH/irss-expansion/issues/38)
+on `feature/p6-operate` and pull request
+[#39](https://github.com/UBC-FRESH/irss-expansion/pull/39). It records the review
+cadence in
+[`notes/25-p6-maintenance-plan.md`](notes/25-p6-maintenance-plan.md), the first
+review and re-score in
+[`notes/26-p6-first-review.md`](notes/26-p6-first-review.md), and the recurring
+decision in
+[`notes/adr/0001-recurring-maintenance.md`](notes/adr/0001-recurring-maintenance.md).
+The first source refresh checked 84 unique URLs (63 reachable, 21
+publisher-blocked, 0 broken) and the active target records matched on
+2026-11-03. No candidate score or status changed.
 
 ## How this project works
 
@@ -115,6 +129,14 @@ Regenerate the browsable register after editing the YAML:
 python scripts/render_registry.py
 ```
 
+Run the maintenance checks, or the manual source and live-record checks:
+
+```bash
+python scripts/check_maintenance.py --due
+python scripts/refresh_sources.py --json
+python scripts/check_issue_drift.py --json
+```
+
 Run the workflow validator or the tests on their own:
 
 ```bash
@@ -136,6 +158,10 @@ python -m pytest
 | `docs/` | Documentation site and the generated register |
 | `scripts/check_workflow.py` | Workflow validator |
 | `scripts/check_registry.py` | Registry validator and ranking |
+| `scripts/check_maintenance.py` | Maintenance cadence, register freshness, and active-record checker |
+| `scripts/check_issue_drift.py` | Live issue and pull-request drift checker |
+| `scripts/refresh_sources.py` | Public source URL refresh checker |
+| `registry/maintenance.yaml` | Review dates, intervals, and active target records |
 | `scripts/render_registry.py` | Register renderer |
 | `scripts/dashboard.py` | The green dashboard |
 | `tests/` | pytest suite, including a check that the planning surfaces pass the validator |
@@ -314,28 +340,28 @@ parent #7 is closed. ws4 P54 is complete.
 The 2026-11-01 registry reconciliation marks `INV-01`, `INV-06`, `DATA-02`, and
 `DATA-04` complete with their merged evidence; `INV-01` is the BA-only pilot
 (14.9% TSA coverage, strict BA RMSE 8.86 m2/ha), not a volume/height product.
-The next phase is P5 release and deploy; no new remote-sensing model is scheduled.
+Phase 5 is released as `v0.1.0`; Phase 6 operate and maintain is active. No new
+remote-sensing model is scheduled.
 `DEC-02` is complete across WS4 P90-P93: report schema, account CLI,
 read-only API, and Reports-tab view. The cards are review-required/advisory, not
 operational early warning. A real condition source and `DIS-03` alerting remain
 out of scope; see `notes/15-dec02-readiness.md` and
 `notes/16-dis03-readiness.md`.
 
-Phase 0, Phase 1, Phase 2, Phase 3, and Phase 4 are complete and merged. Phase 3
-squash-merged in pull request #24 at `9637b46`: it re-scored the
-model-integration queue, selected `GRO-06` biomass yield curves, and wrote the
-reviewed handoff for `femic` P117.2 (#376). Phase 4 squash-merged in pull request
-#29 at `ee94e8e`.
+Phases 0-5 are complete and merged. Phase 3 squash-merged in pull request #24 at
+`9637b46`: it re-scored the model-integration queue, selected `GRO-06` biomass
+yield curves, and wrote the reviewed handoff for `femic` P117.2 (#376). Phase 4
+squash-merged in pull request #29 at `ee94e8e`; Phase 5 squash-merged in pull
+request #34 at `d3d5ce2` and released `v0.1.0`.
 
 Phase 4 (verify) recorded the local, CI, Docs, Pages, and clean-checkout
 evidence; reconciled all seventeen `complete` candidates, both `adopted`
 candidates, and the one `queued` candidate against live target records; and
 wrote the close-out report. The reconciliation found no candidate that needed a
 score or status change. `CARB-03` remains adopted and in flight in FHOPS P44, and
-`GRO-06` remains queued under `femic` P117.2. P5 release and deploy remains
-planned and needs a separate approval before its issues, branch, tag, or
-release are created. No new candidate or target-repo issue is queued by this
-close-out.
+`GRO-06` remains queued under `femic` P117.2. Phase 6 keeps that state under a
+recorded review cadence; it did not change a score or status in its first
+review. No candidate or target-repo issue is queued by this close-out.
 
 ## Reading order
 

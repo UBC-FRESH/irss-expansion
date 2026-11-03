@@ -11,5 +11,8 @@ whenever you add a module to the project.
 
    check-workflow
    check-registry
+   check-maintenance
+   check-issue-drift
    dashboard
+   refresh-sources
    render-registry

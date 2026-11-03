@@ -108,6 +108,11 @@ def default_gates(root: Path, python: str = sys.executable) -> tuple[Gate, ...]:
             "the planning surfaces are consistent",
         ),
         Gate(
+            "maintenance",
+            (python, "scripts/check_maintenance.py"),
+            "the maintenance schedule, register, and active records are consistent",
+        ),
+        Gate(
             "docs",
             (python, "-m", "sphinx", "-b", "html", "docs", "_build/html", "-W", "-q"),
             "the docs build with warnings as errors",

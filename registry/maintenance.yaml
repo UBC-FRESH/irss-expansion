@@ -1,0 +1,48 @@
+meta:
+  owner: "UBC-FRESH maintainers"
+  procedure: "notes/25-p6-maintenance-plan.md"
+  decision: "notes/adr/0001-recurring-maintenance.md"
+  review_cadence_days: 90
+  source_refresh_days: 180
+  issue_drift_days: 30
+  last_reviewed: "2026-11-03"
+  next_review_due: "2027-02-01"
+  last_source_refresh: "2026-11-03"
+  next_source_refresh_due: "2027-05-02"
+  last_issue_drift_check: "2026-11-03"
+  next_issue_drift_due: "2026-12-03"
+reviews:
+  - date: "2026-11-03"
+    kind: "baseline"
+    note: "notes/26-p6-first-review.md"
+issue_checks:
+  - candidate: "GRO-06"
+    repo: "UBC-FRESH/femic"
+    number: 376
+    kind: "issue"
+    expected: "open"
+    checked: "2026-11-03"
+  - candidate: "CARB-01"
+    repo: "UBC-FRESH/femic"
+    number: 361
+    kind: "issue"
+    expected: "closed"
+    checked: "2026-11-03"
+  - candidate: "CARB-01"
+    repo: "UBC-FRESH/ws4"
+    number: 357
+    kind: "issue"
+    expected: "closed"
+    checked: "2026-11-03"
+  - candidate: "CARB-03"
+    repo: "UBC-FRESH/fhops"
+    number: 381
+    kind: "issue"
+    expected: "open"
+    checked: "2026-11-03"
+  - candidate: "CARB-03"
+    repo: "UBC-FRESH/fhops"
+    number: 383
+    kind: "pr"
+    expected: "open"
+    checked: "2026-11-03"
