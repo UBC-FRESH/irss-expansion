@@ -2,9 +2,9 @@
 
 Phase: P3 Build
 Parent issue: #19
-Pull request: the P3 pull request on `feature/p3-build` into `main`, opened after
-this report commit
-Evidence head: `6a81086` (P3.3), plus the report commit
+Pull request: [#24](https://github.com/UBC-FRESH/irss-expansion/pull/24),
+`feature/p3-build` into `main`
+Evidence head: `bc27c5b` (P3.4), plus the PR-record commit
 Date: 2026-11-03
 Status: PR queued for maintainer review; not merged, no target-repository action
 taken

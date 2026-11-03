@@ -1133,6 +1133,8 @@ all six gates GREEN.
   and the next step is maintainer review of the P3 pull request.
 - Added the P3 decision summary to this changelog. Every completion claim cites a
   local commit or a live target record.
+- Opened pull request [#24](https://github.com/UBC-FRESH/irss-expansion/pull/24)
+  (`feature/p3-build` into `main`) with `Part of #19`. It is not merged.
 - The handoff remains a draft. Updating `femic` #376, creating a target branch or
   pull request, or implementing the biomass curve family still needs separate
   maintainer approval.
