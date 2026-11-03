@@ -727,3 +727,32 @@ Limitations:
 - Verification: `python scripts/check_workflow.py` reports 0 errors and 0 warnings;
   `python scripts/dashboard.py` reports every gate green (lint, format, types, tests, validator,
   docs); CI passes on the head commit.
+
+## 2026-11-03
+
+### P0 bootstrap complete; pull request #6 queued
+
+- Adapted `README.md` so Phase 0 is active with parent issue #1 and child issues #2-#5, and
+  replaced the stale "create the parent issue" next action with the review-and-merge step.
+  `AGENTS.md` already described this project and its public boundary; it needed no rewrite.
+- Verified the carried public-safe material: `registry/candidates.yaml` (62 candidates),
+  the numbered and readiness notes, the handoff bodies and superseded drafts, the generated
+  register, the registry and workflow scripts, and their tests. `python scripts/render_registry.py`
+  reproduces `docs/candidates.md` with no diff.
+- Ran the registry-specific checks: `python scripts/check_registry.py` reports `OK: registry is
+  valid; 62 candidates`; `python -m pytest -q` reports 181 passed with 100% branch coverage of
+  `scripts/`.
+- Ran the full dashboard: `python scripts/dashboard.py` reports lint, format, types, tests,
+  validator, and docs all GREEN, with `OVERALL: GREEN. Every gate passed.`
+- Ran `python scripts/check_workflow.py`: 0 errors and 0 warnings, including the public-safety
+  scan. `git ls-files` contains no caches, build output, bytecode, coverage records, or runtime
+  files, and no personal paths were found.
+- Confirmed the public remote: `gh repo view` reports `UBC-FRESH/irss-expansion`, `PUBLIC`,
+  default branch `main`. `gh api repos/UBC-FRESH/irss-expansion/pages` reports
+  `build_type: workflow` and `html_url: https://ubc-fresh.github.io/irss-expansion/`; the URL
+  returns HTTP 200. CI run 41696981546 and Docs run 41696981559 pass on `main` at `23cca3e`.
+- Opened pull request #6 (`feature/p0-bootstrap` into `main`) with `Part of #1`, and recorded
+  P0 as `pr-open` in `ROADMAP.md`. Added the close-out report at
+  `notes/reports/p0-bootstrap.md`.
+- The pull request is queued for maintainer approval. It is not merged, no branch was deleted,
+  no issue was closed, and no accepted history was rewritten. Phase 1 remains `planned`.

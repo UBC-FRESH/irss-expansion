@@ -17,7 +17,7 @@ gates, and approval rules.
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | active |
+| P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | pr-open |
 | P1 Scope and design | TBD | `feature/p1-scope-design` | planned |
 | P2 Contracts and prototype | TBD | `feature/p2-contracts-prototype` | planned |
 | P3 Build | TBD | `feature/p3-build` | planned |
@@ -62,9 +62,9 @@ and it does not override the workflow phases below.
 
 Parent issue: #1
 Branch: `feature/p0-bootstrap`
-Status: active
+Status: pr-open
 Child issues: #2 P0.1, #3 P0.2, #4 P0.3, #5 P0.4
-Next step: P0.1-P0.4 are complete; the pull request is queued for maintainer approval. Do not merge until the phase close-out is approved.
+Next step: P0.1-P0.4 are complete; pull request #6 is queued for maintainer approval. Do not merge until the phase close-out is approved.
 
 Goal: adapt the seeded contract to this project, carry the public-safe planning material, and make the first public state reviewable.
 
@@ -194,6 +194,6 @@ Acceptance criteria:
 
 1. Phase 0 is active under parent issue #1, created from `.github/ISSUE_TEMPLATE/phase.md` with maintainer approval.
 2. Child issues #2-#5 are linked as sub-issues of #1; the tracker map and the phase section record the active status.
-3. `feature/p0-bootstrap` carries P0.1-P0.4 and is queued as a pull request. Do not merge it before the maintainer approves the phase close-out.
+3. `feature/p0-bootstrap` carries P0.1-P0.4 in pull request #6. Do not merge it before the maintainer approves the phase close-out.
 4. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 5. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.
