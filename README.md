@@ -86,10 +86,12 @@ GitHub release. The close-out is in
 [`notes/reports/p5-release.md`](notes/reports/p5-release.md). No package-index
 artifact and no DOI exist.
 
-Phase 6 (operate and maintain) is active under parent issue
+Phase 6 (operate and maintain) is `pr-open` under parent issue
 [#35](https://github.com/UBC-FRESH/irss-expansion/issues/35), with tasks
 [#36](https://github.com/UBC-FRESH/irss-expansion/issues/36)-[#38](https://github.com/UBC-FRESH/irss-expansion/issues/38)
-on `feature/p6-operate`. It records the review cadence in
+on `feature/p6-operate` and pull request
+[#39](https://github.com/UBC-FRESH/irss-expansion/pull/39). It records the review
+cadence in
 [`notes/25-p6-maintenance-plan.md`](notes/25-p6-maintenance-plan.md), the first
 review and re-score in
 [`notes/26-p6-first-review.md`](notes/26-p6-first-review.md), and the recurring

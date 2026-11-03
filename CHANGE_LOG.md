@@ -1566,5 +1566,6 @@ live drift check pass; the source refresh reports 0 broken URLs; the test suite
 passes with 99.49% branch coverage of `scripts/`; the dashboard reports all seven
 gates GREEN.
 
-P6 remains `active` until the pull request opens. No merge, tag, release,
-setting, source URL, or target-repository record was created or changed.
+P6 is `pr-open` in pull request #39 (`P6: operate and maintain the queue`) with
+`Part of #35`. No merge, tag, release, setting, source URL, or target-repository
+record was created or changed.
