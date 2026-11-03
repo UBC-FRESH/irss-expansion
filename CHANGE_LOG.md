@@ -756,3 +756,17 @@ Limitations:
   `notes/reports/p0-bootstrap.md`.
 - The pull request is queued for maintainer approval. It is not merged, no branch was deleted,
   no issue was closed, and no accepted history was rewritten. Phase 1 remains `planned`.
+
+## 2026-11-03
+
+### P0 close-out approved; Phase 0 marked complete
+
+- The maintainer approved the P0 close-out on 2026-11-03 and authorized the squash merge of pull
+  request #6, deletion of `feature/p0-bootstrap`, closure of issues #1-#5, and launch of P1.
+- `ROADMAP.md` marks P0 `complete`, and `README.md` records the completed phase and the P1 launch
+  point. The source draft history remains unchanged.
+- `notes/reports/p0-bootstrap.md` records the approval and the merge sequence.
+- Verification before the merge: `python scripts/check_workflow.py`, `python scripts/dashboard.py`,
+  `python scripts/check_registry.py`, and `python -m pytest -q` all pass on the merge head.
+- Phase 1 starts from the merged `main`; no candidate is queued and no target-repository issue,
+  branch, or pull request is created by this close-out.

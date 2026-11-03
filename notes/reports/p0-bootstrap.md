@@ -6,15 +6,15 @@ Pull request: #6, `feature/p0-bootstrap` into `main`
 Evidence head: `9548f7b`, the head that the gates and CI runs below cover
 Report commit: the commit that adds this report. Its CI run is posted on the pull request.
 Date: 2026-11-03
-Status: queued for approval. Not merged.
+Status: approved by the maintainer on 2026-11-03; squash-merge in progress.
 
 ## Recommendation
 
-Approve these actions. The agent carries them out in this order, and reads back each result.
+The maintainer approved these actions. The agent carries them out in this order, and reads back each result.
 
 1. Squash-merge pull request #6, and delete the branch `feature/p0-bootstrap`.
 2. Close parent issue #1 and child issues #2-#5 with a closeout comment that cites the merge commit.
-3. Launch P1 Scope and design: create its parent and child issues, create `feature/p1-scope-design` from the merged `main`, set the phase statuses in `ROADMAP.md`, and start P1.1.
+3. Launch P1 Scope and design: create `feature/p1-scope-design` from the merged `main`, set the phase statuses in `ROADMAP.md` and `README.md`, activate parent issue #7 and children #8-#11, and start P1.1.
 
 Settings changes, each with its exact command. Each one runs only after its own approval.
 
@@ -86,5 +86,5 @@ The scope rule and out-of-scope list are already present in `README.md` and `not
 
 ## 7. Decision
 
-- [ ] Approve as written.
+- [x] Approve as written.
 - [ ] Approve with the changes stated here: <changes>.

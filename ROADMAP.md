@@ -17,7 +17,7 @@ gates, and approval rules.
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | pr-open |
+| P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | complete |
 | P1 Scope and design | TBD | `feature/p1-scope-design` | planned |
 | P2 Contracts and prototype | TBD | `feature/p2-contracts-prototype` | planned |
 | P3 Build | TBD | `feature/p3-build` | planned |
@@ -62,9 +62,9 @@ and it does not override the workflow phases below.
 
 Parent issue: #1
 Branch: `feature/p0-bootstrap`
-Status: pr-open
+Status: complete
 Child issues: #2 P0.1, #3 P0.2, #4 P0.3, #5 P0.4
-Next step: P0.1-P0.4 are complete; pull request #6 is queued for maintainer approval. Do not merge until the phase close-out is approved.
+Next step: Complete. P0.1-P0.4 passed close-out and pull request #6 squash-merged to `main` with maintainer approval. Phase 1 starts from the merged `main`.
 
 Goal: adapt the seeded contract to this project, carry the public-safe planning material, and make the first public state reviewable.
 
@@ -192,8 +192,8 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. Phase 0 is active under parent issue #1, created from `.github/ISSUE_TEMPLATE/phase.md` with maintainer approval.
-2. Child issues #2-#5 are linked as sub-issues of #1; the tracker map and the phase section record the active status.
-3. `feature/p0-bootstrap` carries P0.1-P0.4 in pull request #6. Do not merge it before the maintainer approves the phase close-out.
+1. Phase 0 is complete under parent issue #1. P0.1-P0.4 were carried on `feature/p0-bootstrap` and squash-merged in pull request #6 with maintainer approval.
+2. Child issues #2-#5 are closed with closeout comments that cite the merge commit and the gate evidence.
+3. Phase 1 remains `planned` until `feature/p1-scope-design` is created from the merged `main` and parent issue #7 is activated.
 4. Keep the carried programme history in `CHANGE_LOG.md` and `notes/`; do not reopen target-repo phases from this repository.
 5. Do not start a model-integration handoff until the target repository's roadmap and phase number are confirmed.
