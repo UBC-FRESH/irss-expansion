@@ -1273,3 +1273,33 @@ python scripts/dashboard.py
 
 The registry is valid with 62 candidates; the renderer is idempotent; the
 dashboard reports all six gates GREEN.
+
+### P4.3 write the phase close-out report and open the P4 pull request
+
+- Wrote `notes/reports/p4-verify.md` from the phase close-out template. It
+  records the acceptance evidence, the candidate reconciliation, the programme
+  status, the target drift, the unverified items, and the P5 approval gate.
+- Updated `ROADMAP.md` to P4 `pr-open` with P4.1-P4.3 checked and the detailed
+  next step in step. Updated `README.md` with the P4 verification result.
+- Recorded the final register status counts: 17 `complete`, 2 `adopted`, 1
+  `queued`, 14 `shortlisted`, 23 `candidate`, 4 `deferred`, and 1 `rejected`.
+  No candidate changed score or status in P4, and none was retired.
+- Opened the P4 pull request with `Part of #25`. It is not merged.
+- No target-repository issue, branch, pull request, tag, release, or setting was
+  created or changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid
+with 62 candidates; the renderer is idempotent; the full suite passes with 100%
+branch coverage of `scripts/`; the dashboard reports all six gates GREEN. The
+pull request CI run is the public evidence for the final head.
