@@ -15,6 +15,7 @@ prioritised queue of candidate integrations.
 - Programme plan: [`ROADMAP.md`](ROADMAP.md)
 - Working contract: [`AGENTS.md`](AGENTS.md)
 - Change history: [`CHANGE_LOG.md`](CHANGE_LOG.md)
+- Release notes and known gaps: [`notes/23-p5-release-notes.md`](notes/23-p5-release-notes.md)
 - Handoff drafts: [`handoffs/README.md`](handoffs/README.md)
 - Notes index: [`notes/README.md`](notes/README.md)
 
@@ -70,9 +71,17 @@ candidate reconciliation is in
 [`notes/22-p4-candidate-reconciliation.md`](notes/22-p4-candidate-reconciliation.md),
 and the close-out is in [`notes/reports/p4-verify.md`](notes/reports/p4-verify.md).
 
-Phase 5 (release and deploy) remains planned. It has no parent issue, child
-issues, or branch; creating its governance and starting P5.1 need a separate
-maintainer approval. No tag or release is authorised by the P4 close-out.
+Phase 5 (release and deploy) is `pr-open` under parent issue
+[#30](https://github.com/UBC-FRESH/irss-expansion/issues/30), with pull request
+[#34](https://github.com/UBC-FRESH/irss-expansion/pull/34). Tasks
+[#31](https://github.com/UBC-FRESH/irss-expansion/issues/31) and
+[#32](https://github.com/UBC-FRESH/irss-expansion/issues/32) prepare the
+release notes and verify the public surfaces from a clean checkout on
+`feature/p5-release`. The release notes and known gaps are in
+[`notes/23-p5-release-notes.md`](notes/23-p5-release-notes.md). P5.3
+([#33](https://github.com/UBC-FRESH/irss-expansion/issues/33)) would tag and
+publish `v0.1.0`, but it remains blocked on a separate maintainer approval; no
+tag or release exists.
 
 ## How this project works
 
