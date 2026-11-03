@@ -1328,3 +1328,47 @@ python scripts/dashboard.py
 The workflow validator reports 0 errors and 0 warnings; the dashboard reports
 all six gates GREEN. The pull request CI run is the public evidence for the
 final head.
+
+## 2026-11-03
+
+### P4 close-out approved; Phase 4 marked complete; P5 remains planned
+
+- The maintainer approved the P4 close-out on 2026-11-03 and authorized the
+  squash merge of pull request #29, deletion of `feature/p4-verify`, and closure
+  of issues #25-#28. P5 governance and activation were not part of that approval.
+- Squash-merged pull request #29 to `main` at
+  `ee94e8eb935f394d5794e772c47ef55737c73957` (`ee94e8e`,
+  `P4: verify the programme outputs and record the close-out`). The branch
+  `feature/p4-verify` was deleted after the merge.
+- Closed parent issue #25 and child issues #26-#28 with closeout comments that
+  cite the task commits (`bd89a02` P4.1, `193738b` P4.2, `b53338b` and
+  `48c6b6d` P4.3), the gate evidence, and merge commit `ee94e8e`.
+- `ROADMAP.md` marks P4 `complete` and records P5 as `planned` with no parent
+  issue, child issues, or branch. `README.md` and `notes/reports/p4-verify.md`
+  record the merge, the branch deletion, the issue closures, the CI and Pages
+  evidence, and the P5 approval gate.
+- P5 governance was not created. `AGENTS.md` and the P4 close-out report require
+  a separate maintainer approval before creating the P5 parent issue, child
+  issues, or `feature/p5-release`, and before any tag or release.
+- P5 scope remains: P5.1 write the release notes and known-gaps list; P5.2 verify
+  the public register and docs from a clean checkout; P5.3 tag and publish with
+  separate approval. No P5 branch, issue, tag, or release exists.
+- No candidate was re-scored or retired, and no target-repository issue, branch,
+  pull request, tag, release, or setting was created or changed.
+
+Verification:
+
+```bash
+python scripts/check_workflow.py
+python scripts/check_registry.py
+python scripts/render_registry.py
+git diff --exit-code docs/candidates.md
+python -m pytest -q
+python scripts/dashboard.py
+```
+
+The workflow validator reports 0 errors and 0 warnings; the registry is valid
+with 62 candidates; the renderer is idempotent; the full suite passes with 100%
+branch coverage of `scripts/`; the dashboard reports all six gates GREEN.
+`main` CI run 41727688181 and Docs run 41727687763 pass on `ee94e8e`; the Pages
+index, `register.html`, `candidates.md`, and `llms.txt` return HTTP 200.

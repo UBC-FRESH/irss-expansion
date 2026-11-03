@@ -59,16 +59,20 @@ with the reviewed body in
 The candidate was not implemented, and no target-repository issue, branch, or
 pull request was created.
 
-Phase 4 (verify) is complete on `feature/p4-verify` under parent issue
+Phase 4 (verify) is complete under parent issue
 [#25](https://github.com/UBC-FRESH/irss-expansion/issues/25), with tasks
-[#26](https://github.com/UBC-FRESH/irss-expansion/issues/26)-[#28](https://github.com/UBC-FRESH/irss-expansion/issues/28).
-The acceptance evidence is in
+[#26](https://github.com/UBC-FRESH/irss-expansion/issues/26)-[#28](https://github.com/UBC-FRESH/irss-expansion/issues/28)
+completed on `feature/p4-verify` and squash-merged in pull request
+[#29](https://github.com/UBC-FRESH/irss-expansion/pull/29) at `ee94e8e`. The
+acceptance evidence is in
 [`notes/21-p4-acceptance-evidence.md`](notes/21-p4-acceptance-evidence.md), the
 candidate reconciliation is in
 [`notes/22-p4-candidate-reconciliation.md`](notes/22-p4-candidate-reconciliation.md),
 and the close-out is in [`notes/reports/p4-verify.md`](notes/reports/p4-verify.md).
-The P4 pull request is queued for maintainer review as
-[#29](https://github.com/UBC-FRESH/irss-expansion/pull/29); P4 is not merged.
+
+Phase 5 (release and deploy) remains planned. It has no parent issue, child
+issues, or branch; creating its governance and starting P5.1 need a separate
+maintainer approval. No tag or release is authorised by the P4 close-out.
 
 ## How this project works
 
@@ -297,27 +301,28 @@ parent #7 is closed. ws4 P54 is complete.
 The 2026-11-01 registry reconciliation marks `INV-01`, `INV-06`, `DATA-02`, and
 `DATA-04` complete with their merged evidence; `INV-01` is the BA-only pilot
 (14.9% TSA coverage, strict BA RMSE 8.86 m2/ha), not a volume/height product.
-The next phase is P4 verification; no new remote-sensing model is scheduled.
+The next phase is P5 release and deploy; no new remote-sensing model is scheduled.
 `DEC-02` is complete across WS4 P90-P93: report schema, account CLI,
 read-only API, and Reports-tab view. The cards are review-required/advisory, not
 operational early warning. A real condition source and `DIS-03` alerting remain
 out of scope; see `notes/15-dec02-readiness.md` and
 `notes/16-dis03-readiness.md`.
 
-Phase 0, Phase 1, Phase 2, and Phase 3 are complete and merged. Phase 3
+Phase 0, Phase 1, Phase 2, Phase 3, and Phase 4 are complete and merged. Phase 3
 squash-merged in pull request #24 at `9637b46`: it re-scored the
 model-integration queue, selected `GRO-06` biomass yield curves, and wrote the
-reviewed handoff for `femic` P117.2 (#376).
+reviewed handoff for `femic` P117.2 (#376). Phase 4 squash-merged in pull request
+#29 at `ee94e8e`.
 
-Phase 4 (verify) is complete on `feature/p4-verify`. It recorded the local, CI,
-Docs, Pages, and clean-checkout evidence; reconciled all seventeen `complete`
-candidates, both `adopted` candidates, and the one `queued` candidate against
-live target records; and wrote the close-out report. The reconciliation found
-no candidate that needed a score or status change. `CARB-03` remains adopted and
-in flight in FHOPS P44, and `GRO-06` remains queued under `femic` P117.2. The P4
-pull request is queued for maintainer review; P5 release and deploy remains
-planned and needs a separate approval. No new candidate or target-repo issue is
-queued by this close-out.
+Phase 4 (verify) recorded the local, CI, Docs, Pages, and clean-checkout
+evidence; reconciled all seventeen `complete` candidates, both `adopted`
+candidates, and the one `queued` candidate against live target records; and
+wrote the close-out report. The reconciliation found no candidate that needed a
+score or status change. `CARB-03` remains adopted and in flight in FHOPS P44, and
+`GRO-06` remains queued under `femic` P117.2. P5 release and deploy remains
+planned and needs a separate approval before its issues, branch, tag, or
+release are created. No new candidate or target-repo issue is queued by this
+close-out.
 
 ## Reading order
 

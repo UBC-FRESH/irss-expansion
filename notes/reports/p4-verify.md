@@ -6,11 +6,11 @@ Pull request: [#29](https://github.com/UBC-FRESH/irss-expansion/pull/29),
 `feature/p4-verify` into `main`
 Evidence head: `193738b` (P4.2), plus the P4.3 report and record commits
 Date: 2026-11-03
-Status: queued for approval. Not merged.
+Status: approved by the maintainer on 2026-11-03; squash-merged to `main` as `ee94e8e`.
 
 ## Recommendation
 
-Approve these actions after reviewing the pull request:
+The maintainer approved these actions on 2026-11-03; the close-out record is section 9.
 
 1. Squash-merge the P4 pull request into `main` and delete `feature/p4-verify`.
 2. Close parent issue #25 and child issues #26-#28 with closeout comments that
@@ -128,16 +128,31 @@ target roadmap in P4.
 
 ## 8. Next action
 
-The P4 close-out is queued for maintainer review. After approval, merge the P4
-pull request, delete `feature/p4-verify`, close issues #25-#28 with closeout
-comments, and mark P4 `complete` in `ROADMAP.md` in the close-out commit.
+The P4 close-out is complete. The remaining decisions are separate from P4:
 
-P5 needs a separate approval. Its default next steps are to write the release
-notes and known-gaps list (P5.1), verify the public register and docs from a
-clean checkout (P5.2), and then approve the tag and publish action on its own
-(P5.3). No P5 branch, issue, tag, or release exists yet.
+1. Follow up `CARB-03` in FHOPS P44 and `GRO-06` in `femic` P117.2 under those
+   repositories' workflows and approval rules.
+2. Approve P5 release and deploy separately before creating its parent issue,
+   child issues, or `feature/p5-release`. The default next steps are to write
+   the release notes and known-gaps list (P5.1), verify the public register and
+   docs from a clean checkout (P5.2), and then approve the tag and publish
+   action on its own (P5.3). No P5 branch, issue, tag, or release exists yet.
 
-## 9. Decision
+## 9. Close-out record
 
-- [ ] Approve as written.
-- [ ] Approve with the changes stated here: <changes>.
+- The maintainer approved the P4 close-out on 2026-11-03.
+- Pull request #29 squash-merged to `main` at `ee94e8eb935f394d5794e772c47ef55737c73957`
+  (`ee94e8e`) on 2026-11-03.
+- `feature/p4-verify` was deleted after the merge.
+- Issues #25-#28 were closed with closeout comments citing the task commits, the
+  gate evidence, and merge commit `ee94e8e`.
+- Pull request CI run 41723687615 passed Quality gates, Green dashboard summary,
+  and Pre-commit parity on the final P4 head.
+- `main` CI run 41727688181 and Docs run 41727687763 passed on `ee94e8e`; the
+  Docs deploy job succeeded and the Pages index, `register.html`,
+  `candidates.md`, and `llms.txt` returned HTTP 200.
+- P5 governance was not created. The P4 close-out approved the merge and issue
+  closures only; `AGENTS.md` and the recommendation above require a separate
+  maintainer approval before the P5 parent issue, child issues, branch, tag, or
+  release are created.
+- No target-repository issue, branch, or pull request was created or edited.
