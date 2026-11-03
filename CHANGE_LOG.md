@@ -787,3 +787,23 @@ Limitations:
 - Corrected the Silva21 extension-note count from 14 to 16 notes across 15 volumes, because
   Volume 6 is published as two issues.
 - Verification: `python scripts/check_workflow.py` and `python scripts/dashboard.py` pass.
+
+## 2026-11-03
+
+### P1.2 review the source inventory and publication signals
+
+- Re-fetched all 22 public source URLs in `notes/00-source-inventory.md`; every one returned
+  HTTP 200.
+- Re-derived the carried counts from the current pages: 493 IRSS publication records
+  (2004-2023), 47 Silva21 project pages, 12 hubs, 65 DOI-linked scientific publications, and
+  62 registry candidates.
+- Corrected the Silva21 extension-note count from 14 to 16 notes across 15 volumes. The source
+  page lists volumes 1-14 and publishes Volume 6 as two issues; the earlier figure counted
+  volume numbers.
+- Checked the 44 candidate references in `notes/02-publication-signals.md` against
+  `registry/candidates.yaml`; every ID exists and none was renamed or removed.
+- Fixed the notes index gap: `notes/README.md` now lists the readiness notes
+  `15-dec02-readiness.md` and `16-dis03-readiness.md`.
+- No source was re-mined, no candidate evidence changed, and no score changed.
+- Verification: `python scripts/check_workflow.py`, `python scripts/check_registry.py`, and
+  `python scripts/dashboard.py` pass.

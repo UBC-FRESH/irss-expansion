@@ -17,6 +17,8 @@
 | [`12-lidarbc-pilot.md`](12-lidarbc-pilot.md) | A real LidarBC tile download and CHM sample; the open coverage is too sparse for P117.1 |
 | [`13-vri-proxy-pilot.md`](13-vri-proxy-pilot.md) | A 32-polygon VRI SITE_INDEX proxy pilot: weak alone, circular with age |
 | [`14-si-reconciliation.md`](14-si-reconciliation.md) | TSA46 VRI/VDYP/SIBEC reconciliation: coverage, conflicts, and limits |
+| [`15-dec02-readiness.md`](15-dec02-readiness.md) | DEC-02 forest-condition report cards: merged scope, readiness limits, and why real alerting waits on DIS-03 |
+| [`16-dis03-readiness.md`](16-dis03-readiness.md) | DIS-03 near-real-time condition and alerting: why the static layers and failed NSR test do not support an alert |
 | [`18-plan08-prices.md`](18-plan08-prices.md) | PLAN-08 `prices.v1` readiness and the merged P114 outcome |
 | [`19-carb03-salvage-decay.md`](19-carb03-salvage-decay.md) | CARB-03 first slice: FHOPS P44 decay contract, sources, boundaries, and remaining work |
 

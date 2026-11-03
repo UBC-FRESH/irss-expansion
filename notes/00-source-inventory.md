@@ -2,6 +2,13 @@
 
 Date: 2026-10-25.
 
+Reviewed: 2026-11-03 (P1.2). All 22 public source URLs in this note return HTTP
+200. The carried counts were re-derived from the current pages: 493 IRSS
+publication records, 47 Silva21 project pages, 12 hubs, 65 DOI-linked scientific
+publications, and 62 registry candidates. The Silva21 extension-note count was
+corrected from 14 to 16 notes across 15 volumes, because Volume 6 has two numbered
+issues. No candidate evidence or score changed.
+
 ## Scope
 
 The mine covers two public bodies of work:
@@ -48,8 +55,9 @@ The 47 Silva21 project pages are mapped one by one in
 - IRSS research themes: 11.
 - IRSS publication records parsed: 493 (2004-2023).
 - Silva21 funded projects: 38, represented by 47 project pages.
-- Silva21 scientific publications listed: 50+ (2022-2026).
-- Silva21 extension notes: 14.
+- Silva21 scientific publications listed: 65 DOI-linked records (2022-2026; the carried
+  "50+" summary remains true).
+- Silva21 extension notes: 16, across 15 volumes (Volume 6 has two issues).
 - Silva21 hubs: 12.
 - Candidate integrations in this register: 62, in nine workstreams.
 
@@ -81,6 +89,23 @@ The 47 Silva21 project pages are mapped one by one in
   missing years, and inconsistent journal formatting exist in the source page.
 - It is **not** a substitute for the target repos' own roadmaps. Accepted
   candidates must become issues in those repos.
+
+## 2026-11-03 review (P1.2)
+
+- Re-fetched every URL in the "What was fetched" table: 22 of 22 returned HTTP 200.
+- Re-counted the IRSS publications page: 493 lines carry a 2004-2023 year, matching the
+  carried figure. The page still stops at 2023.
+- Re-counted the Silva21 project page: 47 "See the project" entries, matching the carried
+  47 project pages. The 12-hub claim is confirmed by the research-sites page.
+- Re-counted the Silva21 scientific-publications page: 65 unique DOI links, so the carried
+  "50+" summary is conservative rather than stale.
+- Corrected the extension-note count: the page lists volumes 1-14, and Volume 6 appears as
+  two issues, so the current total is 16 notes across 15 volumes. The earlier "14" counted
+  volume numbers, not notes.
+- Re-counted the registry: 62 candidates in nine workstreams.
+- No source was re-mined, no candidate evidence was changed, and no readiness or risk score
+  was revised. Dynamic source pages can change after this date; re-check them before a
+  future registry change.
 
 ## Known source limitations
 
