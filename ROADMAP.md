@@ -19,7 +19,7 @@ gates, and approval rules.
 | --- | --- | --- | --- |
 | P0 Bootstrap and publish | #1 | `feature/p0-bootstrap` | complete |
 | P1 Scope and design | #7 | `feature/p1-scope-design` | complete |
-| P2 Contracts and prototype | #13 | `feature/p2-contracts-prototype` | active |
+| P2 Contracts and prototype | #13 | `feature/p2-contracts-prototype` | pr-open |
 | P3 Build | TBD | `feature/p3-build` | planned |
 | P4 Verify | TBD | `feature/p4-verify` | planned |
 | P5 Release and deploy | TBD | `feature/p5-release` | planned |
@@ -104,9 +104,9 @@ Acceptance criteria:
 
 Parent issue: #13
 Branch: `feature/p2-contracts-prototype`
-Status: active
+Status: pr-open
 Child issues: #14 P2.1, #15 P2.2, #16 P2.3, #17 P2.4
-Next step: Open the P2 pull request with `Part of #13`, record its number and CI run, and queue the close-out for maintainer approval. Do not merge or create target-repository issues, branches, or pull requests.
+Next step: Pull request #18 is open with `Part of #13` and all CI checks pass. Queue the close-out for maintainer approval. Do not merge or create target-repository issues, branches, or pull requests.
 
 Goal: keep the shared contracts and their evidence in step with the target repositories, without creating parallel work.
 

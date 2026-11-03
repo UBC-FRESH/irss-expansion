@@ -981,8 +981,10 @@ The renderer is idempotent on the updated registry and the validator passes.
 - Remaining unverified: the audit did not re-run the target repositories' test
   suites or independently re-validate their science. The live state is a
   2026-11-03 snapshot and must be re-checked before any later handoff.
-- The P2 pull request is opened with `Part of #13` and queued for maintainer
-  approval. It is not merged, no branch was deleted, and no P2 issue was closed.
+- Opened pull request #18 (`feature/p2-contracts-prototype` into `main`) with
+  `Part of #13` and queued it for maintainer approval. CI run 41717081717 on
+  `2e6b25b` passes Quality gates, Green dashboard summary, and Pre-commit
+  parity. It is not merged, no branch was deleted, and no P2 issue was closed.
 
 Verification:
 

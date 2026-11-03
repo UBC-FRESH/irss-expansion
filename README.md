@@ -42,7 +42,9 @@ Phase 2 (contracts and prototype) is active under parent issue
 [#13](https://github.com/UBC-FRESH/irss-expansion/issues/13), with tasks
 [#14](https://github.com/UBC-FRESH/irss-expansion/issues/14)-[#17](https://github.com/UBC-FRESH/irss-expansion/issues/17)
 running on `feature/p2-contracts-prototype`. P2.1 audits the twelve contract-wave
-candidates against the live target repositories without changing them.
+candidates against the live target repositories without changing them. Pull
+request [#18](https://github.com/UBC-FRESH/irss-expansion/pull/18) is open,
+queued for maintainer approval.
 
 ## How this project works
 

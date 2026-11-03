@@ -2,8 +2,8 @@
 
 Phase: P2 Contracts and prototype
 Parent issue: #13
-Pull request: to be opened, `feature/p2-contracts-prototype` into `main`
-Evidence head: `13f7a27` (P2.3), the head that the gates in section 3 cover
+Pull request: [#18](https://github.com/UBC-FRESH/irss-expansion/pull/18), `feature/p2-contracts-prototype` into `main`
+Evidence head: `2e6b25b` (P2.4), the head that the gates in section 3 cover
 Report commit: the commit that adds this report. Its CI run is posted on the pull request.
 Date: 2026-11-03
 Status: queued for approval. Not merged.
@@ -12,7 +12,7 @@ Status: queued for approval. Not merged.
 
 Approve these actions. The agent carries them out in this order, and reads back each result.
 
-1. Squash-merge the P2 pull request, and delete `feature/p2-contracts-prototype`.
+1. Squash-merge pull request #18, and delete `feature/p2-contracts-prototype`.
 2. Close parent issue #13 and child issues #14-#17 with a closeout comment that cites the merge commit.
 3. Launch P3 Build: create its branch, set the phase statuses in `ROADMAP.md`, create its child issues as sub-issues, and start its first task.
 
@@ -51,7 +51,7 @@ Settings changes, each with its exact command. Each one runs only after its own 
 
 | Run ID | Head commit | Conclusion | Notes |
 | --- | --- | --- | --- |
-| pending | report commit | pending | The pull request workflow run is posted on the pull request and read back before approval. |
+| [41717081717](https://github.com/UBC-FRESH/irss-expansion/actions/runs/41717081717) | `2e6b25b` | success | Quality gates, Green dashboard summary, and Pre-commit parity all pass. The report-update commit triggers its own run on the same pull request. |
 
 ## 5. Deviations
 
